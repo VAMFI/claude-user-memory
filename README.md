@@ -8,7 +8,7 @@ A curated collection of **12 professional AI specialist agents** for [Claude Cod
 Copy agents to your global Claude Code directory:
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/claude-code-specialized-agents.git
+git clone https://github.com/irenicj/claude-code-specialized-agents.git
 cd claude-code-specialized-agents
 
 # Copy agents to your personal Claude Code directory
@@ -74,7 +74,7 @@ I want to automate deployment from GitHub to AWS with proper testing.
 Agents are available across all your projects:
 ```bash
 # Clone and install globally
-git clone https://github.com/YOUR_USERNAME/claude-code-specialized-agents.git
+git clone https://github.com/irenicj/claude-code-specialized-agents.git
 cd claude-code-specialized-agents
 cp agents/* ~/.claude/agents/
 ```
@@ -83,7 +83,7 @@ cp agents/* ~/.claude/agents/
 Agents are only available in the specific project:
 ```bash
 # In your project directory
-git clone https://github.com/YOUR_USERNAME/claude-code-specialized-agents.git
+git clone https://github.com/irenicj/claude-code-specialized-agents.git
 mkdir -p .claude/agents
 cp claude-code-specialized-agents/agents/* .claude/agents/
 ```
@@ -93,7 +93,7 @@ Download individual agents:
 ```bash
 # Download a specific agent
 curl -o ~/.claude/agents/backend-specialist.md \
-  https://raw.githubusercontent.com/YOUR_USERNAME/claude-code-specialized-agents/main/agents/backend-specialist.md
+  https://raw.githubusercontent.com/irenicj/claude-code-specialized-agents/main/agents/backend-specialist.md
 ```
 
 ## 🔧 Verification
