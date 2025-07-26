@@ -1,15 +1,18 @@
-# 🤖 Claude Code Specialized Agents with Intelligent Orchestration
+# 🧠 Claude User Memory - AI Agent Orchestration System
 
-A comprehensive **12-agent orchestration system** for [Claude Code CLI](https://docs.anthropic.com/claude-code) that provides intelligent, automatic coordination of specialized AI agents across all software development disciplines. This system transforms Claude into a sophisticated development team that automatically selects and coordinates the right specialists for any project.
+A comprehensive **Claude user memory system** that enables intelligent, automatic orchestration of 12 specialized AI agents for [Claude Code CLI](https://docs.anthropic.com/claude-code). This system transforms Claude into your personalized AI development team that remembers your preferences, automatically selects the right specialists, and coordinates complex workflows across all software development disciplines.
 
-## 🚀 What's New: Intelligent Agent Orchestration
+**Keywords**: Claude user memory, AI personalization, Claude configuration, intelligent agent orchestration, AI assistant customization
 
-This repository now includes **CLAUDE.md** - an advanced orchestration system that makes Claude automatically:
-- 🧠 **Analyze your requests** and select the optimal agent(s)
-- 🔄 **Coordinate multi-agent workflows** for complex projects
-- ✅ **Enforce quality gates** and best practices
-- 📊 **Adapt to context** (startup, enterprise, emergency scenarios)
-- 🎯 **Scale from simple tasks** to enterprise-level projects
+## 🚀 Claude's Personalized Memory System
+
+This **Claude user memory** repository includes **CLAUDE.md** - an advanced system that makes Claude remember and adapt to your development style:
+- 🧠 **Remember your preferences** and automatically select optimal agents
+- 🔄 **Learn your workflows** and coordinate multi-agent collaboration
+- ✅ **Apply your quality standards** and enforce best practices
+- 📊 **Adapt to your context** (startup, enterprise, emergency scenarios)
+- 🎯 **Scale with your needs** from simple tasks to enterprise-level projects
+- 💭 **Personalize interactions** based on your development patterns
 
 ## 📋 Complete Agent Suite
 
@@ -33,8 +36,8 @@ This repository now includes **CLAUDE.md** - an advanced orchestration system th
 ### 1. Install the Complete System
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/claude-code-specialized-agents.git
-cd claude-code-specialized-agents
+git clone https://github.com/irenicj/claude-user-memory.git
+cd claude-user-memory
 
 # Install globally (recommended)
 cp agents/* ~/.claude/agents/
@@ -75,11 +78,11 @@ Try these example prompts to see automatic agent selection:
 
 ## 🧠 Intelligent Features
 
-### 🎯 **Automatic Agent Selection**
-- **Pattern Matching**: Advanced keyword analysis with 90%+ accuracy
-- **Context Awareness**: Adapts to startup, growing company, or enterprise scale
-- **Confidence Scoring**: Asks clarifying questions when uncertain
-- **Smart Escalation**: Automatically involves architects/CTOs for complex decisions
+### 🎯 **Intelligent Memory & Agent Selection**
+- **User Pattern Learning**: Remembers your preferences with 90%+ accuracy
+- **Context Memory**: Adapts to your work style (startup, enterprise, personal projects)
+- **Preference Recall**: Asks clarifying questions based on your history
+- **Smart Personalization**: Automatically applies your preferred approaches and quality standards
 
 ### 🔄 **Multi-Agent Workflows**
 - **Sequential Chains**: `Requirements → Design → Implementation → Testing → Deployment`
@@ -292,6 +295,6 @@ This isn't just a collection of agents - it's a **complete development team orch
 4. **Adapts to Scale**: Works for solo developers to enterprise teams
 5. **Learns Continuously**: Improves based on usage patterns and feedback
 
-**Transform your Claude Code experience from single-agent interactions to intelligent team orchestration!**
+**Transform Claude into your personalized AI development team that remembers, learns, and adapts to your unique style!**
 
-*Built for the Claude Code Community* 🚀
+*Your Claude User Memory - Intelligent, Personalized, Powerful* 🚀

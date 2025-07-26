@@ -1,13 +1,14 @@
-# Contributing to Claude Code Specialized Agents
+# Contributing to Claude User Memory
 
-Thank you for your interest in contributing to this project! This repository aims to provide high-quality, specialized AI agents for the Claude Code CLI community.
+Thank you for your interest in contributing to this project! This Claude user memory repository aims to provide high-quality, personalized AI agent orchestration for the Claude Code CLI community.
 
 ## 🎯 Project Goals
 
+- Create Claude's personalized memory system for development workflows
 - Maintain a curated collection of professional-grade AI specialists
-- Ensure all agents work seamlessly with Claude Code CLI
-- Provide comprehensive coverage of software development roles
-- Keep agents up-to-date with modern development practices
+- Ensure intelligent agent orchestration works seamlessly with Claude Code CLI
+- Provide comprehensive coverage of software development roles with user adaptation
+- Keep agents up-to-date with modern development practices and user preferences
 
 ## 🚀 Getting Started
 
@@ -19,8 +20,8 @@ Thank you for your interest in contributing to this project! This repository aim
 ### Development Setup
 ```bash
 # Fork and clone the repository
-git clone https://github.com/YOUR_USERNAME/claude-code-specialized-agents.git
-cd claude-code-specialized-agents
+git clone https://github.com/YOUR_USERNAME/claude-user-memory.git
+cd claude-user-memory
 
 # Create a development branch
 git checkout -b feature/your-contribution
