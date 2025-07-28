@@ -21,8 +21,8 @@ Thank you for your interest in contributing! This repository provides high-quali
 ### Development Setup
 ```bash
 # Fork and clone the repository
-git clone https://github.com/YOUR_USERNAME/claude-code-specialized-agents.git
-cd claude-code-specialized-agents
+git clone https://github.com/YOUR_USERNAME/claude-code-agents.git
+cd claude-code-agents
 
 # Create a development branch
 git checkout -b feature/your-contribution

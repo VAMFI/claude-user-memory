@@ -31,8 +31,8 @@ claude-code
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/claude-code-specialized-agents.git
-cd claude-code-specialized-agents
+git clone https://github.com/irenicj/claude-code-agents.git
+cd claude-code-agents
 
 # Install all agents to Claude Code
 cp agents/* ~/.claude/agents/
@@ -425,7 +425,7 @@ EOF
 - [Usage Examples](../examples/usage-examples.md)
 
 ### Support
-- [GitHub Issues](https://github.com/your-username/claude-code-specialized-agents/issues)
+- [GitHub Issues](https://github.com/irenicj/claude-code-agents/issues)
 - [Claude Code Community](https://docs.anthropic.com/claude-code/community)
 - [Official Support](https://docs.anthropic.com/claude-code/support)
 

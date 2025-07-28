@@ -45,8 +45,8 @@ npm install -g @anthropic/claude-code
 ### 2. Install Agents
 ```bash
 # Clone this repository
-git clone https://github.com/your-username/claude-code-specialized-agents.git
-cd claude-code-specialized-agents
+git clone https://github.com/irenicj/claude-code-agents.git
+cd claude-code-agents
 
 # Install agents to your Claude Code configuration
 cp agents/* ~/.claude/agents/
@@ -248,8 +248,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 - [Task Tool Documentation](https://docs.anthropic.com/claude-code/task-tool)
 
 ### Community & Support
-- [GitHub Issues](https://github.com/your-username/claude-code-specialized-agents/issues) - Bug reports and feature requests
-- [GitHub Discussions](https://github.com/your-username/claude-code-specialized-agents/discussions) - Community Q&A
+- [GitHub Issues](https://github.com/irenicj/claude-code-agents/issues) - Bug reports and feature requests
+- [GitHub Discussions](https://github.com/irenicj/claude-code-agents/discussions) - Community Q&A
 - [Claude Code Community](https://docs.anthropic.com/claude-code/community) - Official Claude Code community
 
 ## ⚖️ License
