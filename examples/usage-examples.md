@@ -1,6 +1,6 @@
-# Usage Examples and Best Practices
+# Claude Code Agent Usage Examples
 
-This guide provides practical examples of how to effectively use the Claude Code Specialized Agents in real-world development scenarios.
+This guide provides practical examples of how to effectively use the specialized agents with Claude Code CLI in real-world development scenarios.
 
 ## 🚀 Getting Started with Agents
 
