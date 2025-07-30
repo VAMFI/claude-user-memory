@@ -61,16 +61,33 @@ claude-code
 ```
 
 ### 2. Install Workflow Agents
+
+#### Option A: Automated Setup (Recommended)
 ```bash
 # Clone this repository
 git clone https://github.com/irenicj/claude-code-workflow-agents.git
 cd claude-code-workflow-agents
 
-# Install agents to Claude Code
+# Run the setup script
+./setup.sh
+
+# This will:
+# ✓ Install all 3 workflow agents
+# ✓ Create custom commands (/research, /plan, /implement, /workflow)
+# ✓ Set up configuration templates
+# ✓ Create directory structure
+```
+
+#### Option B: Manual Installation
+```bash
+# Install agents
 cp agents/* ~/.claude/agents/
 
-# Verify installation - should show 3 workflow agents
-claude-code
+# Install commands (optional)
+cp commands/* ~/.claude/commands/
+
+# Verify installation
+claude
 > /agents
 ```
 
@@ -149,6 +166,8 @@ claude-code
 
 - **[Getting Started Tutorial](examples/getting-started.md)** - Step-by-step beginner guide
 - **[Workflow Guide](docs/workflow-guide.md)** - Deep dive into each phase
+- **[Configuration Guide](docs/claude-configuration-guide.md)** - Complete setup reference
+- **[Troubleshooting Guide](docs/troubleshooting-agents.md)** - Fix common issues
 - **[Quick Reference](docs/quick-reference.md)** - Commands and shortcuts
 - **[Real-World Scenarios](examples/real-world-scenarios.md)** - Practical examples
 - **[FAQ](docs/faq.md)** - Common questions answered
