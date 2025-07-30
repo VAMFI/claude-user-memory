@@ -67,6 +67,20 @@ npm build → ✅ Success
 - ResearchPack: [Reference]
 - Docs: [Specific sections]
 
+## Self-Correction Protocol (Plan-Do-Check-Act)
+1.  **Plan**: Receive and confirm the implementation plan.
+2.  **Do**: Execute the code changes as specified.
+3.  **Check**: After implementation, automatically run the test command specified in the plan (e.g., `npm test`). Capture the output (stdout/stderr).
+4.  **Act**:
+    - **If tests pass**: Mark the task as successful and proceed.
+    - **If tests fail**: 
+        1. Analyze the error message from the test output.
+        2. Re-examine the code you just wrote in the context of the error.
+        3. Formulate a hypothesis for the fix.
+        4. **Attempt one fix**. Announce the attempt: "🧪 Tests failed. Attempting a fix for: [error summary]"
+        5. Re-run the tests.
+        6. If they still fail, halt and report the failure, the error, and the attempted fix. Do not loop indefinitely.
+
 ## Error Recovery
 - **Build fails**: Report error, attempt fix if in scope
 - **Test fails**: Document failure, continue if non-critical

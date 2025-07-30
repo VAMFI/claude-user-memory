@@ -40,91 +40,23 @@ if [ -d ~/.claude/agents ] && [ "$(ls -A ~/.claude/agents)" ]; then
     echo -e "${GREEN}✓ Backup created at ~/.claude/agents.backup${NC}"
 fi
 
-# Install workflow agents
-echo -e "\n${BLUE}📦 Installing Workflow Agents...${NC}"
-cp agents/*.md ~/.claude/agents/
-echo -e "${GREEN}✓ Installed 3 workflow agents:${NC}"
-echo "  - docs-researcher (📚 Documentation specialist)"
-echo "  - implementation-planner (📋 Architecture strategist)"
-echo "  - code-implementer (🚀 Precision executor)"
+# Install the new multi-agent framework
+echo -e "\n${BLUE}📦 Installing Multi-Agent Framework...${NC}"
 
-# Create sample commands
-echo -e "\n${BLUE}🎯 Creating workflow commands...${NC}"
+# Copy the chief-architect orchestrator
+cp agents/chief-architect.md ~/.claude/agents/
 
-# Research command
-cat > ~/.claude/commands/research.md << 'EOF'
-# Research Documentation
+# Create the specialists directory and copy all specialist agents
+mkdir -p ~/.claude/agents/specialists
+cp agents/specialists/*.md ~/.claude/agents/specialists/
 
-Use the docs-researcher agent to fetch current, version-accurate documentation for the specified library or framework.
+# Also copy the knowledge-core file
+cp knowledge-core.md ~/.claude/
 
-Usage:
-```
-/research [library/framework]
-```
-
-Example:
-```
-/research React Router v6
-```
-EOF
-
-# Plan command
-cat > ~/.claude/commands/plan.md << 'EOF'
-# Create Implementation Plan
-
-Use the implementation-planner agent to create a detailed implementation plan based on research findings.
-
-Usage:
-```
-/plan [feature description]
-```
-
-Example:
-```
-/plan OAuth2 integration based on research
-```
-EOF
-
-# Implement command
-cat > ~/.claude/commands/implement.md << 'EOF'
-# Execute Implementation
-
-Use the code-implementer agent to execute the implementation plan with surgical precision.
-
-Usage:
-```
-/implement [plan reference]
-```
-
-Example:
-```
-/implement the OAuth2 plan
-```
-EOF
-
-# Workflow command
-cat > ~/.claude/commands/workflow.md << 'EOF'
-# Full Workflow Execution
-
-Execute the complete Research → Plan → Implement workflow for a feature.
-
-Usage:
-```
-/workflow [feature description]
-```
-
-This will:
-1. Research documentation
-2. Create implementation plan
-3. Execute the changes
-
-Example:
-```
-/workflow add Stripe payment integration
-```
-EOF
-
-echo -e "${GREEN}✓ Created 4 workflow commands${NC}"
+echo -e "${GREEN}✓ Installation complete!${NC}"
+echo "  - Installed chief-architect orchestrator"
+echo "  - Installed 12+ specialist agents into ~/.claude/agents/specialists/"
+echo "  - Installed knowledge-core.md into ~/.claude/"
 
 # Create configuration template
 echo -e "\n${BLUE}⚙️  Creating configuration template...${NC}"

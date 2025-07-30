@@ -1,203 +1,97 @@
-# 🛠️ Claude Code Workflow Agents
+# ⭐ Claude Code Specialized Agents
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code Compatible](https://img.shields.io/badge/Claude%20Code-Compatible-blue.svg)](https://docs.anthropic.com/claude-code)
-[![Workflow: Research→Plan→Implement](https://img.shields.io/badge/Workflow-Research→Plan→Implement-green.svg)](docs/workflow-guide.md)
+[![Philosophy: Orchestrate→Specialize→Learn](https://img.shields.io/badge/Philosophy-Orchestrate→Specialize→Learn-purple.svg)](docs/01_philosophy.md)
 
-> Professional AI-powered development workflow for [Claude Code CLI](https://docs.anthropic.com/claude-code) that ensures every line of code is research-backed, well-planned, and precisely implemented.
+> An advanced, multi-agent framework for the [Claude Code CLI](https://docs.anthropic.com/claude-code) that uses an orchestrator to manage a team of specialist agents, enabling them to tackle complex software development tasks with persistent memory and self-correction capabilities.
 
-## 📖 What is This?
+## 📖 Core Philosophy
 
-Claude Code Workflow Agents transform how you develop software by enforcing a systematic three-phase approach:
+This framework evolves beyond a simple linear workflow into a sophisticated, hierarchical system built on three core principles:
+
+1.  **Orchestration**: A high-level `chief-architect` agent analyzes complex goals, creates a strategic plan, and delegates tasks to a team of specialists.
+2.  **Specialization**: Each specialist agent (e.g., for research, coding, security) is an expert in its domain, ensuring high-quality work on each sub-task.
+3.  **Knowledge**: A shared `knowledge-core.md` file acts as a persistent memory, allowing the system to learn from past decisions and maintain consistency.
+
+## ✨ The New Workflow: Orchestration in Action
 
 ```
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│   1. RESEARCH   │ --> │    2. PLAN      │ --> │  3. IMPLEMENT   │
-│ docs-researcher │     │ implementation- │     │     code-       │
-│                 │     │    planner      │     │  implementer    │
-└─────────────────┘     └─────────────────┘     └─────────────────┘
-        ↓                        ↓                        ↓
-  ResearchPack            Implementation            Working Code
-  (Authoritative           Plan (Detailed         (Precise, Tested
-   Documentation)           Blueprint)               Changes)
+              ┌───────────────────┐
+User Goal --> │  Chief Architect  │ --> Final Report
+              │  (Orchestrator)   │
+              └─────────┬─────────┘
+                        |
+                        | Delegates Tasks
+                        ↓
+  ┌───────────────────────────────────────────┐
+  │              Specialist Team              │
+  │ ┌───────────────┐ ┌───────────────┐ ┌───────────────┐ │
+  │ │Docs Researcher│ │ Impl. Planner │ │Code Implementer │ │
+  │ └───────────────┘ └───────────────┘ └───────────────┘ │
+  └───────────────────────────────────────────┘
 ```
 
-Instead of jumping straight into coding, this workflow ensures you:
-1. **Research first** - Gather official, version-accurate documentation
-2. **Plan thoroughly** - Create detailed implementation blueprints
-3. **Implement precisely** - Execute minimal, reversible changes
+## 🚀 Enhanced Capabilities
 
-## 🌟 Why This Workflow?
-
-### The Problem with Traditional Development
-- ❌ Coding from potentially outdated memory
-- ❌ Making large, risky changes without planning
-- ❌ Discovering breaking changes mid-implementation
-- ❌ Difficult rollbacks when things go wrong
-
-### The Workflow Solution
-- ✅ **Always current**: Every implementation based on latest official docs
-- ✅ **Risk mitigation**: Plans include rollback strategies before coding
-- ✅ **Minimal changes**: Surgical edits reduce bug surface area
-- ✅ **Full traceability**: Clear path from requirement to implementation
+-   **Handles Complexity**: The orchestration model allows the system to tackle large, multi-faceted projects that would overwhelm a single agent.
+-   **Persistent Memory**: The `knowledge-core.md` ensures that architectural decisions and patterns are remembered and adhered to across all tasks.
+-   **Self-Correction**: The `code-implementer` can now automatically run tests and attempt to fix its own errors, increasing autonomy.
 
 ## ⚡ Quick Start
 
 ### Prerequisites
-- Node.js v16 or higher
-- npm or yarn package manager
-- Claude Code CLI (see installation below)
+-   Node.js v16 or higher
+-   Claude Code CLI
 
-### 1. Install Claude Code CLI
-```bash
-# Install Claude Code globally
-npm install -g @anthropic/claude-code
-
-# Verify installation
-claude-code --version
-
-# First-time setup (creates ~/.claude directory)
-claude-code
-```
-
-### 2. Install Workflow Agents
-
-#### Option A: Automated Setup (Recommended)
+### 1. Installation
 ```bash
 # Clone this repository
-git clone https://github.com/irenicj/claude-code-workflow-agents.git
-cd claude-code-workflow-agents
+git clone https://github.com/irenicj/claude-code-specialized-agents.git
+cd claude-code-specialized-agents
 
-# Run the setup script
+# Run the setup script (copies agents to ~/.claude)
 ./setup.sh
-
-# This will:
-# ✓ Install all 3 workflow agents
-# ✓ Create custom commands (/research, /plan, /implement, /workflow)
-# ✓ Set up configuration templates
-# ✓ Create directory structure
 ```
 
-#### Option B: Manual Installation
+### 2. Your First Orchestrated Workflow
 ```bash
-# Install agents
-cp agents/* ~/.claude/agents/
-
-# Install commands (optional)
-cp commands/* ~/.claude/commands/
-
-# Verify installation
-claude
-> /agents
-```
-
-### 3. Your First Workflow
-```bash
-# Start Claude Code
+# Start Claude Code in your project directory
 claude-code
 
-# Try a simple example
-> I need to add Redis caching to my Node.js application
+# Give the system a complex task
+> Refactor our authentication system to use JWT instead of sessions.
 
-# Claude will automatically:
-# 1. Research Redis documentation (docs-researcher)
-# 2. Create an implementation plan (implementation-planner)
-# 3. Execute the changes (code-implementer)
+# The chief-architect will now take the lead, create a plan,
+# and delegate to its specialist team.
 ```
 
-## 🎯 The Three Workflow Agents
+## 🤖 The Agent Team
 
-### 1. 📚 docs-researcher
-**Role**: Your documentation specialist who ensures you never code from outdated information.
+### The Orchestrator
+-   **`chief-architect`**: The project leader. It analyzes high-level goals, creates plans, and coordinates the specialist team. All complex tasks start here.
 
-**Triggers**:
-- "documentation", "docs", "API reference"
-- "library", "framework", "version"
-- "how to use", "correct usage"
+### The Specialist Team (`agents/specialists`)
+-   **`docs-researcher`**: Fetches current, authoritative documentation from the web.
+-   **`implementation-planner`**: Creates detailed, step-by-step implementation plans.
+-   **`code-implementer`**: Executes the plan with precision and attempts to self-correct if tests fail.
+-   *... and 10+ other specialists for security, DevOps, QA, and more.*
 
-**Example**:
-```bash
-> Research the latest Next.js 14 App Router documentation
-```
+## 📚 Detailed Documentation
 
-**Output**: ResearchPack containing:
-- ✓ Official API documentation
-- ✓ Version-specific details
-- ✓ Migration guides
-- ✓ Code examples with sources
+-   **[Core Philosophy](docs/01_philosophy.md)**: Understand the 'why' behind this framework.
+-   **[Orchestration Workflow](docs/02_orchestration_workflow.md)**: See how the `chief-architect` works.
+-   **[The Knowledge Core](docs/03_knowledge_core.md)**: Learn how persistent memory is used.
+-   **[Complex Task Example](examples/complex_task_orchestration.md)**: A full, end-to-end example.
+-   **[Direct Specialist Usage](examples/direct_specialist_usage.md)**: How to bypass orchestration for simple tasks.
 
-### 2. 📋 implementation-planner
-**Role**: Your architect who transforms research into actionable blueprints.
+## 🔍 Tags for Discovery
 
-**Triggers**:
-- "plan", "design", "architecture"
-- "what files", "implementation strategy"
+This project provides a powerful **AI agent framework** for the **Claude Code CLI**, implementing a **hierarchical agent system** for advanced **software development automation**. Key features include a sophisticated **agentic workflow** with a chief **orchestrator** managing **autonomous agents**. This **multi-agent system** leverages **persistent memory AI** and **self-correcting code** mechanisms to deliver robust and intelligent development capabilities.
 
-**Example**:
-```bash
-> Create a plan for migrating from Express to Fastify based on the research
-```
+## 🔄 Contributing
 
-**Output**: Implementation Plan containing:
-- ✓ File-by-file changes
-- ✓ Step-by-step procedures
-- ✓ Test criteria
-- ✓ Rollback strategies
-
-### 3. 🚀 code-implementer
-**Role**: Your precision developer who executes plans with surgical accuracy.
-
-**Triggers**:
-- "implement the plan"
-- "execute changes"
-- "apply the plan"
-
-**Example**:
-```bash
-> Implement the Fastify migration plan
-```
-
-**Output**: 
-- ✓ Implemented code
-- ✓ Test results
-- ✓ Execution report
-
-## 📚 Detailed Guides
-
-- **[Getting Started Tutorial](examples/getting-started.md)** - Step-by-step beginner guide
-- **[Workflow Guide](docs/workflow-guide.md)** - Deep dive into each phase
-- **[Configuration Guide](docs/claude-configuration-guide.md)** - Complete setup reference
-- **[Troubleshooting Guide](docs/troubleshooting-agents.md)** - Fix common issues
-- **[Quick Reference](docs/quick-reference.md)** - Commands and shortcuts
-- **[Real-World Scenarios](examples/real-world-scenarios.md)** - Practical examples
-- **[FAQ](docs/faq.md)** - Common questions answered
-
-## 🔄 Common Workflows
-
-### Adding a New Feature
-```bash
-# Automatic workflow
-> Add Stripe payment processing to my SaaS application
-
-# Manual control
-> Use docs-researcher to find Stripe Node.js SDK documentation
-> Use implementation-planner to design the payment flow
-> Use code-implementer to add Stripe integration
-```
-
-### Updating Dependencies
-```bash
-> Update React from v17 to v18 in our application
-
-# Claude automatically:
-# 1. Researches React 18 migration guide
-# 2. Plans phased migration approach
-# 3. Implements changes with tests
-```
-
-### Debugging Library Issues
-```bash
-> The MongoDB connection keeps timing out in production
+Contributions are welcome! Please focus on enhancing specialist agents or improving the orchestration logic. See `CONTRIBUTING.md` for more details.
 
 # Claude will:
 # 1. Research MongoDB connection best practices

@@ -9,26 +9,46 @@ Our agents follow a strict three-phase workflow designed to ensure:
 - **Safety**: Changes are minimal, reversible, and well-planned
 - **Quality**: Every implementation is tested and verified
 
-## 🤖 Available Agents
+## 🤖 The Agent Team
 
-### 1. docs-researcher
-- **Purpose**: Fetches current, version-accurate documentation
-- **Trigger keywords**: documentation, API, library, version, migrate
-- **Output**: ResearchPack with authoritative sources
+This project uses a multi-agent system, led by a Chief Architect that orchestrates a team of specialists.
 
-### 2. implementation-planner  
-- **Purpose**: Creates detailed implementation blueprints
-- **Trigger keywords**: plan, design, architecture, strategy
-- **Requires**: ResearchPack from docs-researcher
-- **Output**: Step-by-step Implementation Plan
+### 1. chief-architect (Orchestrator)
+- **Purpose**: Decomposes complex goals and manages the workflow across specialist agents.
+- **Trigger keywords**: For broad or multi-faceted goals like "add user authentication" or "refactor the billing system."
+- **Output**: A completed project with a full report synthesizing the work of all involved agents.
 
-### 3. code-implementer
-- **Purpose**: Executes precise code changes
-- **Trigger keywords**: implement, execute, apply the plan
-- **Requires**: Both ResearchPack and Implementation Plan
-- **Output**: Working code with test results
+### Specialist Agents (Managed by Chief Architect)
 
-## 🔄 Workflow Enforcement
+#### a. docs-researcher
+- **Purpose**: Fetches current, version-accurate documentation.
+- **Output**: ResearchPack with authoritative sources.
+
+#### b. implementation-planner
+- **Purpose**: Creates detailed implementation blueprints from research.
+- **Output**: Step-by-step Implementation Plan.
+
+#### c. code-implementer
+- **Purpose**: Executes precise code changes based on a plan and now features a **self-correction loop** to attempt to fix its own errors if tests fail.
+- **Output**: Working, tested code with test results.
+
+
+
+## ✨ Enhanced Capabilities
+
+This agent system has been upgraded with two key mechanisms:
+
+1.  **Project Knowledge Core (`knowledge-core.md`)**: A central file that acts as the project's long-term memory. All agents read this file before acting and suggest updates after making key architectural decisions, ensuring consistency and learning over time.
+2.  **Self-Correction Loop**: The `code-implementer` can now automatically run tests and, if they fail, analyze the error and attempt to fix its own code once before reporting failure. This increases autonomy and resilience.
+
+## 🔄 The Orchestration Workflow
+
+The agents follow a coordinated workflow managed by the `chief-architect`:
+```
+User Goal → chief-architect → Decomposes & Delegates → (docs-researcher → implementation-planner → code-implementer) → Synthesized Result
+```
+- For complex tasks, the `chief-architect` manages the entire lifecycle.
+- For simple, focused tasks, you can still invoke specialist agents directly.
 
 The agents enforce dependencies:
 ```
