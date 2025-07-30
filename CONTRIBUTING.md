@@ -1,28 +1,28 @@
-# Contributing to Claude Code Specialized Agents
+# Contributing to Claude Code Workflow Agents
 
-Thank you for your interest in contributing! This repository provides high-quality, specialized AI agents designed to enhance software development workflows with Claude Code CLI.
+Thank you for your interest in contributing! This repository provides the official Research → Plan → Implement workflow agents for Claude Code CLI.
 
-## 🎯 Project Goals
+## 🎯 Project Philosophy
 
-- Maintain a curated collection of professional-grade AI agents for Claude Code
-- Ensure seamless integration with Claude Code's native agent system
-- Provide comprehensive coverage of software development roles and specializations
-- Keep agents up-to-date with modern development practices and technologies
-- Foster a community-driven approach to improving Claude Code's capabilities
+This project implements a systematic three-phase development workflow:
+1. **Research**: Gather authoritative, version-accurate documentation
+2. **Plan**: Create detailed, actionable implementation blueprints
+3. **Implement**: Execute precise, minimal code changes
+
+All contributions must align with this philosophy.
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 - [Claude Code CLI](https://docs.anthropic.com/claude-code) installed and configured
-- Basic understanding of AI agent prompts and YAML frontmatter
-- Experience with the software development role you're contributing to
-- Understanding of Claude Code's Task tool and `/agents` command
+- Understanding of the research-plan-implement workflow
+- Experience with AI agent prompts and YAML frontmatter
 
 ### Development Setup
 ```bash
 # Fork and clone the repository
-git clone https://github.com/YOUR_USERNAME/claude-code-agents.git
-cd claude-code-agents
+git clone https://github.com/YOUR_USERNAME/claude-code-workflow-agents.git
+cd claude-code-workflow-agents
 
 # Create a development branch
 git checkout -b feature/your-contribution
@@ -32,274 +32,216 @@ cp agents/* ~/.claude/agents/
 
 # Test with Claude Code
 claude-code
-> /agents  # Verify agents appear
+> /agents  # Verify the 3 agents appear
 ```
 
 ## 📋 Types of Contributions
 
-### 1. New Agent Creation
-Adding entirely new specialist roles to the collection.
+### 1. Agent Enhancement
+Improving the three workflow agents:
+- **docs-researcher**: Better documentation fetching strategies
+- **implementation-planner**: More comprehensive planning templates
+- **code-implementer**: Improved code execution patterns
 
-**High Priority Roles:**
-- **mobile-developer** (React Native, Flutter, iOS, Android native)
-- **data-engineer** (ETL pipelines, data warehousing, analytics)
-- **ui-ux-designer** (Design systems, prototyping, user research)
-- **blockchain-developer** (Web3, smart contracts, DeFi protocols)
-- **game-developer** (Unity, Unreal Engine, game design patterns)
-- **ml-engineer** (Machine learning models, MLOps, data science)
-- **cloud-architect** (Multi-cloud strategies, serverless, infrastructure)
-
-### 2. Agent Enhancement
-Improving existing agents with:
-- Updated technology stacks and frameworks
-- Additional technical expertise areas
-- More comprehensive real-world examples
-- Better integration with Claude Code features
-- Enhanced prompts for specific use cases
+### 2. Workflow Examples
+- Real-world scenarios demonstrating the workflow
+- Integration patterns with Claude Code features
+- Multi-technology implementation examples
 
 ### 3. Documentation Improvements
-- Installation and setup guides
-- Usage examples and best practices
-- Workflow patterns and integration guides
-- Claude Code feature integration tutorials
+- Clearer explanations of the workflow philosophy
+- Better installation and usage guides
+- Troubleshooting and best practices
 
 ### 4. Quality Assurance
-- Testing agents with Claude Code CLI's Task tool
-- Validating agent responses and behavior
-- Reporting bugs and inconsistencies
-- Performance and usability improvements
+- Testing the workflow with various technologies
+- Validating agent dependencies and outputs
+- Ensuring ResearchPack and Plan quality
 
 ## 📝 Agent Development Guidelines
 
-### Required Agent Structure
+### Core Principles
 
-All agents must follow this consistent structure:
+#### 1. Maintain Workflow Integrity
+- docs-researcher must produce valid ResearchPacks
+- implementation-planner must require ResearchPacks
+- code-implementer must require both ResearchPack and Plan
 
-#### 1. YAML Frontmatter
+#### 2. Documentation-First Approach
+- Never allow coding from memory
+- Always cite authoritative sources
+- Verify library versions before implementation
+
+#### 3. Minimal, Reversible Changes
+- Plans must include rollback strategies
+- Implementations should be surgical and precise
+- Every change must be testable
+
+### Agent Structure
+
+All agents must maintain their YAML frontmatter and core responsibilities:
+
 ```yaml
 ---
 name: agent-name
-description: "Clear description of when to use this agent with specific examples"
+description: "Clear description with examples for auto-selection"
 color: unique-color
 ---
 ```
 
-**Requirements:**
-- `name`: kebab-case format, descriptive and unique
-- `description`: Specific use cases and triggers for Claude Code's auto-selection
-- `color`: Unique color for visual distinction (avoid duplicates)
-
-#### 2. Core Content Sections
-1. **Core Identity & Role**: Define responsibilities and scope clearly
-2. **Philosophy**: Core principles and approach to problems
-3. **Communication Style**: How the agent interacts with developers
-4. **Technical Expertise Areas**: Specific technologies and domains
-5. **Enterprise Context Adaptation**: Considerations for different org sizes
-6. **Success Metrics**: Measurable outcomes and quality indicators
-
 ### Quality Standards
 
-#### Professional Excellence
-- **Enterprise-ready communication**: Professional, actionable guidance
-- **Technical accuracy**: Up-to-date technology references and best practices
-- **Practical examples**: Real-world scenarios with concrete implementations
-- **Comprehensive coverage**: Address the full scope of the role
-- **Clear boundaries**: Define what the agent does and doesn't handle
+#### Research Quality (docs-researcher)
+- Fetch only from official documentation
+- Include version-specific information
+- Provide complete API references
+- Link all sources
 
-#### Claude Code Integration
-- **Task tool compatibility**: Agents should work effectively with complex workflows
-- **Auto-selection support**: Use clear keywords in descriptions
-- **Workflow integration**: Consider multi-agent collaboration patterns
-- **Performance optimization**: Efficient prompts that work well with Claude Code
+#### Planning Quality (implementation-planner)
+- Create specific, actionable steps
+- Include comprehensive test criteria
+- Assess and mitigate risks
+- Design rollback procedures
 
-## 🛠 Creating a New Agent
+#### Implementation Quality (code-implementer)
+- Follow the plan exactly
+- Make minimal changes
+- Verify with tests
+- Report any deviations
 
-### Step 1: Research and Planning
-1. Study existing agents for structure and quality benchmarks
-2. Research the target role's responsibilities in modern development
-3. Identify key technologies, frameworks, and tools
-4. Plan unique value proposition and differentiation
-5. Consider integration points with other agents
+## 🛠 Enhancing Agents
 
-### Step 2: Agent Development
+### Step 1: Understand Current Implementation
 ```bash
-# Create new agent file
-cp agents/backend-specialist.md agents/your-new-agent.md
+# Read the agent you want to enhance
+cat agents/docs-researcher.md
+# or
+cat agents/implementation-planner.md
+# or
+cat agents/code-implementer.md
 ```
 
-### Step 3: Content Development
-1. **Update YAML frontmatter** with appropriate name, description, and unique color
-2. **Define core identity** with specific, actionable responsibilities
-3. **Establish philosophy** and guiding principles for decision-making
-4. **Detail technical expertise** with current technologies and frameworks
-5. **Add enterprise context** for startup, mid-size, and enterprise scenarios
-6. **Define success metrics** and measurable outcomes
+### Step 2: Identify Enhancement Opportunities
+- More comprehensive prompts
+- Better error handling
+- Improved output formatting
+- Additional validation checks
 
-### Step 4: Testing and Validation
+### Step 3: Test Your Changes
 ```bash
-# Install agent locally
-cp agents/your-new-agent.md ~/.claude/agents/
+# Install modified agent
+cp agents/your-modified-agent.md ~/.claude/agents/
 
-# Test with Claude Code
+# Test the complete workflow
 claude-code
-
-# Test scenarios:
-# 1. Agent auto-selection with relevant keywords
-# 2. Explicit agent usage with "Use your-new-agent for..."
-# 3. Task tool integration for complex workflows
-# 4. Multi-agent collaboration scenarios
+> Research Redis documentation
+> Plan Redis caching implementation
+> Implement the Redis caching plan
 ```
 
-### Step 5: Documentation
-- Add agent to README.md agent table with clear use cases
-- Update agent count references
-- Add usage examples to relevant documentation
-- Include workflow patterns if applicable
-
-## 🔍 Agent Enhancement Guidelines
-
-### Improving Existing Agents
-1. **Maintain compatibility**: Don't break existing Claude Code integrations
-2. **Add incremental value**: Focus on clear, measurable improvements
-3. **Update technology references**: Keep frameworks and tools current
-4. **Enhance examples**: Add more practical, real-world scenarios
-5. **Expand expertise areas**: Cover emerging technologies and practices
-
-### Technology Stack Updates
-- Research current industry preferences and trends
-- Include both established and emerging technologies
-- Consider different organizational contexts (startup vs enterprise)
-- Balance innovation with stability and proven practices
+### Step 4: Validate Workflow Dependencies
+Ensure:
+- ResearchPacks contain all required information
+- Plans reference the ResearchPack correctly
+- Implementation cites both Research and Plan
 
 ## ✅ Pull Request Process
 
 ### Before Submitting
-- [ ] Agent follows the established structure and quality standards
-- [ ] All required sections are complete and comprehensive
-- [ ] Technology references are current and accurate
-- [ ] Agent tested with Claude Code CLI and Task tool
-- [ ] Documentation updated (README.md, examples)
-- [ ] Unique color assigned (no conflicts with existing agents)
-- [ ] Commit messages are clear and descriptive
+- [ ] Changes align with the three-phase workflow philosophy
+- [ ] Agent dependencies are maintained (Research → Plan → Implement)
+- [ ] Documentation reflects any changes
+- [ ] Tested complete workflow with Claude Code
+- [ ] Examples demonstrate the enhancement
 
 ### PR Requirements
-1. **Clear title**: Describe the change concisely
-2. **Detailed description**: Explain what was added/changed and why
-3. **Testing notes**: How you tested with Claude Code CLI
-4. **Integration notes**: How agent works with Task tool and other agents
-5. **Breaking changes**: Note any compatibility issues (should be rare)
+1. **Clear title**: Describe the enhancement concisely
+2. **Detailed description**: Explain what was improved and why
+3. **Testing notes**: Show complete workflow execution
+4. **Philosophy alignment**: Confirm adherence to core principles
 
 ### Review Process
-1. **Automated checks**: Verify YAML frontmatter and file structure
-2. **Content review**: Assess quality, accuracy, and completeness
-3. **Claude Code testing**: Verify agent works correctly with CLI
-4. **Integration testing**: Test Task tool and multi-agent scenarios
-5. **Community feedback**: Get input from other contributors
-6. **Merge**: Approved PRs are merged to main branch
+1. **Workflow integrity check**: Verify dependencies maintained
+2. **Quality assessment**: Ensure improvements add value
+3. **Claude Code testing**: Test with various scenarios
+4. **Documentation review**: Check all docs are updated
+5. **Community feedback**: Gather input from users
 
 ## 🐛 Bug Reports and Issues
 
-### Reporting Issues
-Use GitHub issues with this information:
-- **Agent name**: Which agent has the issue
+### Reporting Workflow Issues
+Include:
+- **Workflow phase**: Which agent/phase has the issue
+- **Expected flow**: How the workflow should proceed
+- **Actual behavior**: What went wrong
+- **ResearchPack/Plan**: Relevant outputs if applicable
 - **Claude Code version**: Your CLI version
-- **Expected behavior**: What should happen
-- **Actual behavior**: What actually happens
-- **Reproduction steps**: How to reproduce with Claude Code
-- **System info**: OS, Node.js version, etc.
 
 ### Issue Labels
-- `bug`: Something isn't working correctly
-- `enhancement`: New feature or improvement request
-- `documentation`: Documentation needs improvement
-- `agent-new`: Request for new specialized agent
-- `agent-enhancement`: Improvement to existing agent
-- `claude-code-integration`: Claude Code specific issues
-- `good-first-issue`: Good for newcomers
-- `help-wanted`: Extra attention needed
+- `bug`: Workflow or agent malfunction
+- `enhancement`: Improvement to agents or workflow
+- `documentation`: Documentation needs update
+- `workflow`: Issues with the three-phase flow
+- `research`: docs-researcher specific
+- `planning`: implementation-planner specific
+- `implementation`: code-implementer specific
 
 ## 🌟 Best Practices
 
-### Agent Development
-- Follow consistent formatting and structure across all agents
-- Use clear, professional language appropriate for enterprise environments
-- Include comprehensive examples with modern technology stacks
-- Test thoroughly with Claude Code before submitting
-- Keep technology references current and industry-relevant
+### Workflow Integrity
+- Never bypass the research phase
+- Always validate ResearchPack completeness
+- Ensure plans are comprehensive and safe
+- Keep implementations minimal and tested
 
-### Claude Code Integration
-- Design agents to work seamlessly with the Task tool
-- Consider multi-agent workflow patterns
-- Optimize prompts for Claude Code's auto-selection
-- Test agent responses with various Claude Code scenarios
-- Ensure compatibility with Claude Code's features and limitations
+### Documentation Standards
+- Cite all sources with links
+- Include version information
+- Provide clear examples
+- Explain the "why" not just the "how"
 
-### Community Standards
-- Be respectful and inclusive in all interactions
-- Provide constructive feedback on contributions
-- Help newcomers get started with agent development
-- Share knowledge and expertise with the community
-- Maintain high quality standards for all contributions
+### Testing Guidelines
+- Test the complete workflow end-to-end
+- Verify with multiple technologies
+- Check edge cases and error handling
+- Ensure rollback procedures work
 
-### Documentation
-- Write clear, actionable instructions
-- Include practical examples with real-world context
-- Keep information up-to-date with latest practices
-- Consider different user experience levels
-- Test documentation with fresh perspective
+## 🎉 Recognition
 
-## 🎉 Recognition and Community
-
-### Contributor Recognition
 Contributors are recognized through:
-- GitHub contributor stats and profiles
-- Special mentions in release notes
-- Community showcases and highlights
-- Maintainer recognition for outstanding contributions
-- Featured examples in documentation
-
-### Community Engagement
-- Join discussions about agent improvements
-- Share experiences and best practices
-- Help troubleshoot issues for other users
-- Contribute to workflow patterns and examples
-- Provide feedback on Claude Code integration
+- GitHub contributor stats
+- Mentions in release notes
+- Credit in documentation examples
+- Community acknowledgment
 
 ## 📞 Getting Help
 
-### Support Channels
-- **GitHub Issues**: Bug reports and feature requests
-- **GitHub Discussions**: Questions, ideas, and community chat
-- **Claude Code Documentation**: [Official Claude Code guides](https://docs.anthropic.com/claude-code)
-- **Community Resources**: Examples, tutorials, and best practices
+### Resources
+- **GitHub Issues**: Bug reports and enhancements
+- **Discussions**: Questions and ideas
+- **Claude Code Docs**: [Official documentation](https://docs.anthropic.com/claude-code)
 
-### Development Resources
-- [Claude Code CLI Documentation](https://docs.anthropic.com/claude-code)
+### Workflow Resources
 - [Agent System Guide](https://docs.anthropic.com/claude-code/agents)
 - [Task Tool Documentation](https://docs.anthropic.com/claude-code/task-tool)
-- [AI Prompt Engineering Best Practices](https://docs.anthropic.com/claude/docs/prompt-engineering)
-
----
 
 ## 🚀 Quick Contribution Checklist
 
-For new contributors, here's a quick checklist:
+### For Agent Enhancements
+1. [ ] Understand the current agent implementation
+2. [ ] Identify specific improvement opportunity
+3. [ ] Maintain workflow dependencies
+4. [ ] Test complete Research → Plan → Implement flow
+5. [ ] Update relevant documentation
+6. [ ] Submit PR with workflow test results
 
-### New Agent Contribution
-1. [ ] Research role and plan agent specialization
-2. [ ] Create agent file with proper YAML frontmatter
-3. [ ] Write comprehensive agent content following guidelines
-4. [ ] Test agent with Claude Code CLI and Task tool
-5. [ ] Update README.md and documentation
-6. [ ] Submit PR with clear description and testing notes
+### For Documentation
+1. [ ] Clarify workflow concepts
+2. [ ] Add practical examples
+3. [ ] Improve troubleshooting guides
+4. [ ] Test all code examples
+5. [ ] Submit PR with preview
 
-### Agent Enhancement Contribution  
-1. [ ] Identify specific improvement opportunities
-2. [ ] Maintain compatibility with existing usage
-3. [ ] Test changes with Claude Code CLI
-4. [ ] Update relevant documentation
-5. [ ] Submit PR with detailed change explanation
+Thank you for contributing to the Claude Code workflow! 🎯
 
-Thank you for contributing to the Claude Code community! 🎯
-
-*Together, we're building the future of AI-assisted software development.*
+*Together, we're building systematic, quality-driven software development.*
