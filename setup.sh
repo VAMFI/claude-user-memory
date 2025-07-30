@@ -54,7 +54,7 @@ cp knowledge-core.md ~/.claude/
 
 echo -e "${GREEN}✓ Installation complete!${NC}"
 echo "  - Installed chief-architect orchestrator"
-echo "  - Installed 12+ specialist agents into ~/.claude/agents/specialists/"
+echo "  - Installed all specialist agents into ~/.claude/agents/specialists/"
 echo "  - Installed knowledge-core.md into ~/.claude/"
 
 # Display summary
@@ -63,7 +63,7 @@ echo -e "${BLUE}==================${NC}"
 echo ""
 echo -e "${GREEN}Installed Components:${NC}"
 echo "  ✓ chief-architect (The orchestrator agent)"
-echo "  ✓ 12+ Specialist Agents (in ~/.claude/agents/specialists/)"
+echo "  ✓ All Specialist Agents (in ~/.claude/agents/specialists/)"
 echo "  ✓ knowledge-core.md (Persistent project memory)"
 echo ""
 echo -e "${BLUE}Quick Start:${NC}"
