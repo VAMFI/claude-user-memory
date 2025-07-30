@@ -16,20 +16,30 @@ This framework evolves beyond a simple linear workflow into a sophisticated, hie
 
 ## ✨ The New Workflow: Orchestration in Action
 
-```
-              ┌───────────────────┐
-User Goal --> │  Chief Architect  │ --> Final Report
-              │  (Orchestrator)   │
-              └─────────┬─────────┘
-                        |
-                        | Delegates Tasks
-                        ↓
-  ┌───────────────────────────────────────────┐
-  │              Specialist Team              │
-  │ ┌───────────────┐ ┌───────────────┐ ┌───────────────┐ │
-  │ │Docs Researcher│ │ Impl. Planner │ │Code Implementer │ │
-  │ └───────────────┘ └───────────────┘ └───────────────┘ │
-  └───────────────────────────────────────────┘
+```mermaid
+graph TD
+    A[User Goal] --> B{Chief Architect};
+    B -- 1. Decomposes & Plans --> B;
+    B -- 2. Reads/Writes --> C[📚 Knowledge Core];
+    C -- 2. Informs --> B;
+    B -- 3. Delegates Tasks --> D[Specialist Team];
+    D -- 4. Reads --> C;
+    D -- 5. Executes Tasks --> E[Code, Tests, Research];
+    E -- 6. Reports Results --> D;
+    D -- 7. Synthesizes & Reports --> B;
+    B -- 8. Delivers Final Output --> F[Completed Work];
+
+    subgraph D [Specialist Team]
+        direction LR
+        D1[Docs Researcher]
+        D2[Impl. Planner]
+        D3[Code Implementer]
+    end
+
+    style B fill:#8E44AD,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#F1C40F,stroke:#fff,stroke-width:2px,color:#333
+    style D fill:#3498DB,stroke:#fff,stroke-width:2px,color:#fff
+    style F fill:#2ECC71,stroke:#fff,stroke-width:2px,color:#fff
 ```
 
 ## 🚀 Enhanced Capabilities

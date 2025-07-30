@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Claude Code Workflow Agents Setup Script
-# This script installs the trinity workflow agents and configures your Claude environment
+# Claude Code Multi-Agent Framework Setup Script
+# This script installs the advanced multi-agent orchestration framework.
 
 set -e  # Exit on error
 
@@ -28,16 +28,15 @@ echo -e "${GREEN}✓ Claude Code CLI found${NC}"
 
 # Create ~/.claude directory structure
 echo -e "\n${BLUE}📁 Creating Claude directory structure...${NC}"
-mkdir -p ~/.claude/agents
-mkdir -p ~/.claude/commands
-mkdir -p ~/.claude/templates
+mkdir -p ~/.claude/agents/specialists
 
 # Backup existing agents if they exist
 if [ -d ~/.claude/agents ] && [ "$(ls -A ~/.claude/agents)" ]; then
-    echo -e "${YELLOW}⚠️  Found existing agents. Creating backup...${NC}"
-    mkdir -p ~/.claude/agents.backup
-    cp -r ~/.claude/agents/* ~/.claude/agents.backup/ 2>/dev/null || true
-    echo -e "${GREEN}✓ Backup created at ~/.claude/agents.backup${NC}"
+    BACKUP_DIR=~/.claude/agents.backup-$(date +%Y%m%d-%H%M%S)
+    echo -e "${YELLOW}⚠️  Found existing agents. Creating timestamped backup...${NC}"
+    mkdir -p "$BACKUP_DIR"
+    cp -r ~/.claude/agents/* "$BACKUP_DIR/" 2>/dev/null || true
+    echo -e "${GREEN}✓ Backup created at $BACKUP_DIR${NC}"
 fi
 
 # Install the new multi-agent framework
@@ -58,92 +57,22 @@ echo "  - Installed chief-architect orchestrator"
 echo "  - Installed 12+ specialist agents into ~/.claude/agents/specialists/"
 echo "  - Installed knowledge-core.md into ~/.claude/"
 
-# Create configuration template
-echo -e "\n${BLUE}⚙️  Creating configuration template...${NC}"
-
-# Check if ~/.claude.json exists
-if [ ! -f ~/.claude.json ]; then
-    cat > ~/.claude.json << 'EOF'
-{
-  "model": "claude-sonnet-4-20250514",
-  "allowedTools": [
-    "Task",
-    "Bash",
-    "Glob",
-    "Grep",
-    "LS",
-    "Read",
-    "Edit",
-    "MultiEdit",
-    "Write",
-    "WebSearch",
-    "WebFetch",
-    "TodoWrite"
-  ],
-  "mcp": {
-    "mcpServers": {}
-  }
-}
-EOF
-    echo -e "${GREEN}✓ Created ~/.claude.json configuration${NC}"
-else
-    echo -e "${YELLOW}ℹ️  ~/.claude.json already exists (skipped)${NC}"
-fi
-
-# Create project template
-echo -e "\n${BLUE}📋 Creating project template...${NC}"
-
-cat > ~/.claude/templates/project-claude.md << 'EOF'
-# Project Configuration for Claude Code
-
-Copy this template to your project root as CLAUDE.md and customize it.
-
-## Project Overview
-[Describe your project here]
-
-## Technology Stack
-- Language: [e.g., TypeScript, Python]
-- Framework: [e.g., Next.js, Django]
-- Database: [e.g., PostgreSQL, MongoDB]
-- Key Libraries: [List important dependencies]
-
-## Coding Standards
-- Style Guide: [e.g., Airbnb, Google]
-- Testing: [e.g., Jest, Pytest]
-- Documentation: [Standards]
-
-## Workflow Preferences
-- Use docs-researcher for all library updates
-- Create plans before major changes
-- Implement with test coverage
-
-## Project-Specific Commands
-- Build: `npm run build`
-- Test: `npm test`
-- Lint: `npm run lint`
-EOF
-
-echo -e "${GREEN}✓ Created project template${NC}"
-
 # Display summary
 echo -e "\n${BLUE}✨ Setup Complete!${NC}"
 echo -e "${BLUE}==================${NC}"
 echo ""
 echo -e "${GREEN}Installed Components:${NC}"
-echo "  ✓ 3 Workflow Agents (Research → Plan → Implement)"
-echo "  ✓ 4 Custom Commands (/research, /plan, /implement, /workflow)"
-echo "  ✓ Configuration template (~/.claude.json)"
-echo "  ✓ Project template (~/.claude/templates/project-claude.md)"
+echo "  ✓ chief-architect (The orchestrator agent)"
+echo "  ✓ 12+ Specialist Agents (in ~/.claude/agents/specialists/)"
+echo "  ✓ knowledge-core.md (Persistent project memory)"
 echo ""
 echo -e "${BLUE}Quick Start:${NC}"
-echo "  1. Run: claude"
-echo "  2. Type: /agents (to see available agents)"
-echo "  3. Try: Add Redis caching to my application"
+echo "  1. Run 'claude-code' in your project directory."
+echo "  2. Give the system a complex task, e.g., 'Refactor our auth system to use JWT.'"
+echo "  3. The chief-architect will take the lead."
 echo ""
-echo -e "${YELLOW}Pro Tips:${NC}"
-echo "  • Use --verbose flag for debugging"
-echo "  • Run /clear between major tasks"
-echo "  • Check /permissions to manage tool access"
-echo "  • Copy project template to your repos as CLAUDE.md"
+echo -e "${YELLOW}Pro Tip:${NC}"
+echo "  • For simple tasks, you can still invoke specialists directly."
+echo "  • See the README.md for more details on the new workflow."
 echo ""
-echo -e "${GREEN}🎉 Happy coding with Claude Code Workflow Agents!${NC}"
+echo -e "${GREEN}🎉 Happy coding with your new Multi-Agent Framework!${NC}"
