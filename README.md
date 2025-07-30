@@ -234,6 +234,20 @@ For complex, multi-step operations:
 
 [See more examples →](examples/real-world-scenarios.md)
 
+## 🚀 Recent Improvements (v2.0)
+
+### Enhanced Agent Performance
+- **Reduced token usage** - All agents now use < 2k tokens (60% reduction)
+- **Progress reporting** - Real-time status updates every 30 seconds
+- **Anti-stagnation** - Automatic timeout handling and recovery
+- **Better logging** - Structured output with clear progress indicators
+
+### New Features
+- 🔍 Progress indicators (🔍, 📦, 🌐, ✅) for visibility
+- ⏱️ Performance targets for each agent phase
+- 🐛 Comprehensive debugging guide
+- 💡 Verbose mode support for troubleshooting
+
 ## 🤝 Contributing
 
 We welcome contributions that enhance the workflow! See [CONTRIBUTING.md](CONTRIBUTING.md) for:
@@ -253,7 +267,8 @@ We welcome contributions that enhance the workflow! See [CONTRIBUTING.md](CONTRI
 ### Documentation
 - [Official Claude Code Docs](https://docs.anthropic.com/claude-code)
 - [Workflow Best Practices](docs/workflow-guide.md)
-- [Troubleshooting Guide](docs/faq.md)
+- [Troubleshooting Guide](docs/troubleshooting-agents.md) **NEW!**
+- [FAQ](docs/faq.md)
 
 ### Community
 - [GitHub Issues](https://github.com/irenicj/claude-code-workflow-agents/issues) - Bug reports
