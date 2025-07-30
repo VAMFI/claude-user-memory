@@ -1,78 +1,63 @@
 # 🛠️ Claude Code Workflow Agents
 
-A streamlined collection of 3 specialized AI agents designed to implement a research-backed, plan-driven development workflow with [Claude Code CLI](https://docs.anthropic.com/claude-code).
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Claude Code Compatible](https://img.shields.io/badge/Claude%20Code-Compatible-blue.svg)](https://docs.anthropic.com/claude-code)
+[![Workflow: Research→Plan→Implement](https://img.shields.io/badge/Workflow-Research→Plan→Implement-green.svg)](docs/workflow-guide.md)
 
-**📚 Research First | 📋 Plan Thoroughly | 🚀 Implement Precisely**
+> Professional AI-powered development workflow for [Claude Code CLI](https://docs.anthropic.com/claude-code) that ensures every line of code is research-backed, well-planned, and precisely implemented.
 
-![Claude Code Workflow](photo.jpeg)
-*Research → Plan → Implement: A systematic approach to software development with Claude Code*
+## 📖 What is This?
 
-## 🌟 The Philosophy
+Claude Code Workflow Agents transform how you develop software by enforcing a systematic three-phase approach:
 
-Transform your development process with a systematic three-phase workflow:
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   1. RESEARCH   │ --> │    2. PLAN      │ --> │  3. IMPLEMENT   │
+│ docs-researcher │     │ implementation- │     │     code-       │
+│                 │     │    planner      │     │  implementer    │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+        ↓                        ↓                        ↓
+  ResearchPack            Implementation            Working Code
+  (Authoritative           Plan (Detailed         (Precise, Tested
+   Documentation)           Blueprint)               Changes)
+```
 
-1. **Research Phase**: Gather authoritative, version-accurate documentation
-2. **Planning Phase**: Create detailed, actionable implementation plans  
-3. **Implementation Phase**: Execute precise, minimal code changes
+Instead of jumping straight into coding, this workflow ensures you:
+1. **Research first** - Gather official, version-accurate documentation
+2. **Plan thoroughly** - Create detailed implementation blueprints
+3. **Implement precisely** - Execute minimal, reversible changes
 
-This approach ensures:
-- **🎯 Accuracy**: All code based on current, official documentation
-- **🔄 Reversibility**: Every change is planned with rollback strategies
-- **✅ Verifiability**: All implementations include test criteria
-- **📊 Traceability**: Clear path from research to implementation
+## 🌟 Why This Workflow?
 
-## 🤖 The Three Agents
+### The Problem with Traditional Development
+- ❌ Coding from potentially outdated memory
+- ❌ Making large, risky changes without planning
+- ❌ Discovering breaking changes mid-implementation
+- ❌ Difficult rollbacks when things go wrong
 
-### 1. 📚 **docs-researcher**
-**Purpose**: Fetches current, version-accurate documentation from official sources
-
-**When to use**:
-- Before implementing any new library or framework feature
-- When updating dependencies to new versions
-- When debugging library-specific issues
-- To verify correct API usage
-
-**Output**: ResearchPack containing:
-- Authoritative API references
-- Version-specific information
-- Usage examples from official docs
-- Migration guides and breaking changes
-
-### 2. 📋 **implementation-planner**
-**Purpose**: Creates detailed, actionable implementation plans based on research
-
-**When to use**:
-- After completing research phase
-- When you need to map requirements to actual code changes
-- To design safe, minimal change sets
-- Before starting any complex implementation
-
-**Output**: Implementation Plan containing:
-- File-by-file change specifications
-- Step-by-step procedures
-- Test criteria and acceptance tests
-- Risk assessment and mitigation strategies
-- Rollback procedures
-
-### 3. 🚀 **code-implementer**
-**Purpose**: Executes surgical code edits following the plan
-
-**When to use**:
-- Only after you have both ResearchPack and Implementation Plan
-- When ready to make actual code changes
-- For precise, minimal edits that follow specifications
-
-**Output**: 
-- Implemented code changes
-- Verification test results
-- Execution report with any issues encountered
+### The Workflow Solution
+- ✅ **Always current**: Every implementation based on latest official docs
+- ✅ **Risk mitigation**: Plans include rollback strategies before coding
+- ✅ **Minimal changes**: Surgical edits reduce bug surface area
+- ✅ **Full traceability**: Clear path from requirement to implementation
 
 ## ⚡ Quick Start
 
+### Prerequisites
+- Node.js v16 or higher
+- npm or yarn package manager
+- Claude Code CLI (see installation below)
+
 ### 1. Install Claude Code CLI
 ```bash
-# Install Claude Code if you haven't already
+# Install Claude Code globally
 npm install -g @anthropic/claude-code
+
+# Verify installation
+claude-code --version
+
+# First-time setup (creates ~/.claude directory)
+claude-code
 ```
 
 ### 2. Install Workflow Agents
@@ -81,219 +66,218 @@ npm install -g @anthropic/claude-code
 git clone https://github.com/irenicj/claude-code-workflow-agents.git
 cd claude-code-workflow-agents
 
-# Install agents to your Claude Code configuration
+# Install agents to Claude Code
 cp agents/* ~/.claude/agents/
 
-# Verify installation
+# Verify installation - should show 3 workflow agents
 claude-code
 > /agents
 ```
 
-### 3. Start Using the Workflow
+### 3. Your First Workflow
 ```bash
-# Launch Claude Code
+# Start Claude Code
 claude-code
 
-# Example: Add a new feature
-> I need to add Stripe payment integration
+# Try a simple example
+> I need to add Redis caching to my Node.js application
 
 # Claude will automatically:
-# 1. Use docs-researcher to fetch Stripe API documentation
-# 2. Suggest using implementation-planner to create a plan
-# 3. Wait for approval before using code-implementer
+# 1. Research Redis documentation (docs-researcher)
+# 2. Create an implementation plan (implementation-planner)
+# 3. Execute the changes (code-implementer)
 ```
 
-## 🔄 The Workflow in Action
+## 🎯 The Three Workflow Agents
 
-### Complete Feature Implementation
-```bash
-# Step 1: Research
-> Use docs-researcher to find the latest Stripe Node.js SDK documentation
+### 1. 📚 docs-researcher
+**Role**: Your documentation specialist who ensures you never code from outdated information.
 
-# Step 2: Plan
-> Use implementation-planner with this research to design payment integration
-
-# Step 3: Implement
-> Use code-implementer to execute the payment integration plan
-```
-
-### Dependency Updates
-```bash
-# Updating a library (e.g., React Router v5 to v6)
-> Update our React Router from v5 to v6
-
-# Claude automatically orchestrates:
-# 1. docs-researcher → fetches migration guide and API changes
-# 2. implementation-planner → creates phased migration plan
-# 3. code-implementer → executes changes with verification
-```
-
-### Quick Bug Fixes
-```bash
-# When you encounter library-specific errors
-> mongoose.connect() is throwing errors
-
-# Claude uses docs-researcher to verify correct usage
-# Then provides solution based on official documentation
-```
-
-## 🎯 Automatic Agent Selection
-
-Claude Code automatically selects the right agent based on keywords:
-
-### Research Keywords → `docs-researcher`
+**Triggers**:
 - "documentation", "docs", "API reference"
-- "library", "framework", "package", "version"
-- "update to", "migrate to", "upgrade"
-- "how to use", "correct usage", "official docs"
+- "library", "framework", "version"
+- "how to use", "correct usage"
 
-### Planning Keywords → `implementation-planner`
+**Example**:
+```bash
+> Research the latest Next.js 14 App Router documentation
+```
+
+**Output**: ResearchPack containing:
+- ✓ Official API documentation
+- ✓ Version-specific details
+- ✓ Migration guides
+- ✓ Code examples with sources
+
+### 2. 📋 implementation-planner
+**Role**: Your architect who transforms research into actionable blueprints.
+
+**Triggers**:
 - "plan", "design", "architecture"
-- "what files", "where to implement"
-- "implementation strategy", "approach"
-- "based on research", "create a plan"
+- "what files", "implementation strategy"
 
-### Implementation Keywords → `code-implementer`
-- "implement the plan", "execute changes"
-- "make the changes", "apply the plan"
-- "code it", "build it" (when plan exists)
+**Example**:
+```bash
+> Create a plan for migrating from Express to Fastify based on the research
+```
 
-## 🚀 Advanced Usage
+**Output**: Implementation Plan containing:
+- ✓ File-by-file changes
+- ✓ Step-by-step procedures
+- ✓ Test criteria
+- ✓ Rollback strategies
+
+### 3. 🚀 code-implementer
+**Role**: Your precision developer who executes plans with surgical accuracy.
+
+**Triggers**:
+- "implement the plan"
+- "execute changes"
+- "apply the plan"
+
+**Example**:
+```bash
+> Implement the Fastify migration plan
+```
+
+**Output**: 
+- ✓ Implemented code
+- ✓ Test results
+- ✓ Execution report
+
+## 📚 Detailed Guides
+
+- **[Getting Started Tutorial](examples/getting-started.md)** - Step-by-step beginner guide
+- **[Workflow Guide](docs/workflow-guide.md)** - Deep dive into each phase
+- **[Quick Reference](docs/quick-reference.md)** - Commands and shortcuts
+- **[Real-World Scenarios](examples/real-world-scenarios.md)** - Practical examples
+- **[FAQ](docs/faq.md)** - Common questions answered
+
+## 🔄 Common Workflows
+
+### Adding a New Feature
+```bash
+# Automatic workflow
+> Add Stripe payment processing to my SaaS application
+
+# Manual control
+> Use docs-researcher to find Stripe Node.js SDK documentation
+> Use implementation-planner to design the payment flow
+> Use code-implementer to add Stripe integration
+```
+
+### Updating Dependencies
+```bash
+> Update React from v17 to v18 in our application
+
+# Claude automatically:
+# 1. Researches React 18 migration guide
+# 2. Plans phased migration approach
+# 3. Implements changes with tests
+```
+
+### Debugging Library Issues
+```bash
+> The MongoDB connection keeps timing out in production
+
+# Claude will:
+# 1. Research MongoDB connection best practices
+# 2. Analyze and provide solutions
+```
+
+## 🚀 Advanced Features
 
 ### Using Task Tool
 For complex, multi-step operations:
-
 ```bash
-# Research multiple libraries
-> Use Task tool with docs-researcher to research both Stripe and SendGrid APIs
+# Research multiple technologies
+> Use Task tool with docs-researcher to research both PostgreSQL and Redis
 
-# Create comprehensive plans
-> Use Task tool with implementation-planner to design microservices architecture
-
-# Execute large implementations
-> Use Task tool with code-implementer to refactor the entire authentication system
+# Complex implementations
+> Use Task tool with code-implementer to refactor the entire auth system
 ```
 
 ### Workflow Shortcuts
 ```bash
-# Let Claude handle the entire workflow
-> Add Redis caching to our application
-# Claude will automatically sequence: research → plan → implement
+# Skip to planning (when you have research)
+> I have the AWS SDK docs. Plan S3 integration.
 
-# Skip to implementation if you have research and plan
-> I have the AWS S3 research and plan ready. Implement it.
-# Claude recognizes existing artifacts and jumps to code-implementer
+# Skip to implementation (when you have both)
+> I have the ResearchPack and Plan. Execute it.
 ```
 
-## 📋 Important Concepts
+## 🏗️ Real-World Examples
 
-### ResearchPack
-A structured document containing:
-- Verified library versions
-- Official API documentation
-- Code examples from authoritative sources
-- Migration guides and breaking changes
-- All sources linked and cited
-
-### Implementation Plan
-A detailed blueprint containing:
-- Specific files to modify or create
-- Step-by-step implementation procedure
-- Test scenarios and acceptance criteria
-- Risk assessment and mitigation
-- Rollback strategy
-
-### Workflow Enforcement
-- **implementation-planner** requires a ResearchPack
-- **code-implementer** requires both ResearchPack and Plan
-- This ensures quality and prevents coding from memory
-
-## 🏗️ Example Workflows
-
-### API Integration
+### E-commerce Payment Integration
 ```
-User: "Add SendGrid email integration to our Node.js app"
-
-1. docs-researcher automatically runs
-   → Produces: SendGrid Node.js SDK ResearchPack
-
-2. implementation-planner creates integration plan
-   → Produces: Step-by-step implementation guide
-
-3. code-implementer executes the plan
-   → Result: Working email integration with tests
+1. Research: "Add Stripe checkout to our store"
+   → Fetches latest Stripe API docs, security requirements
+   
+2. Plan: Creates integration blueprint
+   → Payment flow, webhook handling, error states
+   
+3. Implement: Executes with tests
+   → Secure payment processing with full test coverage
 ```
 
-### Framework Migration
+### Microservices Migration
 ```
-User: "Migrate from Express to Fastify"
-
-1. docs-researcher fetches both framework docs
-   → Produces: Comparative analysis and migration guide
-
-2. implementation-planner designs phased migration
-   → Produces: Risk-minimized migration strategy
-
-3. code-implementer executes incrementally
-   → Result: Successful migration with rollback points
+1. Research: "Migrate monolith to microservices"
+   → Best practices, service mesh options, patterns
+   
+2. Plan: Phased migration strategy
+   → Service boundaries, data separation, rollback points
+   
+3. Implement: Incremental execution
+   → One service at a time with verification
 ```
 
-### Performance Optimization
-```
-User: "Optimize database queries for better performance"
-
-1. docs-researcher gathers optimization guides
-   → Produces: Database-specific optimization techniques
-
-2. implementation-planner identifies bottlenecks
-   → Produces: Targeted optimization plan
-
-3. code-implementer applies optimizations
-   → Result: Measurable performance improvements
-```
-
-## 📚 Documentation
-
-- **[Installation Guide](docs/claude-code-integration.md)** - Detailed setup instructions
-- **[Workflow Best Practices](docs/workflow-best-practices.md)** - Tips for effective workflow usage
-- **[Agent Reference](docs/agent-reference.md)** - Detailed agent capabilities
-- **[Example Scenarios](examples/scenarios.md)** - Real-world workflow examples
+[See more examples →](examples/real-world-scenarios.md)
 
 ## 🤝 Contributing
 
-We welcome contributions to improve the workflow agents!
+We welcome contributions that enhance the workflow! See [CONTRIBUTING.md](CONTRIBUTING.md) for:
+- Agent enhancement guidelines
+- Workflow improvement ideas
+- Documentation contributions
+- Testing and validation
 
-### Areas for Contribution
-- Enhance agent prompts for better accuracy
-- Add workflow examples and patterns
-- Improve documentation and guides
-- Share success stories and use cases
+## 📊 Project Status
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+- ✅ **Stable**: Core workflow agents are production-ready
+- ✅ **Active**: Regular updates and improvements
+- ✅ **Community**: Growing ecosystem of workflow patterns
 
 ## 🔗 Resources
 
-### Claude Code Documentation
+### Documentation
 - [Official Claude Code Docs](https://docs.anthropic.com/claude-code)
-- [Agent System Guide](https://docs.anthropic.com/claude-code/agents)
-- [Task Tool Documentation](https://docs.anthropic.com/claude-code/task-tool)
+- [Workflow Best Practices](docs/workflow-guide.md)
+- [Troubleshooting Guide](docs/faq.md)
 
-### Support
-- [GitHub Issues](https://github.com/irenicj/claude-code-workflow-agents/issues)
-- [Discussions](https://github.com/irenicj/claude-code-workflow-agents/discussions)
+### Community
+- [GitHub Issues](https://github.com/irenicj/claude-code-workflow-agents/issues) - Bug reports
+- [Discussions](https://github.com/irenicj/claude-code-workflow-agents/discussions) - Q&A
+- [Claude Code Community](https://docs.anthropic.com/claude-code/community) - Official community
 
-## ⚖️ License
+## 📝 License
 
 MIT License - see [LICENSE](LICENSE) for details.
 
 ## 🙏 Acknowledgments
 
-Built for developers who value:
-- Documentation-driven development
-- Systematic planning before implementation
-- Minimal, reversible changes
-- Quality over speed
+Built on the principles of:
+- **Documentation-first development** - Never code from memory
+- **Systematic planning** - Think before you type
+- **Minimal changes** - Less code, fewer bugs
+- **Quality over speed** - Do it right the first time
 
 ---
 
-**Research → Plan → Implement: Professional software development with Claude Code** 🚀
+<p align="center">
+  <strong>Research → Plan → Implement</strong><br>
+  <em>The foundation of professional software development with Claude Code</em><br><br>
+  <a href="examples/getting-started.md">Get Started</a> •
+  <a href="docs/workflow-guide.md">Learn More</a> •
+  <a href="https://github.com/irenicj/claude-code-workflow-agents/issues">Get Help</a>
+</p>
