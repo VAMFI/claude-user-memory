@@ -281,19 +281,21 @@ cat > ~/.claude/settings.json << 'SETTINGS_END'
       {
         "hooks": [
           {
-            "type": "script",
-            "script": "mkdir -p .claude/agents docs/references docs/ADR tests && echo '[Divine] Project structure initialized'"
+            "type": "command",
+            "command": "mkdir -p .claude/agents docs/references docs/ADR tests && echo '[Divine] Project structure initialized'"
           }
         ]
       }
     ],
     "PostToolUse": [
       {
-        "matcher": "Edit|Write|MultiEdit",
+        "matcher": {
+          "tools": ["Edit", "Write", "MultiEdit"]
+        },
         "hooks": [
           {
-            "type": "script",
-            "script": "echo '[Divine] Code modified - consider running tests'"
+            "type": "command",
+            "command": "echo '[Divine] Code modified - consider running tests'"
           }
         ]
       }
@@ -302,8 +304,8 @@ cat > ~/.claude/settings.json << 'SETTINGS_END'
       {
         "hooks": [
           {
-            "type": "script",
-            "script": "echo '[Divine] Processing request...'"
+            "type": "command",
+            "command": "echo '[Divine] Processing request...'"
           }
         ]
       }
@@ -312,8 +314,8 @@ cat > ~/.claude/settings.json << 'SETTINGS_END'
       {
         "hooks": [
           {
-            "type": "script",
-            "script": "echo '[Divine] Subagent task completed'"
+            "type": "command",
+            "command": "echo '[Divine] Subagent task completed'"
           }
         ]
       }

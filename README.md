@@ -1,163 +1,154 @@
-# 🕉️ Divine Orchestration for Claude Code CLI
+# 🚀 Claude Code Orchestration System
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Claude Code Compatible](https://img.shields.io/badge/Claude%20Code-Compatible-blue.svg)](https://docs.anthropic.com/claude-code)
-[![Version: 3.0](https://img.shields.io/badge/Version-3.0-green.svg)](NATIVE_ORCHESTRATION_INSTALLER.md)
-[![Blog](https://img.shields.io/badge/Blog-vamfi.org-purple.svg)](https://vamfi.org)
+Transform your Claude Code CLI into an intelligent multi-agent AI orchestration system with a single copy-paste installation.
 
-> **One prompt to transform Claude Code into a divine AI orchestration system using 100% native features**
+## What is This?
 
-## 🚀 Quick Install (30 Seconds)
+An open-source enhancement for Claude Code that adds:
+- **7 Specialized AI Agents** - Each expert in their domain
+- **Intelligent Orchestration** - Automatic agent coordination
+- **Workflow Automation** - Smart task decomposition
+- **Knowledge Persistence** - Memory across sessions
+- **Security First** - Protected sensitive file access
 
-### ⭐ LATEST: Ultimate Installer (Recommended)
-The most comprehensive installer with detailed agent implementations and complete setup:
-→ **[ULTIMATE_CLAUDE_CODE_ORCHESTRATION.md](ULTIMATE_CLAUDE_CODE_ORCHESTRATION.md)**
+## Installation
+
+### Quick Install (Recommended)
+
+1. Open [ORCHESTRATION_INSTALLER.md](./ORCHESTRATION_INSTALLER.md)
+2. Copy everything below the line
+3. Paste into Claude Code
+4. Let Claude install everything automatically
 
 ### Alternative Installers
-- [NATIVE_ORCHESTRATION_INSTALLER.md](NATIVE_ORCHESTRATION_INSTALLER.md) - Simplified version
-- [README_INSTALLATION.md](README_INSTALLATION.md) - Same as Ultimate, different name
 
-### Step 2: Paste into Claude Code
-Open Claude Code and paste the entire content
+- [NATIVE_ORCHESTRATION_INSTALLER.md](./NATIVE_ORCHESTRATION_INSTALLER.md) - Lightweight version with minimal setup
+- [ULTIMATE_CLAUDE_CODE_ORCHESTRATION.md](./ULTIMATE_CLAUDE_CODE_ORCHESTRATION.md) - Full-featured version with extensive documentation
 
-### Step 3: Done! 
-Your Claude Code now has divine orchestration powers! Test it:
+## Specialized Agents
 
-```bash
-claude "Build a complete REST API with authentication"
-claude "Optimize database performance"
-claude "Create comprehensive test suite"
+| Agent | Role | Activation |
+|-------|------|------------|
+| 🎭 **orchestrator** | Manages complex multi-step workflows | "Build complete [system]" |
+| 🔍 **researcher** | Gathers documentation and best practices | "Research [topic]" |
+| 📋 **planner** | Creates detailed implementation plans | "Plan [project]" |
+| ⚡ **implementer** | Writes production-ready code | "Implement [feature]" |
+| 🧪 **tester** | Creates comprehensive test suites | "Write tests for [code]" |
+| 🛡️ **reviewer** | Security and performance audits | "Review [code]" |
+| 💾 **memory** | Preserves knowledge across sessions | "Document [decision]" |
+
+## How It Works
+
+The system automatically detects your intent and activates appropriate agents:
+
+```
+User: "Build a complete authentication system"
+         ↓
+📋 Planner: Creates development plan
+         ↓
+🔍 Researcher: Gathers best practices
+         ↓
+⚡ Implementer: Builds the system
+         ↓
+🧪 Tester: Creates test suite
+         ↓
+🛡️ Reviewer: Security audit
+         ↓
+💾 Memory: Documents decisions
 ```
 
-## ✨ What You Get
-
-This installer configures Claude Code's **native features** to create a divine orchestration experience:
-
-- **7 Specialized AI Agents** - Each expert in their domain
-  - 🎭 **Coordinator** - Orchestrates complex workflows
-  - 🔍 **Researcher** - Gathers documentation and best practices
-  - 🎯 **Planner** - Creates structured implementation plans
-  - ⚡ **Implementer** - Generates production-ready code
-  - 🧪 **Tester** - Creates comprehensive test suites
-  - 🛡️ **Reviewer** - Security and performance audits
-  - 💾 **Memory** - Preserves knowledge across sessions
-
-- **Intelligent Automation**
-  - Pattern-based agent selection
-  - Automatic workflow orchestration
-  - Smart hooks for project setup
-  - Security gates for sensitive files
-
-- **Extended Capabilities**
-  - MCP servers for tool integration
-  - Hierarchical memory system
-  - Task management with TodoWrite
-  - 20+ slash commands
-
-## 🎯 Real-World Examples
-
-### Building a Complete Feature
-```bash
-User: "Build user authentication with JWT and OAuth"
-
-→ Divine Orchestration automatically:
-  1. Researches current best practices
-  2. Creates implementation plan
-  3. Generates secure code
-  4. Writes comprehensive tests
-  5. Reviews for vulnerabilities
-  6. Documents decisions
-```
-
-### Optimizing Performance
-```bash
-User: "Optimize our database queries"
-
-→ System automatically:
-  1. Analyzes current bottlenecks
-  2. Researches optimization patterns
-  3. Implements improvements
-  4. Benchmarks results
-  5. Documents changes
-```
-
-## 🧠 How It Works
-
-This system uses Claude Code's **native capabilities**:
-- **Native Task Tool** - Built-in agent orchestration
-- **Native Subagents** - YAML-configured specialists
-- **Native Hooks** - Automated workflows
-- **Native Memory** - Persistent knowledge
-- **MCP Protocol** - Extended tool access
-
-No external dependencies, no Docker, no complex setup!
-
-## 📚 Documentation
-
-- **[Installation Guide](NATIVE_ORCHESTRATION_INSTALLER.md)** - Complete setup instructions
-- **[Comparison](ORCHESTRATION_COMPARISON.md)** - Why native is better
-- **[Blog Post](https://vamfi.org/blog/divine-orchestration)** - Deep dive into the system
-- **[Examples](examples/)** - Real-world usage patterns
-
-## 🔬 The Discovery
-
-We initially built a complex orchestration system with Docker containers and custom services. Then we discovered Claude Code **already has everything built-in**:
-
-- Native agent orchestration via Task tool
-- Built-in subagent system
-- Comprehensive hooks
-- MCP protocol for extensions
-- Hierarchical memory
-
-**Lesson learned**: Always research official documentation first!
-
-## 🌟 Why This Matters
-
-1. **Zero Dependencies** - Uses only Claude Code's native features
-2. **Future Proof** - Works with all Claude Code updates
-3. **Lightweight** - No external services needed
-4. **Powerful** - Leverages full platform capabilities
-5. **Simple** - One prompt installation
-
-## 🛠️ Maintenance
+## Example Commands
 
 ```bash
-# Check status
-claude /agents list
+# Simple tasks - single agent
+claude "Research React best practices"
+claude "Write tests for user service"
+claude "Review code for security issues"
 
-# View configuration  
-claude /config
-
-# Update agents
-# Edit files in ~/.claude/agents/
+# Complex tasks - automatic orchestration
+claude "Build complete e-commerce platform"
+claude "Create REST API with authentication and tests"
+claude "Refactor codebase for performance"
 ```
 
-## 🤝 Contributing
+## Features
+
+### 🤖 Intelligent Agent Selection
+Automatically chooses the right agents based on your request
+
+### 🔄 Workflow Automation
+Coordinates multiple agents for complex tasks
+
+### 📚 Knowledge Persistence
+Remembers decisions and patterns across sessions
+
+### 🛡️ Security First
+Protected access to sensitive files like .env
+
+### ⚡ Parallel Execution
+Runs independent tasks concurrently for speed
+
+## Verification
+
+After installation, verify with:
+
+```bash
+~/.claude/verify-orchestration.sh
+```
+
+Or check status in Claude Code:
+
+```bash
+claude /doctor
+claude /status
+```
+
+## Project Structure
+
+When you start a new project, the system automatically creates:
+
+```
+your-project/
+├── .claude/
+│   └── agents/          # Project-specific agents
+├── docs/
+│   ├── references/      # Gathered documentation
+│   ├── ADR/            # Architecture decisions
+│   └── patterns/       # Reusable patterns
+├── tests/              # Test suites
+└── CLAUDE.md           # Project memory
+```
+
+## Troubleshooting
+
+### Agents not loading?
+1. Run `~/.claude/verify-orchestration.sh`
+2. Restart Claude Code session
+3. Check `claude /doctor` for issues
+
+### Hooks not working?
+- Ensure settings.json uses `"type": "command"` not `"type": "script"`
+- Check hook scripts are executable: `chmod +x ~/.claude/hooks/*.sh`
+
+## Contributing
 
 We welcome contributions! Please:
-1. Use native Claude Code features
-2. Keep it simple and powerful
-3. Document your changes
-4. Test thoroughly
+1. Fork the repository
+2. Create a feature branch
+3. Submit a pull request
 
-## 📖 Learn More
+## License
 
-- **Website**: [vamfi.org](https://vamfi.org)
-- **Blog Post**: [Divine Orchestration Deep Dive](https://vamfi.org/blog/divine-orchestration)
-- **Claude Code Docs**: [Official Documentation](https://docs.anthropic.com/claude-code)
+MIT License - See [LICENSE](./LICENSE) file
 
-## 📜 License
+## Support
 
-MIT License - Use freely!
-
----
-
-### About VAMFI
-
-[VAMFI](https://vamfi.org) (Virtual Agents Mastered For Industry) is pioneering AI-powered solutions for the future of work. This divine orchestration system represents our commitment to making advanced AI accessible to every developer.
+- 🐛 [Report Issues](https://github.com/vamfi/claude-code-specialized-agents/issues)
+- 💬 [Discussions](https://github.com/vamfi/claude-code-specialized-agents/discussions)
+- 📖 [Documentation](https://github.com/vamfi/claude-code-specialized-agents/wiki)
 
 ---
 
-*"From chaos, divine order emerges through orchestrated intelligence"*
+*"From chaos, order emerges through intelligent orchestration"*
 
-**🕉️ The divine awaits your command.**
+Made with ❤️ by the VAMFI team

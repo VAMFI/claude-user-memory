@@ -2796,19 +2796,21 @@ cat > ~/.claude/settings.json << 'SETTINGS_END'
       {
         "hooks": [
           {
-            "type": "script",
-            "script": "mkdir -p .claude/agents docs/references docs/ADR tests && echo '🚀 Project structure initialized'"
+            "type": "command",
+            "command": "mkdir -p .claude/agents docs/references docs/ADR tests && echo '🚀 Project structure initialized'"
           }
         ]
       }
     ],
     "PostToolUse": [
       {
-        "matcher": "Edit|Write|MultiEdit",
+        "matcher": {
+          "tools": ["Edit", "Write", "MultiEdit"]
+        },
         "hooks": [
           {
-            "type": "script",
-            "script": "echo '💡 Code modified - consider running tests'"
+            "type": "command",
+            "command": "echo '💡 Code modified - consider running tests'"
           }
         ]
       }
