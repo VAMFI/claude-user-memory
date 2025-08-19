@@ -7,13 +7,17 @@
 
 > Transform your Claude Code CLI into a divine orchestration system with one powerful meta-prompt. An advanced multi-agent framework that brings enterprise-grade AI orchestration to every developer.
 
-## 🚀 Quick Start - One-Command Installation
+## 🚀 Quick Start - Native Installation (Recommended)
 
-**Transform your Claude Code in 30 seconds:**
+> **Important Update**: After researching Claude Code's official documentation, we discovered it already has powerful native orchestration capabilities! Use the Native installer for the best experience.
 
-1. Copy the entire content from [DIVINE_ORCHESTRATION_INSTALLER.md](DIVINE_ORCHESTRATION_INSTALLER.md)
+### ✨ Use the Native Installer (Recommended)
+
+**Transform your Claude Code using its native features:**
+
+1. Copy the entire content from [**NATIVE_ORCHESTRATION_INSTALLER.md**](NATIVE_ORCHESTRATION_INSTALLER.md) 
 2. Paste it into Claude Code
-3. Watch as your CLI transforms into a divine orchestration system
+3. Watch as your CLI configures native orchestration
 
 ```bash
 # After installation, test with:
@@ -22,20 +26,40 @@ claude "Optimize database performance"
 claude "Create comprehensive test suite"
 ```
 
-The system will automatically:
-- ✨ Install 7 specialized agents (coordinator, planner, researcher, implementer, tester, reviewer, memory)
-- 🔧 Configure intelligent hooks for session management and security
-- 📚 Setup project templates and workflows
-- 🛡️ Enable security gates and auto-formatting
-- 🎯 Activate pattern-based agent invocation
+This configures Claude Code's **native features**:
+- ✅ Native Task tool for agent orchestration
+- ✅ Native subagent system in `.claude/agents/`
+- ✅ Native hooks (SessionStart, PostToolUse, etc.)
+- ✅ Native memory with CLAUDE.md files
+- ✅ MCP servers for extended capabilities
+- ✅ Native TodoWrite for task management
+
+### ⚠️ Legacy Installer (Not Recommended)
+
+The original [DIVINE_ORCHESTRATION_INSTALLER.md](DIVINE_ORCHESTRATION_INSTALLER.md) attempted to rebuild features that Claude Code already has natively. See [comparison](ORCHESTRATION_COMPARISON.md) for details.
+
+## 🔍 Important Discovery
+
+**We initially built a complex orchestration system, then discovered Claude Code already has everything natively!**
+
+After deep research into Claude Code's official documentation, we found:
+- Claude Code has a native Task tool for agent orchestration
+- Subagents are built-in with YAML configuration
+- MCP (Model Context Protocol) provides extensibility
+- Hooks system is comprehensive and powerful
+- Memory management is hierarchical and sophisticated
+
+**Lesson**: Always research official documentation first. What seems missing might already exist natively.
+
+[Read the full comparison](ORCHESTRATION_COMPARISON.md) between our custom vs native approach.
 
 ## 📖 Core Philosophy
 
-This framework evolves beyond a simple linear workflow into a sophisticated, hierarchical system built on three core principles:
+This framework follows the divine trinity of development:
 
-1.  **Orchestration**: A high-level `chief-architect` agent analyzes complex goals, creates a strategic plan, and delegates tasks to a team of specialists.
-2.  **Specialization**: Each specialist agent (e.g., for research, coding, security) is an expert in its domain, ensuring high-quality work on each sub-task.
-3.  **Knowledge**: A shared `knowledge-core.md` file acts as a persistent memory, allowing the system to learn from past decisions and maintain consistency.
+1. **Research** 📚 - Gather authoritative documentation before any implementation
+2. **Plan** 🎯 - Create structured plans with clear milestones and acceptance criteria  
+3. **Act** ⚡ - Implement with precision, always including tests and verification
 
 ## ✨ The New Workflow: Orchestration in Action
 
