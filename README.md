@@ -9,8 +9,13 @@
 
 ## 🚀 Quick Install (30 Seconds)
 
-### Step 1: Copy the Installer
-Copy ALL content from → **[NATIVE_ORCHESTRATION_INSTALLER.md](NATIVE_ORCHESTRATION_INSTALLER.md)**
+### ⭐ LATEST: Ultimate Installer (Recommended)
+The most comprehensive installer with detailed agent implementations and complete setup:
+→ **[ULTIMATE_CLAUDE_CODE_ORCHESTRATION.md](ULTIMATE_CLAUDE_CODE_ORCHESTRATION.md)**
+
+### Alternative Installers
+- [NATIVE_ORCHESTRATION_INSTALLER.md](NATIVE_ORCHESTRATION_INSTALLER.md) - Simplified version
+- [README_INSTALLATION.md](README_INSTALLATION.md) - Same as Ultimate, different name
 
 ### Step 2: Paste into Claude Code
 Open Claude Code and paste the entire content
