@@ -1,10 +1,33 @@
-# ⭐ Claude Code Specialized Agents
+# 🕉️ Divine Orchestration System for Claude Code
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code Compatible](https://img.shields.io/badge/Claude%20Code-Compatible-blue.svg)](https://docs.anthropic.com/claude-code)
-[![Philosophy: Orchestrate→Specialize→Learn](https://img.shields.io/badge/Philosophy-Orchestrate→Specialize→Learn-purple.svg)](docs/01_philosophy.md)
+[![Philosophy: Research→Plan→Act](https://img.shields.io/badge/Philosophy-Research→Plan→Act-purple.svg)](docs/01_philosophy.md)
+[![Version: 2.0](https://img.shields.io/badge/Version-2.0-green.svg)](DIVINE_ORCHESTRATION_INSTALLER.md)
 
-> An advanced, multi-agent framework for the [Claude Code CLI](https://docs.anthropic.com/claude-code) that uses an orchestrator to manage a team of specialist agents, enabling them to tackle complex software development tasks with persistent memory and self-correction capabilities.
+> Transform your Claude Code CLI into a divine orchestration system with one powerful meta-prompt. An advanced multi-agent framework that brings enterprise-grade AI orchestration to every developer.
+
+## 🚀 Quick Start - One-Command Installation
+
+**Transform your Claude Code in 30 seconds:**
+
+1. Copy the entire content from [DIVINE_ORCHESTRATION_INSTALLER.md](DIVINE_ORCHESTRATION_INSTALLER.md)
+2. Paste it into Claude Code
+3. Watch as your CLI transforms into a divine orchestration system
+
+```bash
+# After installation, test with:
+claude "Build a complete REST API with authentication"
+claude "Optimize database performance"  
+claude "Create comprehensive test suite"
+```
+
+The system will automatically:
+- ✨ Install 7 specialized agents (coordinator, planner, researcher, implementer, tester, reviewer, memory)
+- 🔧 Configure intelligent hooks for session management and security
+- 📚 Setup project templates and workflows
+- 🛡️ Enable security gates and auto-formatting
+- 🎯 Activate pattern-based agent invocation
 
 ## 📖 Core Philosophy
 
