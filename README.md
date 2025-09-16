@@ -143,9 +143,8 @@ MIT License - See [LICENSE](./LICENSE) file
 
 ## Support
 
-- 🐛 [Report Issues](https://github.com/vamfi/claude-code-specialized-agents/issues)
-- 💬 [Discussions](https://github.com/vamfi/claude-code-specialized-agents/discussions)
-- 📖 [Documentation](https://github.com/vamfi/claude-code-specialized-agents/wiki)
+- 💬 [Discussions]([https://github.com/vamfi/claude-code-specialized-agents/discussions](https://github.com/VAMFI/claude-user-memory/discussions))
+
 
 ---
 
