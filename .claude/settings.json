@@ -4,46 +4,49 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": {"tools": ["Task"]},
+        "matcher": "Task",
         "hooks": [
           {
             "type": "command",
             "command": ".claude/hooks/validate-research-pack.sh",
-            "description": "Validates ResearchPack before planning phase"
+            "description": "Validates ResearchPack before planning phase",
+            "timeout": 60
           }
         ]
       },
       {
-        "matcher": {"tools": ["Task"]},
+        "matcher": "Task",
         "hooks": [
           {
             "type": "command",
             "command": ".claude/hooks/validate-implementation-plan.sh",
-            "description": "Validates Implementation Plan before coding"
+            "description": "Validates Implementation Plan before coding",
+            "timeout": 60
           }
         ]
       }
     ],
     "PostToolUse": [
       {
-        "matcher": {"tools": ["Write", "Edit"]},
+        "matcher": "Write|Edit",
         "hooks": [
           {
             "type": "command",
             "command": ".claude/hooks/auto-format.sh",
-            "description": "Auto-format code after file edits"
+            "description": "Auto-format code after file edits",
+            "timeout": 30
           }
         ]
       }
     ],
     "Stop": [
       {
-        "matcher": {"tools": ["*"]},
         "hooks": [
           {
             "type": "command",
             "command": ".claude/hooks/update-knowledge-core.sh",
-            "description": "Capture patterns at end of session"
+            "description": "Capture patterns at end of session",
+            "timeout": 60
           }
         ]
       }
