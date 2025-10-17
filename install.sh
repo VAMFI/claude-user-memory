@@ -32,7 +32,12 @@ fi
 
 # Install to home directory
 echo "📋 Installing workflow system to $CLAUDE_TARGET..."
-cp -r "$CLAUDE_SOURCE" "$CLAUDE_TARGET"
+# Remove existing directory if it exists (already backed up)
+rm -rf "$CLAUDE_TARGET"
+# Create target directory
+mkdir -p "$CLAUDE_TARGET"
+# Copy contents of .claude to ~/.claude
+cp -r "$CLAUDE_SOURCE"/* "$CLAUDE_TARGET"/
 echo "   ✅ Files copied!"
 echo ""
 
