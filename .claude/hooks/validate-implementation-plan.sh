@@ -100,7 +100,7 @@ else
 fi
 
 # Check 7: Minimal changes (5 pts)
-FILE_CHANGE_COUNT=$(grep -cE "^\s*[-*]\s*\`.*\`" "$PLAN_FILE" 2>/dev/null || echo 10)
+FILE_CHANGE_COUNT=$(grep -cE "^\s*[-*]\s*\\\`.*\\\`" "$PLAN_FILE" 2>/dev/null || echo 10)
 if [ "$FILE_CHANGE_COUNT" -le 10 ]; then
     SCORE=$((SCORE + 5))
 elif [ "$FILE_CHANGE_COUNT" -le 20 ]; then
@@ -115,7 +115,7 @@ fi
 
 # Check 8: Steps are actionable (10 pts)
 # Look for specific file paths and code snippets in steps
-CODE_IN_STEPS=$(grep -cE "\`\`\`|^\s*\`[^`]+\`" "$PLAN_FILE" 2>/dev/null || echo 0)
+CODE_IN_STEPS=$(grep -cE "\\\`\\\`\\\`|^\s*\\\`[^\\\`]+\\\`" "$PLAN_FILE" 2>/dev/null || echo 0)
 if [ "$CODE_IN_STEPS" -ge "$STEP_COUNT" ]; then
     SCORE=$((SCORE + 10))
 elif [ "$CODE_IN_STEPS" -gt 0 ]; then

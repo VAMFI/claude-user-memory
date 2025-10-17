@@ -1,52 +1,51 @@
 {
-  "$schema": "https://cdn.jsdelivr.net/npm/@anthropic-ai/claude-code@latest/schemas/settings.schema.json",
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "version": "2.0",
   "hooks": {
     "PreToolUse": [
       {
-        "name": "validate-research-before-planning",
-        "description": "Ensures ResearchPack meets quality standards before planning phase",
-        "matcher": "implementation-planner",
-        "command": ".claude/hooks/validate-research-pack.sh",
-        "enabled": true,
-        "action": "warn"
+        "matcher": {"tools": ["Task"]},
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/validate-research-pack.sh",
+            "description": "Validates ResearchPack before planning phase"
+          }
+        ]
       },
       {
-        "name": "validate-plan-before-implementation",
-        "description": "Ensures Implementation Plan meets quality standards before coding",
-        "matcher": "code-implementer",
-        "command": ".claude/hooks/validate-implementation-plan.sh",
-        "enabled": true,
-        "action": "warn"
+        "matcher": {"tools": ["Task"]},
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/validate-implementation-plan.sh",
+            "description": "Validates Implementation Plan before coding"
+          }
+        ]
       }
     ],
     "PostToolUse": [
       {
-        "name": "auto-format-code",
-        "description": "Automatically format code after file edits",
-        "matcher": "Write|Edit",
-        "command": ".claude/hooks/auto-format.sh",
-        "enabled": true,
-        "action": "continue"
-      },
-      {
-        "name": "run-tests-after-implementation",
-        "description": "Automatically run tests after code changes",
-        "matcher": "code-implementer",
-        "command": ".claude/hooks/run-tests.sh",
-        "enabled": false,
-        "action": "warn",
-        "comment": "Disabled by default - enable when test suite is fast"
+        "matcher": {"tools": ["Write", "Edit"]},
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/auto-format.sh",
+            "description": "Auto-format code after file edits"
+          }
+        ]
       }
     ],
     "Stop": [
       {
-        "name": "update-knowledge-core",
-        "description": "Capture patterns and update knowledge-core.md at end of session",
-        "matcher": "*",
-        "command": ".claude/hooks/update-knowledge-core.sh",
-        "enabled": true,
-        "action": "continue"
+        "matcher": {"tools": ["*"]},
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/update-knowledge-core.sh",
+            "description": "Capture patterns at end of session"
+          }
+        ]
       }
     ]
   },

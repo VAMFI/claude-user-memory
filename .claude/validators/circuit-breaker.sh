@@ -22,7 +22,8 @@ fi
 # Function to get failure count for agent
 get_failure_count() {
     local agent="$1"
-    grep "\"$agent\":" "$CIRCUIT_FILE" | grep -oE '[0-9]+' | tail -1 || echo 0
+    local count=$(grep "\"$agent\":" "$CIRCUIT_FILE" 2>/dev/null | grep -oE '[0-9]+' | tail -1)
+    echo "${count:-0}"
 }
 
 # Function to increment failure count
@@ -52,6 +53,7 @@ reset_circuit() {
 is_circuit_open() {
     local agent="$1"
     local count=$(get_failure_count "$agent")
+    count=${count:-0}  # Default to 0 if empty
     [ "$count" -ge "$MAX_FAILURES" ]
 }
 
