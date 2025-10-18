@@ -2,6 +2,18 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "version": "2.0",
   "hooks": {
+    "PreAgentSpawn": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/check-agent-economics.sh",
+            "description": "Check multi-agent economic viability (15x cost requires 15x+ value)",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Task",
@@ -35,6 +47,17 @@
             "command": ".claude/hooks/auto-format.sh",
             "description": "Auto-format code after file edits",
             "timeout": 30
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Grep|WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/suggest-context-edits.sh",
+            "description": "Suggest context optimizations to prevent context rot",
+            "timeout": 10
           }
         ]
       }

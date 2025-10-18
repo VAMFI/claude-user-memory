@@ -1,0 +1,89 @@
+{
+  "name": "agentic-substrate",
+  "displayName": "Agentic Substrate - Claude Code Enhancement",
+  "version": "3.0.0",
+  "description": "The foundational layer for Claude Code superintelligence. Adds Research→Plan→Implement workflow, multi-agent coordination, context engineering, and think protocols based on Anthropic's engineering philosophy.",
+  "author": {
+    "name": "VAMFI Inc.",
+    "email": "support@vamfi.org",
+    "url": "https://vamfi.org"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VAMFI/claude-user-memory"
+  },
+  "categories": ["workflow", "agents", "productivity", "quality"],
+  "keywords": [
+    "workflow",
+    "agents",
+    "research",
+    "planning",
+    "implementation",
+    "context-engineering",
+    "think-tool",
+    "multi-agent",
+    "quality-gates",
+    "TDD",
+    "anthropic",
+    "agentic-substrate"
+  ],
+  "main": "install.sh",
+  "install": {
+    "type": "shell",
+    "command": "./install.sh",
+    "destination": "~/.claude"
+  },
+  "icon": ".mcpb/icon.png",
+  "screenshots": [
+    ".mcpb/screenshot-workflow.png",
+    ".mcpb/screenshot-agents.png",
+    ".mcpb/screenshot-context.png"
+  ],
+  "anthropic": {
+    "minVersion": "2.0.20",
+    "capabilities": [
+      "agents",
+      "skills",
+      "commands",
+      "hooks",
+      "memory"
+    ]
+  },
+  "files": [
+    ".claude/**/*",
+    "install.sh",
+    "README.md",
+    "LICENSE",
+    "knowledge-core.md",
+    "CLAUDE.md"
+  ],
+  "features": {
+    "agents": {
+      "count": 4,
+      "names": ["chief-architect", "docs-researcher", "implementation-planner", "code-implementer"],
+      "description": "Specialized agents for Research→Plan→Implement workflow"
+    },
+    "skills": {
+      "count": 5,
+      "names": ["research-methodology", "planning-methodology", "quality-validation", "pattern-recognition", "context-engineering"],
+      "description": "Auto-invoked capabilities that enhance agent performance"
+    },
+    "commands": {
+      "count": 5,
+      "names": ["/research", "/plan", "/implement", "/workflow", "/context"],
+      "description": "Quick commands for workflow automation"
+    },
+    "hooks": {
+      "count": 8,
+      "description": "Quality gates and economic viability checks"
+    }
+  },
+  "performance": {
+    "researchAccuracy": "49-67% improvement (contextual retrieval)",
+    "complexTasks": "54% improvement (think tool)",
+    "contextOptimization": "39% improvement, 84% token reduction",
+    "multiAgent": "90.2% performance gain, 90% time reduction",
+    "typicalFeature": "10-25 minutes (vs 55-120 minutes without)"
+  }
+}

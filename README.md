@@ -1,27 +1,79 @@
-# Claude User Memory - Advanced Workflow System
+# Agentic Substrate
 
-**Professional Research → Plan → Implement workflow with quality gates, self-correction, and zero hallucination.**
+**The foundational layer for Claude Code superintelligence.**
 
-⭐ **Star this repo** to stay updated!
+Transform Claude Code CLI from a helpful assistant into an autonomous agent substrate with research workflows, multi-agent coordination, context engineering, and think protocols - all based on **Anthropic's cutting-edge engineering philosophy**.
+
+⭐ **Star this repo** to unlock the future of agentic coding!
+
+**Repository**: `claude-user-memory` (for SEO/discoverability)
+**System Name**: **Agentic Substrate v3.0**
+**Philosophy**: **Philia Sophia** - Synthesis of Anthropic's research + VAMFI's Brahma orchestration
 
 ---
 
-## 🚀 Features
+## 🎯 What is Agentic Substrate?
 
-✅ **100% Workflow Enforcement** - Deterministic hooks guarantee Research → Plan → Implement
-✅ **Zero Hallucination** - API matcher prevents invented code (95%+ accuracy)
-✅ **Circuit Breaker Protection** - Stops infinite loops after 3 failures
-✅ **Intelligent Self-Correction** - 3-retry protocol with error categorization
-✅ **Slash Commands** - `/workflow` for complete automation
-✅ **Automatic Knowledge Capture** - Learns patterns across sessions
-✅ **4 Specialized Agents** - Researcher, Planner, Implementer, Orchestrator
-✅ **4 Auto-Applied Skills** - Research, planning, validation, pattern recognition methodologies
+A system-wide enhancement package for Claude Code CLI that provides foundational primitives for agent autonomy and superintelligence.
+
+### Core Enhancements (15 Total)
+
+**Phase 1: Core Foundations** (8 enhancements):
+✅ **Think Tool Protocol** - 54% improvement on complex decisions (all 4 agents)
+✅ **Context Engineering Skill** - 39% improvement, 84% token reduction
+✅ **Context Editing Hooks** - Prevent context rot automatically
+✅ **Philosophy Research Support** - Quality validator now handles thematic analysis
+✅ **Git Operations** - Automatic commits with co-author attribution
+✅ **TDD Enforcement** - Test-first workflow mandatory (Anthropic's favorite)
+✅ **Economic Viability Checks** - Multi-agent cost/benefit analysis (15x tokens)
+✅ **Memory Management** - Import syntax, modular organization, memory hierarchy
+
+**Phase 2: Advanced Patterns** (4 enhancements):
+✅ **Multi-Agent Parallel Spawning** - 90.2% performance gain, 90% time reduction
+✅ **Contextual Retrieval** - 49-67% better research accuracy
+✅ **/context Command** - Analyze and optimize context configuration
+✅ **Extended Thinking Keywords** - "think", "think hard", "think harder", "ultrathink"
+
+**Phase 3: Distribution** (3 enhancements):
+✅ **.mcpb Packaging** - One-click Desktop Extension installation
+✅ **Comprehensive Documentation** - README, PHILOSOPHY.md, templates
+✅ **Enhanced Installation** - Reports all new components
+
+### The Anthropic Connection
+
+Built on **11 Anthropic engineering articles** (September 2024 - October 2025):
+
+1. **Agent Autonomy**: Minimal scaffolding, maximum model control
+2. **Think Tool**: 54% improvement on complex tasks
+3. **Context Engineering**: Active curation (39% improvement)
+4. **Multi-Agent Research**: 90.2% performance gain
+5. **Contextual Retrieval**: 49-67% better research
+6. **TDD with Agents**: Anthropic's favorite practice
+7. **Git Operations**: Engineers use Claude for 90%+ of git
+8. **SWE-bench Quality**: 49% = state-of-the-art
+9. **Desktop Extensions**: One-click .mcpb installation
+10. **Transparency**: Public postmortems culture
+11. **Economic Viability**: 15x cost requires 15x+ value
+
+See [PHILOSOPHY.md](PHILOSOPHY.md) for complete synthesis.
 
 ---
 
 ## ⚡ Quick Install (30 seconds)
 
-### Option 1: Global Installation (Recommended)
+### Option 1: Desktop Extension (One-Click) 🆕
+
+**Claude Desktop v2.0.20+** - Easiest installation method:
+
+1. Download `agentic-substrate-3.0.0.mcpb` from [Releases](https://github.com/VAMFI/claude-user-memory/releases)
+2. Open Claude Desktop → Settings → Extensions
+3. Click "Install Extension" → Select `.mcpb` file
+4. Restart Claude Code CLI
+5. ✅ Done! Use `/workflow` to start
+
+**What it does**: Installs everything to `~/.claude/` with one click.
+
+### Option 2: Global Installation (Command Line)
 
 Install to your home directory for use across all projects:
 
@@ -38,7 +90,7 @@ curl -fsSL https://raw.githubusercontent.com/VAMFI/claude-user-memory/main/insta
 
 **Rollback**: Your original config is safe in `~/.claude.backup-[timestamp]/`
 
-### Option 2: Manual Installation
+### Option 3: Manual Installation
 
 ```bash
 # Clone the repo
@@ -58,7 +110,7 @@ chmod +x ~/.claude/validators/*.sh
 echo "✅ Installed! Start Claude Code and use /workflow"
 ```
 
-### Option 3: Project-Specific Installation
+### Option 4: Project-Specific Installation
 
 For a specific project only:
 

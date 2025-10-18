@@ -26,11 +26,50 @@ Claude will automatically invoke this skill when:
 
 ## Validation Targets
 
-### 1. ResearchPack Validation
+### Research Type Detection
+
+Before scoring, detect research type to apply appropriate rubric:
+
+#### Type 1: API/Library Research
+**Indicators**:
+- Contains API endpoints, function signatures, method calls
+- Code examples with specific library imports
+- Configuration/setup steps for external dependencies
+- Version numbers for libraries/frameworks
+
+**Scoring**: Use API Research Rubric (80+ pass threshold)
+
+#### Type 2: Philosophy Research
+**Indicators**:
+- Contains themes, principles, patterns, methodologies
+- Thematic organization (Theme 1, Theme 2, etc.)
+- Cross-source synthesis
+- Engineering philosophy or best practices analysis
+- Pattern extraction from multiple sources
+
+**Scoring**: Use Philosophy Research Rubric (70+ pass threshold)
+
+**Examples**: Engineering philosophy, architectural patterns, best practices, methodology research
+
+#### Type 3: Pattern Research
+**Indicators**:
+- Contains code patterns, design patterns, anti-patterns
+- Architectural decisions and tradeoffs
+- Implementation strategies
+- Performance optimization patterns
+
+**Scoring**: Use Pattern Research Rubric (70+ pass threshold)
+
+**Why Different Thresholds?**
+- API research is more objective (APIs exist or don't, versions are correct or wrong)
+- Philosophy research is more subjective (thematic organization, synthesis quality)
+- Philosophy research provides strategic value even if not as "complete" as API docs
+
+### 1. ResearchPack Validation - API/Library Type
 
 **Purpose**: Ensure research is complete, accurate, and actionable before planning
 
-**Validation Rubric** (100 points total):
+**Validation Rubric for API/Library Research** (100 points total, 80+ pass threshold):
 
 #### Completeness (40 points)
 - ✓ Library/API identified with version (10 pts)
@@ -124,6 +163,132 @@ def validate_research_pack(research_pack):
 **If score >= 80**: ✅ **APPROVED** - Proceed to implementation-planner
 
 **If score < 80**: ❌ **BLOCKED** - Fix critical/major defects and re-validate
+```
+
+### 1b. ResearchPack Validation - Philosophy Research Type
+
+**Purpose**: Ensure philosophy/pattern research is well-organized, sourced, and actionable
+
+**Validation Rubric for Philosophy Research** (100 points total, 70+ pass threshold):
+
+#### Thematic Organization (30 points)
+- ✓ Clear themes/patterns identified with descriptive names (10 pts)
+  - Check: Each theme has a clear title and scope
+  - Examples: "Agent Architecture", "Context Engineering", "Multi-Agent Patterns"
+- ✓ Each theme well-documented with examples and evidence (10 pts)
+  - Check: Themes have sub-sections, not just bullet points
+  - Check: Examples or quotes support each theme
+- ✓ Cross-theme synthesis and relationships explained (10 pts)
+  - Check: "How patterns connect" or "Synthesis" section present
+  - Check: Explains how themes relate or build on each other
+
+#### Source Quality (20 points)
+- ✓ Official/authoritative sources cited (10 pts)
+  - Check: URLs from official domains (anthropic.com, docs.*, official repos)
+  - Examples: Anthropic blog, official documentation, framework guides
+- ✓ Multiple sources per theme (5 pts)
+  - Check: Each major theme cites 2+ sources
+  - No single-source themes (indicates narrow research)
+- ✓ Date/version information when applicable (5 pts)
+  - Check: Article dates, release versions, "as of [date]" present
+  - Helps determine if research is current
+
+#### Actionable Insights (30 points)
+- ✓ Implementation checklist provided (15 pts)
+  - Check: Concrete next steps for applying research
+  - Format: "Enhancement 1.1:", "Step 1:", "Action Items"
+  - Examples: "Add think protocol to agents", "Create context-engineering skill"
+- ✓ Specific patterns extracted and documented (10 pts)
+  - Check: Patterns section with clear pattern names
+  - Check: Each pattern has description and when to use
+  - Examples: "Pattern 1: Minimal Scaffolding", "Pattern 2: Think Before Act"
+- ✓ Open questions identified for planning phase (5 pts)
+  - Check: Research acknowledges what's unknown or needs deciding
+  - Examples: "Which agents need think tool?", "When to use multi-agent?"
+
+#### Depth & Coverage (20 points)
+- ✓ Comprehensive coverage of topic (10 pts)
+  - Check: Multiple aspects of topic covered
+  - Check: Not surface-level (goes beyond basic definitions)
+  - Examples: 7+ themes, 10+ sources for major topics
+- ✓ Sufficient detail for implementation (10 pts)
+  - Check: Enough context to make decisions
+  - Check: Includes performance metrics, tradeoffs, examples
+  - Examples: "39% improvement", "15x cost", specific numbers
+
+**Passing Score**: 70/100 or higher
+
+**Why Lower Threshold Than API Research?**
+
+Philosophy research is inherently more subjective and thematic. A well-organized thematic analysis with 7 patterns from 11 sources (like the Anthropic ResearchPack) deserves to pass even if it doesn't have "3+ API endpoints with exact signatures."
+
+Philosophy research provides **strategic value**:
+- Informs how to build, not just what APIs to call
+- Establishes principles that apply across implementations
+- Captures institutional knowledge and best practices
+- Enables better decision-making during planning
+
+**Example: Anthropic Engineering Philosophy ResearchPack**
+
+Would score:
+- **Thematic Organization**: 30/30 (7 clear themes, cross-synthesis section)
+- **Source Quality**: 20/20 (11 official Anthropic articles, all dated)
+- **Actionable Insights**: 28/30 (Implementation checklist present, 7 patterns extracted, open questions listed)
+- **Depth & Coverage**: 18/20 (Comprehensive, but more examples would help)
+- **Total**: 96/100 ✅ **PASS** (well above 70 threshold)
+
+**Output Format**:
+
+```markdown
+## 📊 ResearchPack Validation Report (Philosophy Research)
+
+**Overall Score**: [X]/100
+**Grade**: [PASS ✅ / FAIL ❌]
+**Research Type**: Philosophy/Pattern Research
+
+### Breakdown
+
+**Thematic Organization** ([X]/30):
+- Clear themes: [Y/10] [✓/✗]
+- Theme documentation: [Y/10] [✓/✗]
+- Cross-synthesis: [Y/10] [✓/✗]
+
+**Source Quality** ([X]/20):
+- Official sources: [Y/10] [✓/✗]
+- Multiple sources per theme: [Y/5] [✓/✗]
+- Date/version info: [Y/5] [✓/✗]
+
+**Actionable Insights** ([X]/30):
+- Implementation checklist: [Y/15] [✓/✗]
+- Patterns extracted: [Y/10] [✓/✗]
+- Open questions: [Y/5] [✓/✗]
+
+**Depth & Coverage** ([X]/20):
+- Comprehensive coverage: [Y/10] [✓/✗]
+- Sufficient detail: [Y/10] [✓/✗]
+
+### Defects Found ([N])
+
+#### CRITICAL (blocks implementation)
+1. [Defect - if no themes identified, no patterns extracted, etc.]
+
+#### MAJOR (should fix before proceeding)
+1. [Defect - if only 1 source per theme, missing implementation checklist, etc.]
+
+#### MINOR (nice to have)
+1. [Defect - if some themes lack examples, could use more sources, etc.]
+
+### Recommendations
+
+**To reach passing score** (if < 70):
+1. [Specific action to take]
+2. [Another action]
+
+**If score >= 70**: ✅ **APPROVED** - Proceed to implementation-planner
+
+**If score < 70**: ❌ **BLOCKED** - Fix critical/major defects and re-validate
+
+**Philosophy Research Note**: This research provides strategic guidance for implementation. Even if specific API details are needed later, the principles and patterns documented here are valuable for decision-making.
 ```
 
 ### 2. Implementation Plan Validation

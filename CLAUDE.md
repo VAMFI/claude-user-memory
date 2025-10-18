@@ -1,63 +1,43 @@
-# Claude Code Workflow Agents - Project Configuration
+# Agentic Substrate - Advanced Claude Code Enhancement
 
-This repository contains the official workflow agents for Claude Code CLI, implementing a systematic Research → Plan → Implement methodology.
+This repository contains the **Agentic Substrate** - the foundational layer for Claude Code superintelligence.
 
-## 🎯 Agent Philosophy
+## System Version
+**Agentic Substrate v3.0** (Project Brahma Demo8)
 
-Our agents follow a strict three-phase workflow designed to ensure:
-- **Accuracy**: All code is based on current, official documentation
-- **Safety**: Changes are minimal, reversible, and well-planned
-- **Quality**: Every implementation is tested and verified
+## Core Components
 
-## 🤖 The Agent Team
+### Agents (4 specialists)
+@.claude/templates/agents-overview.md
 
-This project uses a multi-agent system, led by a Chief Architect that orchestrates a team of specialists.
+### Skills (5 auto-invoked capabilities)
+@.claude/templates/skills-overview.md
 
-### 1. chief-architect (Orchestrator)
-- **Purpose**: Decomposes complex goals and manages the workflow across specialist agents.
-- **Trigger keywords**: For broad or multi-faceted goals like "add user authentication" or "refactor the billing system."
-- **Output**: A completed project with a full report synthesizing the work of all involved agents.
+### Workflows (Research → Plan → Implement + Advanced Patterns)
+@.claude/templates/workflows-overview.md
 
-### Specialist Agents (Managed by Chief Architect)
+## Memory Management
 
-#### a. docs-researcher
-- **Purpose**: Fetches current, version-accurate documentation.
-- **Output**: ResearchPack with authoritative sources.
+### Quick Commands
+- `#` - Add memory quickly (prompts for location)
+- `/memory` - Edit memory files in system editor
+- `/init` - Bootstrap CLAUDE.md for new projects
+- `/context` - Analyze and optimize context configuration
 
-#### b. implementation-planner
-- **Purpose**: Creates detailed implementation blueprints from research.
-- **Output**: Step-by-step Implementation Plan.
+### Memory Hierarchy (4 levels)
+1. **Enterprise** (`/Library/Application Support/ClaudeCode/CLAUDE.md`) - Organization-wide
+2. **Project** (this file) - Team-shared instructions
+3. **User** (`~/.claude/CLAUDE.md`) - Personal preferences (all projects)
+4. **Imports** - Modular organization via `@path/to/file.md` (max 5 hops)
 
-#### c. code-implementer
-- **Purpose**: Executes precise code changes based on a plan and now features a **self-correction loop** to attempt to fix its own errors if tests fail.
-- **Output**: Working, tested code with test results.
-
-
-
-## ✨ Enhanced Capabilities
-
-This agent system has been upgraded with two key mechanisms:
-
-1.  **Project Knowledge Core (`knowledge-core.md`)**: A central file that acts as the project's long-term memory. All agents read this file before acting and suggest updates after making key architectural decisions, ensuring consistency and learning over time.
-2.  **Self-Correction Loop**: The `code-implementer` can now automatically run tests and, if they fail, analyze the error and attempt to fix its own code once before reporting failure. This increases autonomy and resilience.
-
-## 🔄 The Orchestration Workflow
-
-The agents follow a coordinated workflow managed by the `chief-architect`:
-```
-User Goal → chief-architect → Decomposes & Delegates → (docs-researcher → implementation-planner → code-implementer) → Synthesized Result
-```
-- For complex tasks, the `chief-architect` manages the entire lifecycle.
-- For simple, focused tasks, you can still invoke specialist agents directly.
-
-The agents enforce dependencies:
-```
-docs-researcher → ResearchPack → implementation-planner → Plan → code-implementer → Code
+### Import Syntax
+```markdown
+@.claude/templates/agents-overview.md     # Relative path
+@~/.claude/my-preferences.md              # User home directory
+@/absolute/path/to/file.md                # Absolute path
 ```
 
-- You cannot plan without research
-- You cannot implement without a plan
-- This prevents coding from potentially outdated memory
+**Not evaluated in code spans/blocks** (avoids collisions)
 
 ## 💡 Usage in Claude Code
 
@@ -77,6 +57,68 @@ When you use Claude Code in this project:
 > I have the research ready, create a plan
 > I have both research and plan, implement it
 ```
+
+## 🧠 Extended Thinking Modes
+
+Claude Code supports extended thinking for complex problems. Trigger by including keywords in your request:
+
+### Thinking Levels
+
+**"think"** - Standard extended reasoning (30-60 seconds):
+```bash
+> Think about the best way to structure this API
+```
+- **Use for**: Routine planning, standard decisions
+- **Time**: 30-60 seconds additional computation
+- **Best for**: Clear problems with known patterns
+
+**"think hard"** - Deep reasoning (1-2 minutes):
+```bash
+> Think hard about the architecture for multi-tenant auth
+```
+- **Use for**: Multiple valid approaches, unclear tradeoffs
+- **Time**: 1-2 minutes additional computation
+- **Best for**: Complex design decisions
+
+**"think harder"** - Very deep reasoning (2-4 minutes):
+```bash
+> Think harder about scaling this to 1M users
+```
+- **Use for**: Novel problems, high-stakes decisions
+- **Time**: 2-4 minutes additional computation
+- **Best for**: Performance optimization, security-critical design
+
+**"ultrathink"** - Maximum reasoning (5-10 minutes):
+```bash
+> Ultrathink the entire system architecture before planning
+```
+- **Use for**: Multi-agent coordination, critical architecture, ResearchPack analysis
+- **Time**: 5-10 minutes additional computation
+- **Best for**: Highest-stakes decisions, complex multi-domain problems
+
+### Performance Impact
+
+From Anthropic research:
+- **54% improvement** on complex tasks
+- **1.6% SWE-bench improvement** just from think tool
+- **TAU-bench retail**: 62.6% → 69.2%
+- **TAU-bench airline**: 36.0% → 46.0%
+
+### When Agents Auto-Trigger Thinking
+
+All agents automatically use extended thinking for:
+- Complex tool operations (irreversible effects)
+- Long chains of tool outputs
+- Sequential decisions where mistakes are costly
+- Multiple valid approaches with unclear tradeoffs
+
+### Combine with Workflows
+
+```bash
+> /workflow add payment processing - ultrathink the architecture first
+```
+
+Agents will apply maximum reasoning before decomposing into research/plan/implement phases.
 
 ## 🧠 Integration with Global Settings
 
@@ -186,3 +228,4 @@ When contributing to this project:
 ---
 
 *Research → Plan → Implement: The foundation of quality software development*
+- so we have this repo claude-user-memory is a main repo where we are developing a claude code cli user memory which anyone can copy paste in their installation of claude code cli's home dir so it will work system wide remember that please in

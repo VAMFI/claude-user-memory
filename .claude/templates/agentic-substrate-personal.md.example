@@ -1,0 +1,188 @@
+# My Agentic Substrate Preferences
+
+This file contains your personal preferences for the Agentic Substrate. It will be imported into all your projects that use the substrate.
+
+## Installation
+
+1. Copy this file to `~/.claude/agentic-substrate-personal.md`
+2. Edit with your preferences
+3. Import in project CLAUDE.md with: `@~/.claude/agentic-substrate-personal.md`
+
+## Coding Style Preferences
+
+### Language-Specific
+[Add your personal coding style preferences here]
+
+Example:
+```markdown
+**JavaScript/TypeScript**:
+- Use 2-space indentation
+- Prefer const over let
+- Use arrow functions for callbacks
+- Always use async/await over promises.then()
+
+**Python**:
+- Use 4-space indentation
+- Follow PEP 8
+- Type hints required for all functions
+
+**Go**:
+- Use gofmt default formatting
+- Table-driven tests preferred
+```
+
+## Workflow Shortcuts
+
+[Add your common workflow patterns here]
+
+Example:
+```markdown
+**My Common Commands**:
+- `/workflow` for new features
+- `/context optimize` every 50 messages
+- `ultrathink` for all architecture decisions
+- Always use TDD (already enforced)
+
+**Quick Aliases** (mental shortcuts):
+- "Research X" → /research X
+- "Plan Y" → /plan Y
+- "Implement" → /implement
+```
+
+## Project-Specific Notes
+
+[Add notes for projects you commonly work on]
+
+Example:
+```markdown
+**Project: my-saas-app**:
+- Use Prisma for database
+- Tailwind CSS for styling
+- Jest for testing
+- Deploy to Vercel
+
+**Project: internal-tools**:
+- Use Django
+- PostgreSQL database
+- Pytest for testing
+- Deploy to AWS ECS
+```
+
+## Agent Preferences
+
+[Customize how you like to work with agents]
+
+Example:
+```markdown
+**chief-architect**:
+- Always use parallel multi-agent for complex tasks (I accept 15x cost)
+- Prefer detailed execution plans with time estimates
+
+**docs-researcher**:
+- Always use context7 when available
+- Prefer official docs over Stack Overflow
+
+**implementation-planner**:
+- Always include performance considerations
+- Rollback plans must be tested
+- Prefer minimal changes (surgical edits only)
+
+**code-implementer**:
+- Always create git commits (already default)
+- Run linter before commit
+- Prefer functional programming style
+```
+
+## Think Protocol Preferences
+
+[Set your default thinking modes]
+
+Example:
+```markdown
+**Default Thinking Levels**:
+- Routine tasks: "think"
+- Architecture decisions: "ultrathink"
+- Bug fixes: "think hard"
+- Refactoring: "think"
+
+**When to ask me first**:
+- Before spawning 5+ parallel agents
+- Before making database schema changes
+- Before refactoring core modules
+```
+
+## Context Management Preferences
+
+[Customize context engineering behavior]
+
+Example:
+```markdown
+**Context Optimization**:
+- Run `/context analyze` automatically every 50 messages
+- Archive to knowledge-core.md after every successful feature
+- Keep last 3 implementations in active context
+- Remove all others
+
+**Memory Hierarchy**:
+- Enterprise CLAUDE.md: [if applicable]
+- Project CLAUDE.md: Team conventions
+- User CLAUDE.md (this file): Personal preferences
+- knowledge-core.md: Accumulated learnings
+```
+
+## Quality Standards
+
+[Set your quality expectations]
+
+Example:
+```markdown
+**Minimum Acceptable**:
+- Test coverage: 85%+ (stricter than default 80%)
+- ResearchPack score: 85+ (stricter than default 80+)
+- Implementation Plan score: 90+ (stricter than default 85+)
+- No warnings in build output
+- All linter rules pass
+
+**Performance Targets**:
+- API response time: < 200ms
+- Page load time: < 1s
+- Build time: < 30s
+```
+
+## Git Preferences
+
+[Customize git commit behavior]
+
+Example:
+```markdown
+**Commit Message Style**:
+- Use conventional commits (already default)
+- Add ticket number: "[PROJ-123] feat: Add caching"
+- Detailed body explaining why
+
+**Branch Strategy**:
+- Always create feature branches
+- Branch naming: feature/PROJ-123-description
+- Never commit to main directly
+```
+
+## Notes & Learnings
+
+[Keep track of your learnings]
+
+Example:
+```markdown
+**Lessons Learned**:
+- 2025-10-18: Redis TTL must be in seconds, not milliseconds
+- 2025-10-15: Always test rollback procedures before deploying
+- 2025-10-12: Multi-agent parallel is worth it for research tasks
+
+**Common Gotchas**:
+- Remember to update .env.example when adding new env vars
+- Always run migrations before deploying
+- Check CORS settings when adding new API endpoints
+```
+
+---
+
+**This file is imported into all your Agentic Substrate projects, so you only need to maintain it once!**

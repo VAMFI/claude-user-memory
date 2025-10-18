@@ -1,0 +1,62 @@
+# Agentic Substrate - Claude Code Enhancement
+
+This project uses the Agentic Substrate for superintelligent agent capabilities.
+
+## Core Components
+
+### Agents
+@.claude/templates/agents-overview.md
+
+### Skills
+@.claude/templates/skills-overview.md
+
+### Workflows
+@.claude/templates/workflows-overview.md
+
+## Memory Management
+
+### Quick Commands
+- `#` - Add memory quickly (prompts for location)
+- `/memory` - Edit memory files in system editor
+- `/init` - Bootstrap CLAUDE.md for new projects
+
+### Memory Hierarchy
+1. **Enterprise** (`/Library/Application Support/ClaudeCode/CLAUDE.md`) - Organization-wide policies
+2. **Project** (`./CLAUDE.md` or `./.claude/CLAUDE.md`) - Team-shared instructions
+3. **User** (`~/.claude/CLAUDE.md`) - Personal preferences (all projects)
+4. **Imports** - Use `@path/to/file.md` for modular organization (max 5 hops)
+
+### Import Syntax
+Load additional context using imports:
+```markdown
+@path/to/file.md                    # Relative path
+@~/.claude/my-preferences.md        # User home directory
+@/absolute/path/to/file.md          # Absolute path
+```
+
+**Max depth**: 5 hops for recursive imports
+**Scope**: Not evaluated in code spans/blocks (avoids collisions)
+
+## Project-Specific Configuration
+
+### Architecture
+[Describe your project architecture here]
+
+### Conventions
+[Document project-specific conventions]
+
+### Common Tasks
+[List frequently-performed workflows]
+
+## Import Personal Preferences
+@~/.claude/agentic-substrate-personal.md
+
+## Best Practices
+
+**Be Specific**: Write "Use 2-space indentation for JavaScript" not "Format code properly"
+
+**Use Structure**: Organize with markdown headings for clarity
+
+**Review Periodically**: Update as project evolves, archive stale info to knowledge-core.md
+
+**Context Engineering**: Use /context command to analyze and optimize context configuration
