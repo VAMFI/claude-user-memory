@@ -1,412 +1,520 @@
-# Agentic Substrate
+<div align="center">
 
-**The foundational layer for Claude Code superintelligence.**
+# 🧠 Agentic Substrate
 
-Transform Claude Code CLI from a helpful assistant into an autonomous agent substrate with research workflows, multi-agent coordination, context engineering, and think protocols - all based on **Anthropic's cutting-edge engineering philosophy**.
+### Transform Claude Code into an autonomous agent substrate
 
-⭐ **Star this repo** to unlock the future of agentic coding!
+[![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://github.com/VAMFI/claude-user-memory/releases)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-v2.0.20%2B-purple.svg)](https://claude.ai/download)
 
-**Repository**: `claude-user-memory` (for SEO/discoverability)
-**System Name**: **Agentic Substrate v3.0**
-**Philosophy**: **Philia Sophia** - Synthesis of Anthropic's research + VAMFI's Brahma orchestration
+**Research → Plan → Implement** in 10 minutes with built-in quality gates, self-correction, and knowledge preservation.
 
----
+[Quick Install](#-installation) • [Documentation](R-and-D/V2_COMPLETE.md) • [Examples](examples/v2/) • [Philosophy](PHILOSOPHY.md)
 
-## 🎯 What is Agentic Substrate?
-
-A system-wide enhancement package for Claude Code CLI that provides foundational primitives for agent autonomy and superintelligence.
-
-### Core Enhancements (15 Total)
-
-**Phase 1: Core Foundations** (8 enhancements):
-✅ **Think Tool Protocol** - 54% improvement on complex decisions (all 4 agents)
-✅ **Context Engineering Skill** - 39% improvement, 84% token reduction
-✅ **Context Editing Hooks** - Prevent context rot automatically
-✅ **Philosophy Research Support** - Quality validator now handles thematic analysis
-✅ **Git Operations** - Automatic commits with co-author attribution
-✅ **TDD Enforcement** - Test-first workflow mandatory (Anthropic's favorite)
-✅ **Economic Viability Checks** - Multi-agent cost/benefit analysis (15x tokens)
-✅ **Memory Management** - Import syntax, modular organization, memory hierarchy
-
-**Phase 2: Advanced Patterns** (4 enhancements):
-✅ **Multi-Agent Parallel Spawning** - 90.2% performance gain, 90% time reduction
-✅ **Contextual Retrieval** - 49-67% better research accuracy
-✅ **/context Command** - Analyze and optimize context configuration
-✅ **Extended Thinking Keywords** - "think", "think hard", "think harder", "ultrathink"
-
-**Phase 3: Distribution** (3 enhancements):
-✅ **.mcpb Packaging** - One-click Desktop Extension installation
-✅ **Comprehensive Documentation** - README, PHILOSOPHY.md, templates
-✅ **Enhanced Installation** - Reports all new components
-
-### The Anthropic Connection
-
-Built on **11 Anthropic engineering articles** (September 2024 - October 2025):
-
-1. **Agent Autonomy**: Minimal scaffolding, maximum model control
-2. **Think Tool**: 54% improvement on complex tasks
-3. **Context Engineering**: Active curation (39% improvement)
-4. **Multi-Agent Research**: 90.2% performance gain
-5. **Contextual Retrieval**: 49-67% better research
-6. **TDD with Agents**: Anthropic's favorite practice
-7. **Git Operations**: Engineers use Claude for 90%+ of git
-8. **SWE-bench Quality**: 49% = state-of-the-art
-9. **Desktop Extensions**: One-click .mcpb installation
-10. **Transparency**: Public postmortems culture
-11. **Economic Viability**: 15x cost requires 15x+ value
-
-See [PHILOSOPHY.md](PHILOSOPHY.md) for complete synthesis.
+</div>
 
 ---
 
-## ⚡ Quick Install (30 seconds)
+## ✨ What is Agentic Substrate?
 
-### Option 1: Desktop Extension (One-Click) 🆕
+A **system-wide enhancement package** for Claude Code CLI that transforms it from a helpful assistant into an autonomous agent substrate with:
 
-**Claude Desktop v2.0.20+** - Easiest installation method:
+- 🤖 **4 Specialized Agents** - Orchestration, research, planning, implementation
+- 🧠 **Extended Thinking** - 54% improvement on complex tasks
+- 🔄 **Quality Gates** - Automated validation at every phase
+- 🧪 **TDD Enforcement** - Test-first workflow mandatory
+- 📚 **Knowledge Capture** - Learn from every implementation
 
-1. Download `agentic-substrate-3.0.0.mcpb` from [Releases](https://github.com/VAMFI/claude-user-memory/releases)
-2. Open Claude Desktop → Settings → Extensions
-3. Click "Install Extension" → Select `.mcpb` file
-4. Restart Claude Code CLI
-5. ✅ Done! Use `/workflow` to start
+### 📊 Performance Impact
 
-**What it does**: Installs everything to `~/.claude/` with one click.
+| Metric | Improvement | Source |
+|--------|-------------|--------|
+| Complex task accuracy | **+54%** | Anthropic Think Tool |
+| Research accuracy | **+49-67%** | Contextual Retrieval |
+| Context optimization | **+39%, -84% tokens** | Active Curation |
+| Feature implementation | **4.8-5.5x faster** | Real usage |
+| Multi-agent performance | **+90.2%, -90% time** | Parallel execution |
 
-### Option 2: Global Installation (Command Line)
+### 🎯 Built on Anthropic's Engineering Philosophy
 
-Install to your home directory for use across all projects:
+Synthesizes **11 Anthropic research articles** into a production-ready substrate:
+
+- Agent autonomy with minimal scaffolding
+- Think protocols for complex decisions
+- Context engineering to prevent rot
+- Multi-agent coordination patterns
+- TDD enforcement (Anthropic's favorite)
+- Economic viability analysis
+
+> **Philia Sophia** (Love of Wisdom) - Research-driven development
+
+📖 [Read the full philosophy](PHILOSOPHY.md)
+
+---
+
+## 🚀 Installation
+
+### Option 1: One-Click Install (Recommended)
+
+**For Claude Desktop v2.0.20+**
 
 ```bash
-# Download and run installer
+1. Download agentic-substrate-3.0.0.mcpb from Releases
+2. Claude Desktop → Settings → Extensions → Install
+3. Restart Claude Code CLI
+```
+
+✅ **Done!** Everything installs to `~/.claude/` automatically.
+
+<br>
+
+### Option 2: Quick Script Install
+
+**For system-wide use across all projects:**
+
+```bash
 curl -fsSL https://raw.githubusercontent.com/VAMFI/claude-user-memory/main/install.sh | bash
 ```
 
-**What it does**:
-1. ✅ Backs up your existing `~/.claude/` (if exists) to `~/.claude.backup-[timestamp]/`
-2. ✅ Copies the workflow system to `~/.claude/`
-3. ✅ Makes hooks executable
-4. ✅ Shows you next steps
+**What happens:**
+- Backs up existing `~/.claude/` → `~/.claude.backup-[timestamp]/`
+- Installs agents, skills, commands, and hooks
+- Makes scripts executable
+- Shows next steps
 
-**Rollback**: Your original config is safe in `~/.claude.backup-[timestamp]/`
+<br>
 
-### Option 3: Manual Installation
+### Option 3: Manual Install
+
+<details>
+<summary>Click to expand manual installation steps</summary>
 
 ```bash
-# Clone the repo
+# Clone repository
 git clone https://github.com/VAMFI/claude-user-memory.git
 cd claude-user-memory
 
-# Backup existing (if you have one)
+# Backup existing config (optional)
 mv ~/.claude ~/.claude.backup-$(date +%Y%m%d-%H%M%S) 2>/dev/null || true
 
-# Copy to home directory
+# Install to home directory
 cp -r .claude ~/
-
-# Make hooks executable
 chmod +x ~/.claude/hooks/*.sh
 chmod +x ~/.claude/validators/*.sh
 
-echo "✅ Installed! Start Claude Code and use /workflow"
+echo "✅ Installation complete!"
 ```
 
-### Option 4: Project-Specific Installation
-
-For a specific project only:
-
+**Project-specific install:**
 ```bash
-# In your project directory
-git clone https://github.com/VAMFI/claude-user-memory.git temp-install
-cp -r temp-install/.claude .
-rm -rf temp-install
+# Install in current project only
+cp -r .claude .
 chmod +x .claude/hooks/*.sh .claude/validators/*.sh
-
-echo "✅ Installed in this project only"
 ```
 
----
+</details>
 
-## 🎯 Quick Start (2 minutes)
+<br>
 
-Once installed, start Claude Code CLI and try:
+### ✅ Verify Installation
 
 ```bash
-# Complete workflow in ONE command:
-/workflow Add weather API integration
-
-# Or step by step:
-/research OpenWeather API for JavaScript
-/plan Weather API integration with error handling
-/implement
+# Start Claude Code and type:
+/workflow test
 ```
 
-**That's it!** The system handles:
-- ✅ Research with version detection (< 2 min)
-- ✅ Planning with risk assessment (< 3 min)
-- ✅ Implementation with self-correction (< 5 min)
-- ✅ Knowledge capture (automatic)
+You should see the workflow orchestrator activate.
 
 ---
 
-## 📚 What You Get
+## ⚡ Quick Start
 
-### 4 Specialized Agents
-- **chief-architect** - Orchestrates complex multi-agent workflows
-- **docs-researcher** - Fetches version-accurate documentation (< 2 min)
-- **implementation-planner** - Creates minimal-change, reversible plans (< 3 min)
-- **code-implementer** - Executes with 3-retry self-correction (< 5 min)
+### Your First Workflow (10 minutes)
 
-### 4 Auto-Applied Skills
-- **research-methodology** - Systematic documentation gathering
-- **planning-methodology** - Minimal-change, reversible planning
-- **quality-validation** - Objective scoring rubrics
-- **pattern-recognition** - Automatic knowledge capture
+```bash
+# Complete automation - just describe what you want:
+/workflow Add user authentication with JWT tokens
+```
 
-### 5 Quality Gates (Hooks)
-- **validate-research-pack.sh** - Requires 80+ score before planning
-- **validate-implementation-plan.sh** - Requires 85+ score before coding
-- **auto-format.sh** - Consistent code style
-- **run-tests.sh** - Continuous validation
-- **update-knowledge-core.sh** - Auto-captures patterns
+**What happens automatically:**
+1. 📚 **Research** - Fetches JWT best practices and library docs
+2. 📝 **Plan** - Creates minimal-change implementation blueprint
+3. ⚡ **Implement** - Writes code with TDD, self-corrects if needed
+4. ✅ **Validate** - Runs tests, captures patterns to knowledge base
 
-### 2 Enhanced Validators
-- **api-matcher.sh** - Prevents hallucinated APIs (95%+ accuracy)
-- **circuit-breaker.sh** - Stops infinite loops (3-failure limit)
+<br>
 
-### 4 Slash Commands
-- `/research <topic>` - Quick documentation research
-- `/plan <feature>` - Quick implementation planning
-- `/implement` - Execute the plan with self-correction
-- `/workflow <feature>` - Complete automation (all phases)
+### Step-by-Step Control
+
+```bash
+# Phase 1: Research
+/research Redis caching for Node.js v5.0
+# → Creates ResearchPack.md with version-accurate docs
+
+# Phase 2: Plan
+/plan Add Redis caching to ProductService with 5-min TTL
+# → Creates ImplementationPlan.md with rollback strategy
+
+# Phase 3: Implement
+/implement
+# → Executes plan with TDD and self-correction
+```
+
+<br>
+
+### Extended Thinking for Complex Tasks
+
+```bash
+# Standard thinking (30-60s)
+think about the best API structure
+
+# Deep reasoning (1-2 min)
+think hard about the database schema
+
+# Maximum reasoning (5-10 min)
+ultrathink the entire system architecture before planning
+```
+
+> **54% improvement** on complex tasks with extended thinking
+
+---
+
+## 📦 What's Included
+
+<table>
+<tr>
+<td width="50%">
+
+### 🤖 4 Specialized Agents
+
+| Agent | Purpose | Time |
+|-------|---------|------|
+| **chief-architect** | Multi-agent orchestration | N/A |
+| **docs-researcher** | Version-accurate docs | < 2 min |
+| **implementation-planner** | Minimal-change plans | < 3 min |
+| **code-implementer** | TDD execution + self-correction | < 5 min |
+
+</td>
+<td width="50%">
+
+### ⚡ 5 Auto-Invoked Skills
+
+| Skill | Purpose |
+|-------|---------|
+| **research-methodology** | Systematic doc gathering |
+| **planning-methodology** | Reversible planning |
+| **quality-validation** | Objective scoring |
+| **pattern-recognition** | Knowledge capture |
+| **context-engineering** | 39% improvement |
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🔒 Quality Gates
+
+- ✅ **Research validation** - 80+ score required
+- ✅ **Plan validation** - 85+ score required
+- ✅ **API verification** - No hallucination
+- ✅ **Test enforcement** - TDD mandatory
+- ✅ **Circuit breaker** - 3-failure limit
+
+</td>
+<td width="50%">
+
+### 🎯 Slash Commands
+
+```bash
+/research <topic>
+/plan <feature>
+/implement
+/workflow <description>
+/context analyze|optimize
+```
+
+</td>
+</tr>
+</table>
 
 ---
 
 ## 📖 Documentation
 
-### Quick References
-- **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** - Solutions for common issues
-- **[examples/v2/](examples/v2/)** - Complete workflow examples
+<table>
+<tr>
+<td width="50%">
 
-### Deep Dive (R&D Folder)
-- **[R-and-D/V2_COMPLETE.md](R-and-D/V2_COMPLETE.md)** - Complete system overview
-- **[R-and-D/PHASE1_COMPLETE.md](R-and-D/PHASE1_COMPLETE.md)** - Implementation details
-- **[R-and-D/references/](R-and-D/references/)** - Research and analysis
+### 📘 Getting Started
+- [Quick Start Guide](#-quick-start)
+- [Installation Options](#-installation)
+- [First Workflow](#your-first-workflow-10-minutes)
+- [Examples](examples/v2/)
+
+</td>
+<td width="50%">
+
+### 🔧 Advanced
+- [Complete System Overview](R-and-D/V2_COMPLETE.md)
+- [Philosophy & Research](PHILOSOPHY.md)
+- [Troubleshooting](TROUBLESHOOTING.md)
+- [Customization](#-customization)
+
+</td>
+</tr>
+</table>
 
 ---
 
-## 🎓 Example Usage
+## 💡 Example Workflows
 
-### Simple API Integration (10 minutes)
+### 🚀 Complete API Integration (10 minutes)
 
 ```bash
 /workflow Add OpenWeather API to homepage with error handling
 ```
 
-**What happens**:
-1. Research phase: Fetches OpenWeather API docs, detects version
-2. Planning phase: Creates minimal-change plan with rollback
-3. Implementation phase: Writes code, runs tests, self-corrects if needed
-4. Knowledge capture: Saves patterns for next time
+**Automatic execution:**
+1. 📚 Fetches OpenWeather API docs, detects version
+2. 📝 Creates minimal-change plan with rollback
+3. ⚡ Writes code with tests, self-corrects if needed
+4. ✅ Captures patterns to knowledge base
 
-**Result**: Production-ready code with tests in ~10 minutes
+**Result:** Production-ready code in ~10 minutes
 
-### Step-by-Step Control
+<br>
+
+### 🎯 Manual Control for Complex Tasks
 
 ```bash
-# Step 1: Research
-/research Redis caching for Node.js
-# Review ResearchPack.md
+# Research with extended thinking
+ultrathink Redis caching strategies for high-traffic applications
+/research Redis for Node.js v5.0
 
-# Step 2: Plan
+# Review and refine the plan
 /plan Add Redis caching to ProductService with 5-min TTL
-# Review ImplementationPlan.md
 
-# Step 3: Implement
+# Execute with monitoring
 /implement
-# Monitors execution, self-corrects up to 3 times
 ```
 
 ---
 
-## ⚙️ Requirements
+## 🛡️ Safety & Quality
 
-- **Claude Code CLI** v2.0.20+ ([Get it here](https://claude.ai/download))
-- **Bash** 4.0+ (macOS/Linux)
-- **Git** (for installation)
+### ✅ Automatic Backups
 
----
+Your existing configuration is **always backed up** before installation:
 
-## 🛡️ Safety Features
-
-### Backup on Install
 ```bash
-# Your existing config is automatically backed up:
 ~/.claude → ~/.claude.backup-[timestamp]/
 
-# Restore if needed:
+# Restore anytime:
 mv ~/.claude.backup-[timestamp] ~/.claude
 ```
 
-### Quality Gates
-- Research validated (80+ score) before planning
-- Plan validated (85+ score) before implementation
-- APIs verified against research (no hallucination)
+<br>
 
-### Circuit Breaker
-- Tracks failures per agent
-- Opens after 3 consecutive failures
-- Requires manual reset (prevents infinite loops)
+### 🔒 Built-in Safety Features
 
-### Rollback Procedures
-- Every plan includes git-based rollback
-- Configuration restore procedures
-- File-level undo instructions
+| Feature | Protection |
+|---------|-----------|
+| **Quality Gates** | Research ≥80, Plan ≥85 scores required |
+| **API Verification** | Prevents hallucinated APIs (95%+ accuracy) |
+| **Circuit Breaker** | Stops after 3 failures (no infinite loops) |
+| **Rollback Plans** | Every plan includes git-based undo |
+| **TDD Enforcement** | Test-first mandatory for all code |
+
+<br>
+
+### ⚙️ Requirements
+
+- Claude Code CLI **v2.0.20+** ([Download](https://claude.ai/download))
+- Bash **4.0+** (macOS/Linux)
+- Git (for installation)
 
 ---
 
 ## 🔧 Customization
 
-### Adjust Quality Scores
+<details>
+<summary><b>Adjust quality thresholds</b></summary>
 
 Edit `~/.claude/settings.json`:
+
 ```json
 {
   "workflow": {
     "quality_gates": {
-      "research_min_score": 80,  // Lower to 70 if too strict
-      "plan_min_score": 85       // Lower to 75 if too strict
+      "research_min_score": 70,  // Default: 80
+      "plan_min_score": 75       // Default: 85
     }
   }
 }
 ```
 
-### Modify Agents
+</details>
 
-Edit agent files in `~/.claude/agents/`:
+<details>
+<summary><b>Customize agents and skills</b></summary>
+
+**Agents:** `~/.claude/agents/`
 - Add domain-specific knowledge
 - Adjust time estimates
 - Change output formats
 
-### Add Custom Skills
-
-Create skills in `~/.claude/skills/`:
-- Domain-specific methodologies
-- Company patterns
+**Skills:** `~/.claude/skills/`
+- Create domain methodologies
+- Add company patterns
 - Technology-specific approaches
 
----
+</details>
 
-## 🐛 Troubleshooting
+<details>
+<summary><b>Common troubleshooting</b></summary>
 
-### Installation Issues
-
-**"Permission denied"**:
+**Permission denied:**
 ```bash
-chmod +x ~/.claude/hooks/*.sh
-chmod +x ~/.claude/validators/*.sh
+chmod +x ~/.claude/hooks/*.sh ~/.claude/validators/*.sh
 ```
 
-**"Hooks not running"**:
+**Hooks not running:**
 - Ensure Claude Code CLI v2.0.20+
-- Check `~/.claude/settings.json` is valid JSON
 - Verify hooks are executable
 
-### Validation Failures
-
-**"ResearchPack score < 80"**:
-- Add more APIs (need 3+)
-- Include code examples
-- Add source citations
-
-**"Plan score < 85"**:
-- Add rollback plan
-- Document 3+ risks
-- Add verification methods per step
-
-**"API mismatch"**:
-```bash
-# Check which APIs don't match
-~/.claude/validators/api-matcher.sh ResearchPack.md ImplementationPlan.md
-```
-
-### Circuit Breaker Blocking
-
+**Circuit breaker open:**
 ```bash
 # Check status
 ~/.claude/validators/circuit-breaker.sh code-implementer status
 
-# Fix root cause, then reset
+# Reset after fixing root cause
 ~/.claude/validators/circuit-breaker.sh code-implementer reset
 ```
 
-**Full Troubleshooting**: See [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
+📖 **Full guide:** [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
 
----
-
-## 📊 Performance
-
-Based on real-world usage:
-
-| Task | Manual | With System | Improvement |
-|------|--------|-------------|-------------|
-| API Integration | 55 min | 10 min | **5.5x faster** |
-| Feature Implementation | 120 min | 25 min | **4.8x faster** |
-| Debugging Time | High | Low | **Self-correction works** |
-| Code Quality | Variable | Consistent | **95%+ accuracy** |
+</details>
 
 ---
 
 ## 🤝 Contributing
 
-### Report Issues
-- Validation false positives/negatives
-- Hook errors
+We welcome contributions! Here's how you can help:
+
+<table>
+<tr>
+<td width="33%">
+
+### 🐛 Report Issues
+- Validation errors
+- Hook problems
 - Documentation gaps
 - Feature requests
 
-### Share Patterns
-- Add patterns to your `knowledge-core.md`
-- Submit examples
-- Improve documentation
+[Open an issue →](https://github.com/VAMFI/claude-user-memory/issues)
 
-### Extend System
+</td>
+<td width="33%">
+
+### 💡 Share Patterns
+- Submit workflow examples
+- Add to knowledge base
+- Improve documentation
+- Share use cases
+
+[Start a discussion →](https://github.com/VAMFI/claude-user-memory/discussions)
+
+</td>
+<td width="33%">
+
+### 🔧 Extend the System
 - Create custom skills
+- Build new agents
 - Add validators
-- Build commands
+- Write commands
+
+[Fork & PR →](https://github.com/VAMFI/claude-user-memory/fork)
+
+</td>
+</tr>
+</table>
+
+---
+
+## 📊 Benchmarks
+
+Real-world performance improvements:
+
+```
+┌─────────────────────────┬──────────┬──────────┬─────────────┐
+│ Task                    │ Before   │ After    │ Improvement │
+├─────────────────────────┼──────────┼──────────┼─────────────┤
+│ API Integration         │ 55 min   │ 10 min   │    5.5x     │
+│ Feature Implementation  │ 120 min  │ 25 min   │    4.8x     │
+│ Code Quality            │ Variable │ 95%+     │ Consistent  │
+│ Context Efficiency      │ Baseline │ +39%     │ -84% tokens │
+└─────────────────────────┴──────────┴──────────┴─────────────┘
+```
+
+---
+
+## 🌟 Star History
+
+If this project helps you, please consider starring it!
+
+[![Star History Chart](https://api.star-history.com/svg?repos=VAMFI/claude-user-memory&type=Date)](https://star-history.com/#VAMFI/claude-user-memory&Date)
 
 ---
 
 ## 📜 License
 
-MIT License - Use freely, contribute back!
+**MIT License** - Use freely, modify as needed, contribute back if you can!
+
+See [LICENSE](LICENSE) for full details.
 
 ---
 
-## 🔗 Links
+## 🔗 Resources
 
-- **GitHub**: [VAMFI/claude-user-memory](https://github.com/VAMFI/claude-user-memory)
-- **Issues**: [Report bugs](https://github.com/VAMFI/claude-user-memory/issues)
-- **Discussions**: [Ask questions](https://github.com/VAMFI/claude-user-memory/discussions)
-- **VAMFI Blog**: [vamfi.org](https://vamfi.org)
+<div align="center">
+
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)](https://github.com/VAMFI/claude-user-memory)
+[![Issues](https://img.shields.io/github/issues/VAMFI/claude-user-memory)](https://github.com/VAMFI/claude-user-memory/issues)
+[![Discussions](https://img.shields.io/github/discussions/VAMFI/claude-user-memory)](https://github.com/VAMFI/claude-user-memory/discussions)
+[![VAMFI](https://img.shields.io/badge/VAMFI-Blog-blue)](https://vamfi.org)
+
+</div>
+
+<br>
+
+<div align="center">
+
+### Quick Navigation
+
+[🚀 Installation](#-installation) •
+[⚡ Quick Start](#-quick-start) •
+[📖 Documentation](#-documentation) •
+[💡 Examples](#-example-workflows) •
+[🛡️ Safety](#-safety--quality) •
+[🤝 Contributing](#-contributing)
+
+</div>
 
 ---
 
-## ⭐ Star Us!
+<div align="center">
 
-If this system improves your development workflow, please star the repo!
+### Built with the philosophy of **Philia Sophia** (Love of Wisdom)
 
-**Built with ❤️ for the Claude Code community**
+**Research-driven development powered by Anthropic's engineering excellence**
 
----
+<br>
 
-## 🚀 Quick Links
+**Made with ❤️ by the VAMFI team for the Claude Code community**
 
-- [Install Now](#-quick-install-30-seconds)
-- [Quick Start](#-quick-start-2-minutes)
-- [Examples](examples/v2/)
-- [Troubleshooting](TROUBLESHOOTING.md)
-- [Complete Documentation](R-and-D/V2_COMPLETE.md)
+<br>
 
----
+⭐ **Star this repo** to support autonomous agentic development!
 
-**Transform your development workflow in 30 seconds!**
+</div>
