@@ -51,10 +51,25 @@ chmod +x "$CLAUDE_TARGET/metrics"/*.sh 2>/dev/null || true
 echo "   ✅ Permissions set!"
 echo ""
 
+# Install user-level CLAUDE.md (system-wide documentation)
+echo "📖 Installing user-level documentation..."
+if [ -f "$CLAUDE_SOURCE/templates/CLAUDE.md.user-level" ]; then
+    cp "$CLAUDE_SOURCE/templates/CLAUDE.md.user-level" "$CLAUDE_TARGET/CLAUDE.md"
+    echo "   ✅ User-level CLAUDE.md installed!"
+    echo "      System-wide Agentic Substrate documentation available in all projects"
+else
+    echo "   ⚠️  User-level CLAUDE.md template not found (skipping)"
+fi
+echo ""
+
 # Success message
 echo "✅ Installation complete!"
 echo ""
 echo "📚 What was installed:"
+echo ""
+echo "   📖 User-level documentation:"
+echo "      • ~/.claude/CLAUDE.md - System-wide Agentic Substrate reference"
+echo "         (Available in ALL projects, integrates with Project Brahma)"
 echo ""
 echo "   🤖 Agents (4 specialized):"
 echo "      • chief-architect - Master orchestrator with parallel multi-agent mode"
