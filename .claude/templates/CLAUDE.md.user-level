@@ -25,11 +25,22 @@ This file documents the Agentic Substrate capabilities installed system-wide in 
 
 ## 📦 What's Installed
 
-### 4 Agents (Research → Plan → Implement workflow)
-- **@chief-architect** - Multi-agent orchestrator for complex projects
+### 9 Agents (Complete BUILD-FIX-SERVE Coverage)
+
+**Tier 1: Orchestrator (1 agent)**
+- **@chief-architect** - Master orchestrator for complex multi-agent workflows
+
+**Tier 2: Core Workflow (5 agents)** - BUILD + FIX phases
 - **@docs-researcher** - Fetches version-accurate docs (< 2 min, 49-67% better accuracy)
 - **@implementation-planner** - Creates minimal-change blueprints with rollback plans
+- **@brahma-analyzer** - Cross-artifact consistency validation (quality gate: 80+ score)
 - **@code-implementer** - Executes with TDD, self-corrects 3x, auto-commits to git
+- **@brahma-investigator** - Systematic root-cause debugging (3-retry think protocol)
+
+**Tier 3: Production (3 agents)** - SERVE phase
+- **@brahma-deployer** - Canary deployments (5%→25%→50%→100%) with auto-rollback
+- **@brahma-monitor** - Observability: Metrics, Logs, Traces (three pillars)
+- **@brahma-optimizer** - Performance profiling, optimization, auto-scaling
 
 ### 5 Skills (Auto-invoked capabilities)
 - **research-methodology** - Truth over speed (but achieve both)

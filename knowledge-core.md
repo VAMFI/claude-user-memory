@@ -87,6 +87,61 @@ Leverage Claude Code's native memory system for modular organization:
 
 **Rationale**: Long-term quality compounds; shortcuts create technical debt.
 
+### Principle 6: 9-Agent Architecture for Complete Coverage
+**Established**: 2025-10-18 (Optimized from research on all Claude Code capabilities)
+**Applies to**: All BUILD-FIX-SERVE workflows
+
+The complete agent system addresses all 15 LLM bottlenecks with 9 specialized agents organized in 3 tiers:
+
+**Architecture**:
+```
+Tier 1: Orchestrator (1 agent)
+  └─ chief-architect: Multi-agent coordination, parallel execution
+
+Tier 2: Core Workflow (5 agents - BUILD + FIX)
+  ├─ docs-researcher: Fetch version-accurate docs
+  ├─ implementation-planner: Minimal-change blueprints
+  ├─ brahma-analyzer: Quality gate (80+ score)
+  ├─ code-implementer: TDD + 3-retry self-correction
+  └─ brahma-investigator: Root-cause analysis (3-retry think protocol)
+
+Tier 3: Production (3 agents - SERVE)
+  ├─ brahma-deployer: Canary deployment + auto-rollback
+  ├─ brahma-monitor: Metrics, Logs, Traces (three pillars)
+  └─ brahma-optimizer: Profiling, optimization, scaling
+```
+
+**15 LLM Bottlenecks Addressed**:
+1. Context rot → context-engineering skill (39% improvement)
+2. API hallucination → docs-researcher + ResearchPack validation
+3. No quality gates → brahma-analyzer (80+ score requirement)
+4. Random debugging → brahma-investigator (systematic hypothesis testing)
+5. Symptom treatment → brahma-investigator (root cause proof)
+6. Inconsistency → brahma-analyzer (cross-artifact validation)
+7. Economic unawareness → Pre-agent-spawn hook (15x warning)
+8. Sequential execution → chief-architect (parallel multi-agent)
+9. No specialization → 9 specialized agents (vs jack-of-all-trades)
+10. Amnesia → knowledge-core.md + pattern-recognition skill
+11. Premature implementation → Research → Plan → Implement workflow
+12. Give up after failure → 3-retry strategy (investigator, implementer)
+13. No verification → TDD enforcement, quality gates
+14. Deployment blindness → brahma-deployer (production awareness)
+15. No observability → brahma-monitor (three pillars)
+
+**Why 9 (Not 4, Not 15)?**:
+- Research-based: Analyzed ALL 15 Claude Code tools + ALL software workflows
+- Goldilocks zone: Anthropic recommends 5-8 agents (our 9 is 6 core + 3 optional production)
+- Complete coverage: Addresses BUILD + FIX + SERVE lifecycle
+- Economic viability: Production agents (Tier 3) only used when needed
+
+**Performance Gains** (from Anthropic research):
+- Multi-agent parallel: 90.2% performance improvement, 90% time reduction
+- Token cost: 15x higher (requires economic viability check)
+- Quality gates: brahma-analyzer prevents implementation conflicts
+- Self-correction: 3-retry reduces manual intervention
+
+**Rationale**: Based on deep web research and analysis of Claude Code capabilities, 9 agents provide complete coverage of BUILD-FIX-SERVE lifecycle while maintaining cognitive manageable complexity.
+
 ---
 
 ## Established Patterns
