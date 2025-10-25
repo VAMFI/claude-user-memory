@@ -60,32 +60,65 @@ Synthesizes **11 Anthropic research articles** into a production-ready substrate
 **For Claude Desktop v2.0.20+**
 
 ```bash
-1. Download agentic-substrate-3.0.0.mcpb from Releases
+1. Download agentic-substrate-3.1.0.mcpb from Releases
 2. Claude Desktop → Settings → Extensions → Install
 3. Restart Claude Code CLI
 ```
 
 ✅ **Done!** Everything installs to `~/.claude/` automatically.
 
+**Download:** [Latest Release (v3.1.0)](https://github.com/VAMFI/claude-user-memory/releases/tag/v3.1.0)
+
 <br>
 
-### Option 2: Quick Script Install
+### Option 2: Git Clone + Script Install
 
-**For system-wide use across all projects:**
+**For fresh installation or full reinstall:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/VAMFI/claude-user-memory/main/install.sh | bash
+# Clone repository
+git clone https://github.com/VAMFI/claude-user-memory.git
+cd claude-user-memory
+
+# Run installation script
+./install.sh
 ```
 
 **What happens:**
 - Backs up existing `~/.claude/` → `~/.claude.backup-[timestamp]/`
-- Installs agents, skills, commands, and hooks
-- Makes scripts executable
-- Shows next steps
+- Installs all agents, skills, commands, hooks, and scripts
+- Makes all scripts executable
+- Updates ~/.claude/CLAUDE.md with v3.1 documentation
+- Shows installation summary
+
+**Or quick one-liner:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/VAMFI/claude-user-memory/main/install.sh | bash
+```
 
 <br>
 
-### Option 3: Manual Install
+### Option 3: Update Existing Installation
+
+**For upgrading from v3.0 to v3.1:**
+
+```bash
+# From repository directory
+cd claude-user-memory
+git pull origin main
+./update-local-installation.sh
+```
+
+**What happens:**
+- Creates backup of current installation
+- Updates only changed files (agents, skills, scripts)
+- Preserves your existing pattern-index.json data
+- Runs automated test suite (12 tests)
+- Provides rollback instructions
+
+<br>
+
+### Option 4: Manual Install
 
 <details>
 <summary>Click to expand manual installation steps</summary>
@@ -102,6 +135,7 @@ mv ~/.claude ~/.claude.backup-$(date +%Y%m%d-%H%M%S) 2>/dev/null || true
 cp -r .claude ~/
 chmod +x ~/.claude/hooks/*.sh
 chmod +x ~/.claude/validators/*.sh
+chmod +x ~/.claude/scripts/*.sh
 
 echo "✅ Installation complete!"
 ```
@@ -110,7 +144,7 @@ echo "✅ Installation complete!"
 ```bash
 # Install in current project only
 cp -r .claude .
-chmod +x .claude/hooks/*.sh .claude/validators/*.sh
+chmod +x .claude/hooks/*.sh .claude/validators/*.sh .claude/scripts/*.sh
 ```
 
 </details>

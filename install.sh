@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
-# Agentic Substrate v3.0 - Global Installation Script
+# Agentic Substrate v3.1 - Global Installation Script
 # The foundational layer for Claude Code superintelligence
 # Installs to ~/.claude/ with automatic backup
 
 set -e
 
-echo "🚀 Agentic Substrate v3.0"
+echo "🚀 Agentic Substrate v3.1"
 echo "The foundational layer for Claude Code superintelligence"
+echo "NEW v3.1: Agents That Learn - Adaptive learning from past implementations"
 echo "============================================================"
 echo ""
 
