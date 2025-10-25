@@ -114,6 +114,126 @@ For this project, I will coordinate:
 **Proceed with this plan? (Yes/modify/cancel)**
 ```
 
+### Phase 3.5: Pattern Suggestion (NEW v3.1) - Before Implementation
+
+**When**: Before delegating to @code-implementer (after research + planning complete)
+
+**Purpose**: Suggest proven patterns from past implementations to accelerate current work
+
+**Workflow**:
+
+**Step 1: Extract Context Tags from User Request**
+
+Parse user request for technology, domain, and architecture keywords:
+
+```python
+# Technology: nodejs, python, redis, postgresql, express, fastapi, react
+# Domain: authentication, caching, logging, error-handling, validation
+# Architecture: service-layer, repository, factory, middleware, api
+
+user_request = "Add JWT authentication to Express API"
+context_tags = ["nodejs", "express", "authentication", "jwt", "security"]
+```
+
+**Step 2: Invoke pattern-recognition Skill (Suggestion Mode)**
+
+```python
+# Check if pattern-index.json exists (graceful degradation)
+if file_exists('~/.claude/data/pattern-index.json'):
+    suggested_patterns = invoke_skill(
+        'pattern-recognition',
+        mode='suggest',
+        context_tags=context_tags
+    )
+else:
+    logger.info("pattern-index.json not found, skipping suggestions")
+    suggested_patterns = []  # Continue without suggestions
+```
+
+**Step 3: Present Suggestions to User**
+
+If HIGH confidence patterns found (≥1 pattern with confidence ≥0.80):
+
+```markdown
+💡 I found {count} proven pattern(s) that might help:
+
+1. [CONFIDENCE: 92%] {pattern_name}
+   - Success rate: {successes}/{total_uses} ({success_pct}%)
+   - Average time: {avg_time} minutes
+   - Average quality: {avg_quality}/100
+   - Context match: {similarity}% similar to your request
+   - Details: knowledge-core.md#{pattern_section}
+
+Would you like to:
+1. Use suggested pattern #1
+2. View full pattern details
+3. Proceed without pattern
+
+Your choice: [1/2/3]
+```
+
+If no HIGH confidence patterns:
+```markdown
+ℹ️  No high-confidence patterns found for this request.
+Proceeding with standard workflow (Research → Plan → Implement).
+```
+
+**Step 4: Handle User Response**
+
+**User selects pattern (1)**:
+```python
+# Record acceptance in pattern-index.json
+update_pattern_acceptance(pattern_name, accepted=True)
+
+# Provide pattern details to implementing agent
+pattern_details = read_pattern_from_knowledge_core(pattern_name)
+
+# Pass to @code-implementer with pattern context
+delegate_with_pattern(
+    agent='code-implementer',
+    pattern=pattern_details,
+    pattern_name=pattern_name
+)
+```
+
+**User views details (2)**:
+```python
+# Show full pattern from knowledge-core.md
+display_pattern_details(pattern_name)
+
+# Ask again
+prompt_user_for_choice()
+```
+
+**User declines (3)**:
+```python
+# Record rejection in pattern-index.json
+update_pattern_acceptance(pattern_name, accepted=False)
+
+# Proceed with standard workflow
+delegate_to_implementer(standard_workflow=True)
+```
+
+**Step 5: Graceful Degradation**
+
+If pattern suggestion fails (JSON missing, corrupted, or error):
+
+```python
+try:
+    suggested_patterns = suggest_patterns(context_tags)
+except Exception as e:
+    logger.warning(f"Pattern suggestion failed: {e}")
+    logger.info("Proceeding with standard workflow")
+    suggested_patterns = []
+
+# ALWAYS continue with implementation, regardless of suggestion success
+# User Impact: ZERO (suggestions are optional, workflow continues normally)
+```
+
+**Performance Target**: < 10 seconds total for suggestion workflow (don't delay implementation)
+
+---
+
 ### Phase 4: Sequential Delegation
 For each agent in sequence:
 

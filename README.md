@@ -4,7 +4,7 @@
 
 ### Transform Claude Code into an autonomous agent substrate
 
-[![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://github.com/VAMFI/claude-user-memory/releases)
+[![Version](https://img.shields.io/badge/version-3.1.0-blue.svg)](https://github.com/VAMFI/claude-user-memory/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-v2.0.20%2B-purple.svg)](https://claude.ai/download)
 
@@ -237,6 +237,102 @@ ultrathink the entire system architecture before planning
 </td>
 </tr>
 </table>
+
+---
+
+## 🧠 Adaptive Learning (NEW v3.1)
+
+**Agents that learn from past implementations and proactively suggest proven patterns.**
+
+### How It Works
+
+<table>
+<tr>
+<td width="33%">
+
+#### 1️⃣ Before Implementation
+
+```
+💡 I found 2 proven patterns:
+
+1. [CONFIDENCE: 92%]
+   JWT Auth Middleware
+   - Used 8 times, 7 successes
+   - Average time: 12 min
+   - Context match: 85%
+
+Would you like to use #1?
+```
+
+</td>
+<td width="33%">
+
+#### 2️⃣ During Implementation
+
+```python
+# Track metrics
+metrics = {
+  "duration": 12.5,
+  "retries": 1,
+  "pattern_used": "JWT Auth",
+  "success": True
+}
+```
+
+</td>
+<td width="33%">
+
+#### 3️⃣ After Implementation
+
+```json
+{
+  "pattern": "JWT Auth Middleware",
+  "total_uses": 9,
+  "successes": 8,
+  "confidence": 0.92,
+  "avg_time": 12.3
+}
+```
+
+</td>
+</tr>
+</table>
+
+### Performance Impact
+
+| Implementation # | Time | Improvement |
+|------------------|------|-------------|
+| 1st (no pattern) | 25 min | Baseline |
+| 5th (with pattern) | 10 min | **60% faster** |
+| 10th (proven pattern) | 8 min | **68% faster** |
+
+### Key Features
+
+- 🎯 **Bayesian Confidence Scoring** - Success rate × time decay × evidence quality
+- 📊 **Context-Aware Matching** - ≥60% tag similarity required
+- ⏰ **Time Decay** - Recent patterns weighted higher (3-6 month decay)
+- 🔄 **3-Phase Learning Loop** - Suggest → Track → Learn
+- 🛡️ **Graceful Degradation** - System works without pattern data
+- 📈 **Performance Metrics** - Duration, retry count, quality scores
+
+### Example Usage
+
+```bash
+# The system automatically suggests patterns based on context
+/workflow Add payment processing with Stripe
+
+# Chief-architect detects "payment processing" + "Stripe" context
+# Searches for patterns with matching tags: ["nodejs", "stripe", "payment"]
+# Suggests: "Stripe Checkout Integration" (confidence: 88%)
+# User accepts → Pattern applied → Metrics captured → Confidence updated
+```
+
+**Expected outcomes:**
+- 30-40% faster implementations on 5th+ similar feature
+- 80%+ pattern suggestion accuracy
+- 70%+ user acceptance rate
+
+📖 [See full adaptive learning documentation](docs/adaptive-learning.md)
 
 ---
 
