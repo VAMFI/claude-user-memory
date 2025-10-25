@@ -33,15 +33,55 @@ if [ -d "$CLAUDE_TARGET" ]; then
     echo ""
 fi
 
-# Install to home directory
-echo "📋 Installing workflow system to $CLAUDE_TARGET..."
-# Remove existing directory if it exists (already backed up)
-rm -rf "$CLAUDE_TARGET"
-# Create target directory
+# Install to home directory (selective copying to preserve user data)
+echo "📋 Installing Agentic Substrate components..."
+echo "   ⚠️  Preserving existing user data (history, custom files, etc.)"
+echo ""
+
+# Create directory structure if it doesn't exist
 mkdir -p "$CLAUDE_TARGET"
-# Copy contents of .claude to ~/.claude
-cp -r "$CLAUDE_SOURCE"/* "$CLAUDE_TARGET"/
-echo "   ✅ Files copied!"
+mkdir -p "$CLAUDE_TARGET/agents"
+mkdir -p "$CLAUDE_TARGET/skills"
+mkdir -p "$CLAUDE_TARGET/commands"
+mkdir -p "$CLAUDE_TARGET/hooks"
+mkdir -p "$CLAUDE_TARGET/scripts"
+mkdir -p "$CLAUDE_TARGET/data"
+mkdir -p "$CLAUDE_TARGET/validators"
+
+# Copy our specific components (overwrites our files, preserves user files)
+echo "   📦 Installing agents (4 core agents)..."
+cp -r "$CLAUDE_SOURCE/agents"/* "$CLAUDE_TARGET/agents/" 2>/dev/null || true
+
+echo "   📦 Installing skills (5 auto-invoked capabilities)..."
+cp -r "$CLAUDE_SOURCE/skills"/* "$CLAUDE_TARGET/skills/" 2>/dev/null || true
+
+echo "   📦 Installing commands (5 slash commands)..."
+cp -r "$CLAUDE_SOURCE/commands"/* "$CLAUDE_TARGET/commands/" 2>/dev/null || true
+
+echo "   📦 Installing hooks (8 quality gates)..."
+cp -r "$CLAUDE_SOURCE/hooks"/* "$CLAUDE_TARGET/hooks/" 2>/dev/null || true
+
+echo "   📦 Installing scripts (confidence calculator, validators)..."
+cp -r "$CLAUDE_SOURCE/scripts"/* "$CLAUDE_TARGET/scripts/" 2>/dev/null || true
+
+echo "   📦 Installing validators..."
+cp -r "$CLAUDE_SOURCE/validators"/* "$CLAUDE_TARGET/validators/" 2>/dev/null || true
+
+# Copy data files only if they don't exist (preserve user's pattern data)
+if [ ! -f "$CLAUDE_TARGET/data/pattern-index.json" ]; then
+    echo "   📦 Installing pattern-index.json (initial migration)..."
+    cp "$CLAUDE_SOURCE/data"/* "$CLAUDE_TARGET/data/" 2>/dev/null || true
+else
+    echo "   ⊘ Preserving existing pattern-index.json (keeping your pattern data)"
+fi
+
+# Copy system documentation
+echo "   📦 Installing system documentation (CLAUDE.md)..."
+cp "$CLAUDE_SOURCE/CLAUDE.md" "$CLAUDE_TARGET/" 2>/dev/null || true
+
+echo ""
+echo "   ✅ Agentic Substrate components installed!"
+echo "   ✅ Your existing data preserved (history, debug, custom files)"
 echo ""
 
 # Make hooks executable
@@ -122,7 +162,6 @@ echo "      • Git operations - Automated commits with co-authoring"
 echo "      • Extended thinking - think, think hard, think harder, ultrathink"
 echo "      • Memory management - Import syntax, modular organization"
 echo "      • Philosophy research - Quality validation for thematic analysis"
-echo "      • .mcpb packaging - One-click Desktop Extension install"
 echo ""
 echo "   📊 Performance (from Anthropic research):"
 echo "      • Complex tasks: 54% improvement (think tool)"

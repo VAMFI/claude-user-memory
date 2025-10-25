@@ -55,25 +55,11 @@ Synthesizes **11 Anthropic research articles** into a production-ready substrate
 
 ## 🚀 Installation
 
-### Option 1: One-Click Install (Recommended)
+**All installation methods preserve your existing user data** (history, settings, custom files)
 
-**For Claude Desktop v2.0.20+**
+### Option 1: Git Clone + Script Install (Recommended)
 
-```bash
-1. Download agentic-substrate-3.1.0.mcpb from Releases
-2. Claude Desktop → Settings → Extensions → Install
-3. Restart Claude Code CLI
-```
-
-✅ **Done!** Everything installs to `~/.claude/` automatically.
-
-**Download:** [Latest Release (v3.1.0)](https://github.com/VAMFI/claude-user-memory/releases/tag/v3.1.0)
-
-<br>
-
-### Option 2: Git Clone + Script Install
-
-**For fresh installation or full reinstall:**
+**For fresh installation:**
 
 ```bash
 # Clone repository
@@ -86,7 +72,8 @@ cd claude-user-memory
 
 **What happens:**
 - Backs up existing `~/.claude/` → `~/.claude.backup-[timestamp]/`
-- Installs all agents, skills, commands, hooks, and scripts
+- Installs all agents, skills, commands, hooks, and scripts to `~/.claude/`
+- **Preserves all your existing data** (history, settings, pattern data)
 - Makes all scripts executable
 - Updates ~/.claude/CLAUDE.md with v3.1 documentation
 - Shows installation summary
@@ -98,7 +85,7 @@ curl -fsSL https://raw.githubusercontent.com/VAMFI/claude-user-memory/main/insta
 
 <br>
 
-### Option 3: Update Existing Installation
+### Option 2: Update Existing Installation
 
 **For upgrading from v3.0 to v3.1:**
 
@@ -112,27 +99,47 @@ git pull origin main
 **What happens:**
 - Creates backup of current installation
 - Updates only changed files (agents, skills, scripts)
-- Preserves your existing pattern-index.json data
+- **Preserves your existing pattern-index.json data**
 - Runs automated test suite (12 tests)
 - Provides rollback instructions
 
 <br>
 
-### Option 4: Manual Install
+### Option 3: Manual Install
 
 <details>
 <summary>Click to expand manual installation steps</summary>
+
+**For advanced users who want full control:**
 
 ```bash
 # Clone repository
 git clone https://github.com/VAMFI/claude-user-memory.git
 cd claude-user-memory
 
-# Backup existing config (optional)
-mv ~/.claude ~/.claude.backup-$(date +%Y%m%d-%H%M%S) 2>/dev/null || true
+# Backup existing config (recommended)
+if [ -d ~/.claude ]; then
+  cp -r ~/.claude ~/.claude.backup-$(date +%Y%m%d-%H%M%S)
+fi
 
-# Install to home directory
-cp -r .claude ~/
+# Create directory structure
+mkdir -p ~/.claude/{agents,skills,commands,hooks,scripts,data,validators}
+
+# Copy components (preserves existing user data)
+cp -r .claude/agents/* ~/.claude/agents/
+cp -r .claude/skills/* ~/.claude/skills/
+cp -r .claude/commands/* ~/.claude/commands/
+cp -r .claude/hooks/* ~/.claude/hooks/
+cp -r .claude/scripts/* ~/.claude/scripts/
+cp -r .claude/validators/* ~/.claude/validators/
+cp .claude/CLAUDE.md ~/.claude/
+
+# Copy pattern data only if it doesn't exist
+if [ ! -f ~/.claude/data/pattern-index.json ]; then
+  cp .claude/data/* ~/.claude/data/ 2>/dev/null || true
+fi
+
+# Make scripts executable
 chmod +x ~/.claude/hooks/*.sh
 chmod +x ~/.claude/validators/*.sh
 chmod +x ~/.claude/scripts/*.sh
@@ -143,7 +150,8 @@ echo "✅ Installation complete!"
 **Project-specific install:**
 ```bash
 # Install in current project only
-cp -r .claude .
+mkdir -p .claude/{agents,skills,commands,hooks,scripts,data,validators}
+cp -r path/to/claude-user-memory/.claude/* .claude/
 chmod +x .claude/hooks/*.sh .claude/validators/*.sh .claude/scripts/*.sh
 ```
 

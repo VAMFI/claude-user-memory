@@ -35,6 +35,7 @@ fi
 
 echo ""
 echo "Updating installation files..."
+echo "⚠️  Only updating Agentic Substrate files - preserving your data"
 echo ""
 
 # Copy agents (only the updated ones for v3.1)
@@ -123,6 +124,15 @@ echo "  • code-implementer (v3.1 - metrics tracking)"
 echo "  • pattern-recognition (v3.1 - adaptive learning)"
 echo "  • pattern-index.json (9 patterns migrated)"
 echo "  • Scripts (confidence calculation, validation)"
+echo ""
+echo "Preserved User Data:"
+echo "  • history.jsonl (your command history)"
+echo "  • debug/ (debugging artifacts)"
+echo "  • file-history/ (edit history)"
+echo "  • projects/ (project-specific data)"
+echo "  • session-env/ (session data)"
+echo "  • settings.json (your settings)"
+echo "  • Custom agents/skills/commands (if any)"
 echo ""
 echo "Backup Location:"
 echo "  $BACKUP_DIR"
