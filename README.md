@@ -72,11 +72,14 @@ cd claude-user-memory
 
 **What happens:**
 - Backs up existing `~/.claude/` → `~/.claude.backup-[timestamp]/`
-- Installs all agents, skills, commands, hooks, and scripts to `~/.claude/`
-- **Preserves all your existing data** (history, settings, pattern data)
+- **Manifest-driven selective installation** - Only installs/updates our 35 managed files
+- **Preserves ALL Claude CLI data** (history, settings, todos, debug logs, projects)
+- Creates version file (`~/.claude/.agentic-substrate-version`)
+- Generates installation manifest (`~/.claude/.agentic-substrate-manifest.json`)
 - Makes all scripts executable
 - Updates ~/.claude/CLAUDE.md with v3.1 documentation
-- Shows installation summary
+- Validates installation integrity
+- Creates rollback script for safety
 
 **Or quick one-liner:**
 ```bash
@@ -87,21 +90,24 @@ curl -fsSL https://raw.githubusercontent.com/VAMFI/claude-user-memory/main/insta
 
 ### Option 2: Update Existing Installation
 
-**For upgrading from v3.0 to v3.1:**
+**For upgrading from previous versions:**
 
 ```bash
 # From repository directory
 cd claude-user-memory
 git pull origin main
-./update-local-installation.sh
+./update.sh
 ```
 
 **What happens:**
-- Creates backup of current installation
-- Updates only changed files (agents, skills, scripts)
-- **Preserves your existing pattern-index.json data**
-- Runs automated test suite (12 tests)
-- Provides rollback instructions
+- Detects your current installed version
+- Shows exactly what files will be updated
+- Creates backup before changes
+- **Only updates changed files** (manifest-driven)
+- **Preserves ALL user data** (pattern-index.json, custom modifications)
+- Updates version file and manifest
+- Validates installation integrity
+- Creates rollback script automatically
 
 <br>
 
@@ -161,6 +167,21 @@ chmod +x .claude/hooks/*.sh .claude/validators/*.sh .claude/scripts/*.sh
 
 ### ✅ Verify Installation
 
+**Automated validation:**
+```bash
+# Run validation script
+./validate-install.sh
+```
+
+**Tests performed:**
+- ✅ Version file exists and correct
+- ✅ Manifest complete (35 files)
+- ✅ All managed files present
+- ✅ Script permissions correct
+- ✅ Protected user data preserved
+- ✅ Directory structure valid
+
+**Manual test:**
 ```bash
 # Start Claude Code and type:
 /workflow test
@@ -441,16 +462,34 @@ ultrathink Redis caching strategies for high-traffic applications
 
 ## 🛡️ Safety & Quality
 
-### ✅ Automatic Backups
+### ✅ Automatic Backups & Rollback
 
 Your existing configuration is **always backed up** before installation:
 
 ```bash
 ~/.claude → ~/.claude.backup-[timestamp]/
 
-# Restore anytime:
+# Automatic rollback script generated:
+~/.claude/rollback-to-previous.sh
+
+# Or manual restore:
 mv ~/.claude.backup-[timestamp] ~/.claude
 ```
+
+**Manifest-driven installation** ensures ONLY our 35 managed files are touched:
+- ✅ 9 agents
+- ✅ 5 skills
+- ✅ 5 commands
+- ✅ 7 hooks
+- ✅ Templates, validators, scripts
+
+**Your data is NEVER modified:**
+- ❌ history.jsonl (command history)
+- ❌ settings.json (user preferences)
+- ❌ todos/ (87 task files)
+- ❌ debug/ (CLI logs)
+- ❌ projects/ (session transcripts)
+- ❌ All other Claude CLI files
 
 <br>
 
