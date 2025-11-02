@@ -23,11 +23,48 @@ function log_success() { echo "✅ $1"; }
 function log_warning() { echo "⚠️  $1"; }
 function log_error() { echo "❌ $1"; }
 
-# Get script directory
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# Detect if running via curl | bash (stdin is not a terminal and no source files)
+CURL_INSTALL=false
+if [ ! -t 0 ] || [ ! -d "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.claude" ]; then
+    CURL_INSTALL=true
+fi
+
+# Repository URL
+REPO_URL="https://github.com/VAMFI/claude-user-memory.git"
+REPO_BRANCH="main"
+
+# Get script directory or temp directory for curl install
+if [ "$CURL_INSTALL" = true ]; then
+    SCRIPT_DIR=$(mktemp -d)
+    TEMP_CLONE=true
+else
+    SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+    TEMP_CLONE=false
+fi
+
 CLAUDE_SOURCE="$SCRIPT_DIR/.claude"
 CLAUDE_TARGET="$HOME/.claude"
 MANIFEST_TEMPLATE="$SCRIPT_DIR/manifest-template.json"
+
+# Clone repository if needed (for curl install)
+function clone_repository() {
+    if [ "$CURL_INSTALL" = true ]; then
+        log_info "Downloading Agentic Substrate from GitHub..."
+
+        if ! command -v git &> /dev/null; then
+            log_error "Git is required but not installed"
+            log_error "Please install git or use: git clone $REPO_URL && cd claude-user-memory && ./install.sh"
+            exit 1
+        fi
+
+        if ! git clone --depth 1 --branch "$REPO_BRANCH" "$REPO_URL" "$SCRIPT_DIR" > /dev/null 2>&1; then
+            log_error "Failed to clone repository from GitHub"
+            exit 1
+        fi
+
+        log_success "Repository downloaded successfully"
+    fi
+}
 
 # Pre-flight checks
 function preflight_checks() {
@@ -391,6 +428,9 @@ main() {
         echo ""
     fi
 
+    # Clone repository if running via curl
+    clone_repository
+
     preflight_checks
     create_backup
     install_files
@@ -412,6 +452,12 @@ main() {
     fi
 
     display_summary
+
+    # Cleanup temp directory if curl install
+    if [ "$TEMP_CLONE" = true ] && [ -n "$SCRIPT_DIR" ] && [ -d "$SCRIPT_DIR" ]; then
+        log_info "Cleaning up temporary files..."
+        rm -rf "$SCRIPT_DIR"
+    fi
 }
 
 main
