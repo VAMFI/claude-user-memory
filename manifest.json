@@ -2,7 +2,7 @@
   "dxt_version": "1.0.0",
   "name": "agentic-substrate",
   "displayName": "Agentic Substrate - Claude Code Enhancement",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "The foundational layer for Claude Code superintelligence. Adds Research→Plan→Implement workflow, multi-agent coordination, context engineering, and think protocols based on Anthropic's engineering philosophy.",
   "server": {
     "type": "static",

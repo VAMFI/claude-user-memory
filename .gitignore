@@ -1,0 +1,18 @@
+# macOS metadata
+.DS_Store
+*.DS_Store
+
+# User-specific files (should not be in repo)
+.claude/settings.json
+.claude/settings.local.json
+.claude/.circuit-breaker-state
+
+# IDE files
+.vscode/
+.idea/
+
+# Backup directories created during testing
+.claude.backup-*/
+
+# Test artifacts
+test-results/

@@ -1,0 +1,90 @@
+{
+  "manifest_version": "1.0.0",
+  "substrate_version": "3.1.0",
+  "managed_files": [
+    "agents/brahma-analyzer.md",
+    "agents/brahma-deployer.md",
+    "agents/brahma-investigator.md",
+    "agents/brahma-monitor.md",
+    "agents/brahma-optimizer.md",
+    "agents/chief-architect.md",
+    "agents/code-implementer.md",
+    "agents/docs-researcher.md",
+    "agents/implementation-planner.md",
+    "skills/context-engineering/skill.md",
+    "skills/pattern-recognition/skill.md",
+    "skills/planning-methodology/skill.md",
+    "skills/quality-validation/skill.md",
+    "skills/research-methodology/skill.md",
+    "commands/context.md",
+    "commands/implement.md",
+    "commands/plan.md",
+    "commands/research.md",
+    "commands/workflow.md",
+    "hooks/auto-format.sh",
+    "hooks/check-agent-economics.sh",
+    "hooks/run-tests.sh",
+    "hooks/suggest-context-edits.sh",
+    "hooks/update-knowledge-core.sh",
+    "hooks/validate-implementation-plan.sh",
+    "hooks/validate-research-pack.sh",
+    "validators/api-matcher.sh",
+    "validators/circuit-breaker.sh",
+    "metrics/tracker.sh",
+    "templates/agentic-substrate-personal.md.example",
+    "templates/agents-overview.md",
+    "templates/CLAUDE.md.template",
+    "templates/CLAUDE.md.user-level",
+    "templates/skills-overview.md",
+    "templates/workflows-overview.md"
+  ],
+  "executable_files": [
+    "hooks/auto-format.sh",
+    "hooks/check-agent-economics.sh",
+    "hooks/run-tests.sh",
+    "hooks/suggest-context-edits.sh",
+    "hooks/update-knowledge-core.sh",
+    "hooks/validate-implementation-plan.sh",
+    "hooks/validate-research-pack.sh",
+    "validators/api-matcher.sh",
+    "validators/circuit-breaker.sh",
+    "metrics/tracker.sh"
+  ],
+  "protected_paths": [
+    "debug/",
+    "file-history/",
+    "history.jsonl",
+    "projects/",
+    "session-env/",
+    "settings.json",
+    "settings.local.json",
+    "shell-snapshots/",
+    "statsig/",
+    "todos/",
+    "plugins/",
+    "ide/",
+    ".circuit-breaker-state",
+    ".DS_Store"
+  ],
+  "special_handling": {
+    "pattern-index.json": {
+      "action": "preserve",
+      "reason": "User-generated pattern learning data"
+    },
+    "CLAUDE.md": {
+      "action": "install-from-template",
+      "source": "templates/CLAUDE.md.user-level",
+      "reason": "User-level configuration file"
+    }
+  },
+  "metadata": {
+    "total_files": 35,
+    "agents": 9,
+    "skills": 5,
+    "commands": 5,
+    "hooks": 7,
+    "validators": 2,
+    "metrics": 1,
+    "templates": 6
+  }
+}

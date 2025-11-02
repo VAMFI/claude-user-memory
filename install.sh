@@ -1,204 +1,417 @@
 #!/usr/bin/env bash
-# Agentic Substrate v3.1 - Global Installation Script
-# The foundational layer for Claude Code superintelligence
-# Installs to ~/.claude/ with automatic backup
+# Agentic Substrate v3.1 - Safe Selective Installation
+# Manifest-driven installation with data preservation
 
 set -e
 
-echo "🚀 Agentic Substrate v3.1"
-echo "The foundational layer for Claude Code superintelligence"
-echo "NEW v3.1: Agents That Learn - Adaptive learning from past implementations"
-echo "============================================================"
-echo ""
+VERSION="3.1.0"
 
-# Get the directory where this script is located
+# Parse flags
+DRY_RUN=false
+FORCE=false
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --dry-run) DRY_RUN=true; shift ;;
+    --force) FORCE=true; shift ;;
+    *) echo "Unknown option: $1"; exit 1 ;;
+  esac
+done
+
+# Logging functions
+function log_info() { echo "ℹ️  $1"; }
+function log_success() { echo "✅ $1"; }
+function log_warning() { echo "⚠️  $1"; }
+function log_error() { echo "❌ $1"; }
+
+# Get script directory
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 CLAUDE_SOURCE="$SCRIPT_DIR/.claude"
 CLAUDE_TARGET="$HOME/.claude"
+MANIFEST_TEMPLATE="$SCRIPT_DIR/manifest-template.json"
 
-# Check if source .claude directory exists
-if [ ! -d "$CLAUDE_SOURCE" ]; then
-    echo "❌ Error: .claude directory not found in $SCRIPT_DIR"
-    echo "   Make sure you're running this script from the repository root."
+# Pre-flight checks
+function preflight_checks() {
+    log_info "Pre-flight checks..."
+
+    # Check source directory
+    if [ ! -d "$CLAUDE_SOURCE" ]; then
+        log_error "Source directory not found: $CLAUDE_SOURCE"
+        log_error "Make sure you're running this script from the repository root."
+        exit 1
+    fi
+
+    # Check manifest exists
+    if [ ! -f "$MANIFEST_TEMPLATE" ]; then
+        log_error "Manifest template not found: $MANIFEST_TEMPLATE"
+        exit 1
+    fi
+
+    # Validate JSON
+    if ! python3 -m json.tool "$MANIFEST_TEMPLATE" > /dev/null 2>&1; then
+        log_error "Manifest template is invalid JSON"
+        exit 1
+    fi
+
+    # Check if already installed (unless force)
+    if [ ! "$FORCE" = true ] && [ -f "$CLAUDE_TARGET/.agentic-substrate-version" ]; then
+        INSTALLED_VERSION=$(cat "$CLAUDE_TARGET/.agentic-substrate-version")
+        if [ "$INSTALLED_VERSION" = "$VERSION" ]; then
+            log_warning "Agentic Substrate v$VERSION is already installed"
+            log_info "Use --force to reinstall or run update.sh to upgrade"
+            exit 0
+        fi
+    fi
+
+    log_success "Pre-flight checks passed"
+}
+
+# Create backup
+function create_backup() {
+    if [ ! -d "$CLAUDE_TARGET" ]; then
+        log_info "No existing installation - skipping backup"
+        return 0
+    fi
+
+    BACKUP_DIR="$HOME/.claude.backup-$(date +%Y%m%d-%H%M%S)"
+
+    if [ "$DRY_RUN" = true ]; then
+        log_info "[DRY RUN] Would create backup: $BACKUP_DIR"
+        return 0
+    fi
+
+    log_info "Creating backup of existing installation..."
+    cp -r "$CLAUDE_TARGET" "$BACKUP_DIR"
+    log_success "Backup created: $BACKUP_DIR"
+
+    # Store backup location for rollback script
+    BACKUP_LOCATION="$BACKUP_DIR"
+}
+
+# Install files from manifest
+function install_files() {
+    log_info "Installing Agentic Substrate components..."
+
+    # Create directory structure
+    mkdir -p "$CLAUDE_TARGET"
+    mkdir -p "$CLAUDE_TARGET/agents"
+    mkdir -p "$CLAUDE_TARGET/skills"
+    mkdir -p "$CLAUDE_TARGET/commands"
+    mkdir -p "$CLAUDE_TARGET/hooks"
+    mkdir -p "$CLAUDE_TARGET/validators"
+    mkdir -p "$CLAUDE_TARGET/metrics"
+    mkdir -p "$CLAUDE_TARGET/templates"
+
+    # Read managed files from manifest
+    local files=$(python3 -c "import json; print('\n'.join(json.load(open('$MANIFEST_TEMPLATE'))['managed_files']))")
+
+    local count=0
+    local total=$(echo "$files" | wc -l | tr -d ' ')
+
+    # Install each file
+    while IFS= read -r file; do
+        ((count++))
+        local source_file="$CLAUDE_SOURCE/$file"
+        local target_file="$CLAUDE_TARGET/$file"
+
+        if [ ! -f "$source_file" ]; then
+            log_warning "Source file not found (skipping): $file"
+            continue
+        fi
+
+        if [ "$DRY_RUN" = true ]; then
+            log_info "[DRY RUN] Would install [$count/$total]: $file"
+        else
+            # Create parent directory if needed
+            mkdir -p "$(dirname "$target_file")"
+
+            # Copy file
+            cp "$source_file" "$target_file"
+
+            # Log progress every 5 files or last file
+            if [ $((count % 5)) -eq 0 ] || [ $count -eq $total ]; then
+                log_info "Progress: $count/$total files installed"
+            fi
+        fi
+    done <<< "$files"
+
+    log_success "All managed files installed ($count files)"
+}
+
+# Set executable permissions
+function set_permissions() {
+    if [ "$DRY_RUN" = true ]; then
+        log_info "[DRY RUN] Would set executable permissions on scripts"
+        return 0
+    fi
+
+    log_info "Setting executable permissions..."
+
+    # Read executable files from manifest
+    local exec_files=$(python3 -c "import json; print('\n'.join(json.load(open('$MANIFEST_TEMPLATE'))['executable_files']))")
+
+    while IFS= read -r file; do
+        chmod +x "$CLAUDE_TARGET/$file" 2>/dev/null || true
+    done <<< "$exec_files"
+
+    log_success "Permissions set on executable files"
+}
+
+# Install user-level CLAUDE.md
+function install_claude_md() {
+    local source="$CLAUDE_SOURCE/templates/CLAUDE.md.user-level"
+    local target="$CLAUDE_TARGET/CLAUDE.md"
+
+    if [ ! -f "$source" ]; then
+        log_warning "CLAUDE.md.user-level template not found (skipping)"
+        return 0
+    fi
+
+    if [ "$DRY_RUN" = true ]; then
+        log_info "[DRY RUN] Would install user-level CLAUDE.md"
+        return 0
+    fi
+
+    log_info "Installing user-level CLAUDE.md..."
+    cp "$source" "$target"
+    log_success "User-level CLAUDE.md installed"
+}
+
+# Preserve special files
+function preserve_special_files() {
+    # pattern-index.json - already preserved by selective copying
+    # (we don't copy it from repo, so user's version is kept)
+    log_info "Special files preserved (pattern-index.json if exists)"
+}
+
+# Generate manifest in installation
+function generate_manifest() {
+    if [ "$DRY_RUN" = true ]; then
+        log_info "[DRY RUN] Would generate installation manifest"
+        return 0
+    fi
+
+    log_info "Generating installation manifest..."
+
+    local manifest="$CLAUDE_TARGET/.agentic-substrate-manifest.json"
+    local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+    # Copy template and add installation metadata
+    python3 << EOF
+import json
+from datetime import datetime
+
+# Load template
+with open('$MANIFEST_TEMPLATE', 'r') as f:
+    data = json.load(f)
+
+# Add installation metadata
+data['installed_at'] = '$timestamp'
+data['installed_by'] = 'install.sh'
+
+# Write to installation directory
+with open('$manifest', 'w') as f:
+    json.dump(data, f, indent=2)
+EOF
+
+    log_success "Installation manifest created"
+}
+
+# Write version file
+function write_version() {
+    if [ "$DRY_RUN" = true ]; then
+        log_info "[DRY RUN] Would write version file: $VERSION"
+        return 0
+    fi
+
+    log_info "Writing version file..."
+    echo "$VERSION" > "$CLAUDE_TARGET/.agentic-substrate-version"
+    log_success "Version file created: v$VERSION"
+}
+
+# Generate rollback script
+function generate_rollback() {
+    if [ "$DRY_RUN" = true ]; then
+        log_info "[DRY RUN] Would generate rollback script"
+        return 0
+    fi
+
+    if [ -z "$BACKUP_LOCATION" ]; then
+        log_info "No backup created - skipping rollback script"
+        return 0
+    fi
+
+    log_info "Generating rollback script..."
+
+    local rollback_script="$CLAUDE_TARGET/rollback-to-previous.sh"
+
+    cat > "$rollback_script" << EOF
+#!/usr/bin/env bash
+# Auto-generated rollback script for Agentic Substrate
+# Created: $(date)
+# Rollback from: v$VERSION
+# Backup location: $BACKUP_LOCATION
+
+echo "🔄 Rolling back Agentic Substrate..."
+echo "   From: v$VERSION"
+echo "   Backup: $BACKUP_LOCATION"
+echo ""
+
+# Confirm
+read -p "Proceed with rollback? (y/N) " -n 1 -r
+echo
+if [[ ! \$REPLY =~ ^[Yy]$ ]]; then
+    echo "Rollback cancelled"
     exit 1
 fi
 
-# Backup existing .claude if it exists
-if [ -d "$CLAUDE_TARGET" ]; then
-    BACKUP_DIR="$HOME/.claude.backup-$(date +%Y%m%d-%H%M%S)"
-    echo "📦 Existing .claude found - creating backup..."
-    echo "   Backing up to: $BACKUP_DIR"
-    cp -r "$CLAUDE_TARGET" "$BACKUP_DIR"
-    echo "   ✅ Backup complete!"
+# Backup current state before rollback
+ROLLBACK_BACKUP="\$HOME/.claude.rollback-backup-\$(date +%Y%m%d-%H%M%S)"
+echo "📦 Backing up current state to \$ROLLBACK_BACKUP"
+cp -r "\$HOME/.claude" "\$ROLLBACK_BACKUP"
+
+# Restore from backup
+BACKUP_DIR="$BACKUP_LOCATION"
+if [ ! -d "\$BACKUP_DIR" ]; then
+    echo "❌ Backup directory not found: \$BACKUP_DIR"
+    exit 1
+fi
+
+echo "♻️  Restoring from backup..."
+rm -rf "\$HOME/.claude"
+cp -r "\$BACKUP_DIR" "\$HOME/.claude"
+
+echo "✅ Rollback complete!"
+echo ""
+echo "Your installation has been restored from backup"
+echo "Current state backed up to: \$ROLLBACK_BACKUP"
+EOF
+
+    chmod +x "$rollback_script"
+    log_success "Rollback script created: $rollback_script"
+}
+
+# Validate installation
+function validate_installation() {
+    if [ "$DRY_RUN" = true ]; then
+        log_info "[DRY RUN] Would validate installation"
+        return 0
+    fi
+
+    log_info "Validating installation..."
+
+    local errors=0
+
+    # Check version file
+    if [ ! -f "$CLAUDE_TARGET/.agentic-substrate-version" ]; then
+        log_error "Version file missing"
+        ((errors++))
+    fi
+
+    # Check manifest
+    if [ ! -f "$CLAUDE_TARGET/.agentic-substrate-manifest.json" ]; then
+        log_error "Manifest file missing"
+        ((errors++))
+    fi
+
+    # Check file count
+    local expected=35
+    local actual=$(python3 -c "import json; print(len(json.load(open('$CLAUDE_TARGET/.agentic-substrate-manifest.json'))['managed_files']))" 2>/dev/null || echo "0")
+
+    if [ "$actual" -ne "$expected" ]; then
+        log_error "File count mismatch: expected $expected, got $actual"
+        ((errors++))
+    fi
+
+    if [ $errors -eq 0 ]; then
+        log_success "Installation validation passed"
+        return 0
+    else
+        log_error "Installation validation failed with $errors error(s)"
+        return 1
+    fi
+}
+
+# Display summary
+function display_summary() {
     echo ""
-fi
-
-# Install to home directory (selective copying to preserve user data)
-echo "📋 Installing Agentic Substrate components..."
-echo "   ⚠️  Preserving existing user data (history, custom files, etc.)"
-echo ""
-
-# Create directory structure if it doesn't exist
-mkdir -p "$CLAUDE_TARGET"
-mkdir -p "$CLAUDE_TARGET/agents"
-mkdir -p "$CLAUDE_TARGET/skills"
-mkdir -p "$CLAUDE_TARGET/commands"
-mkdir -p "$CLAUDE_TARGET/hooks"
-mkdir -p "$CLAUDE_TARGET/scripts"
-mkdir -p "$CLAUDE_TARGET/data"
-mkdir -p "$CLAUDE_TARGET/validators"
-
-# Copy our specific components (overwrites our files, preserves user files)
-echo "   📦 Installing agents (4 core agents)..."
-cp -r "$CLAUDE_SOURCE/agents"/* "$CLAUDE_TARGET/agents/" 2>/dev/null || true
-
-echo "   📦 Installing skills (5 auto-invoked capabilities)..."
-cp -r "$CLAUDE_SOURCE/skills"/* "$CLAUDE_TARGET/skills/" 2>/dev/null || true
-
-echo "   📦 Installing commands (5 slash commands)..."
-cp -r "$CLAUDE_SOURCE/commands"/* "$CLAUDE_TARGET/commands/" 2>/dev/null || true
-
-echo "   📦 Installing hooks (8 quality gates)..."
-cp -r "$CLAUDE_SOURCE/hooks"/* "$CLAUDE_TARGET/hooks/" 2>/dev/null || true
-
-echo "   📦 Installing scripts (confidence calculator, validators)..."
-cp -r "$CLAUDE_SOURCE/scripts"/* "$CLAUDE_TARGET/scripts/" 2>/dev/null || true
-
-echo "   📦 Installing validators..."
-cp -r "$CLAUDE_SOURCE/validators"/* "$CLAUDE_TARGET/validators/" 2>/dev/null || true
-
-# Copy data files only if they don't exist (preserve user's pattern data)
-if [ ! -f "$CLAUDE_TARGET/data/pattern-index.json" ]; then
-    echo "   📦 Installing pattern-index.json (initial migration)..."
-    cp "$CLAUDE_SOURCE/data"/* "$CLAUDE_TARGET/data/" 2>/dev/null || true
-else
-    echo "   ⊘ Preserving existing pattern-index.json (keeping your pattern data)"
-fi
-
-# Copy system documentation
-echo "   📦 Installing system documentation (CLAUDE.md)..."
-cp "$CLAUDE_SOURCE/CLAUDE.md" "$CLAUDE_TARGET/" 2>/dev/null || true
-
-echo ""
-echo "   ✅ Agentic Substrate components installed!"
-echo "   ✅ Your existing data preserved (history, debug, custom files)"
-echo ""
-
-# Make hooks executable
-echo "🔧 Making hooks and validators executable..."
-chmod +x "$CLAUDE_TARGET/hooks"/*.sh 2>/dev/null || true
-chmod +x "$CLAUDE_TARGET/validators"/*.sh 2>/dev/null || true
-chmod +x "$CLAUDE_TARGET/metrics"/*.sh 2>/dev/null || true
-echo "   ✅ Permissions set!"
-echo ""
-
-# Install user-level CLAUDE.md (system-wide documentation)
-echo "📖 Installing user-level documentation..."
-if [ -f "$CLAUDE_SOURCE/templates/CLAUDE.md.user-level" ]; then
-    cp "$CLAUDE_SOURCE/templates/CLAUDE.md.user-level" "$CLAUDE_TARGET/CLAUDE.md"
-    echo "   ✅ User-level CLAUDE.md installed!"
-    echo "      System-wide Agentic Substrate documentation available in all projects"
-else
-    echo "   ⚠️  User-level CLAUDE.md template not found (skipping)"
-fi
-echo ""
-
-# Success message
-echo "✅ Installation complete!"
-echo ""
-echo "📚 What was installed:"
-echo ""
-echo "   📖 User-level documentation:"
-echo "      • ~/.claude/CLAUDE.md - System-wide Agentic Substrate reference"
-echo "         (Available in ALL projects, integrates with Project Brahma)"
-echo ""
-echo "   🤖 Agents (9 specialized - Complete BUILD-FIX-SERVE coverage):"
-echo "      Tier 1 (Orchestrator):"
-echo "      • chief-architect - Master orchestrator with parallel multi-agent mode"
-echo ""
-echo "      Tier 2 (Core Workflow - 5 agents):"
-echo "      • docs-researcher - High-speed documentation with contextual retrieval"
-echo "      • implementation-planner - Strategic architect with minimal changes"
-echo "      • brahma-analyzer - Quality gate (80+ score) before implementation"
-echo "      • code-implementer - Precision execution with TDD & 3-retry self-correction"
-echo "      • brahma-investigator - Root-cause analysis with think protocol (3-retry)"
-echo ""
-echo "      Tier 3 (Production - 3 agents):"
-echo "      • brahma-deployer - Canary deployments with auto-rollback"
-echo "      • brahma-monitor - Observability (Metrics, Logs, Traces)"
-echo "      • brahma-optimizer - Performance tuning & auto-scaling"
-echo ""
-echo "   🎓 Skills (5 auto-invoked):"
-echo "      • research-methodology - Systematic documentation gathering"
-echo "      • planning-methodology - Minimal-change, reversible planning"
-echo "      • quality-validation - Multi-modal validation (API + Philosophy)"
-echo "      • pattern-recognition - Automatic knowledge capture"
-echo "      • context-engineering - Active context curation (39% improvement)"
-echo ""
-echo "   ⚡ Commands (5 slash commands):"
-echo "      • /research - Quick documentation research"
-echo "      • /plan - Quick implementation planning"
-echo "      • /implement - Execute plan with self-correction"
-echo "      • /workflow - Complete automation (all phases)"
-echo "      • /context - Analyze and optimize context configuration"
-echo ""
-echo "   🔒 Quality Gates (8 hooks):"
-echo "      • validate-research-pack.sh - Research quality (80+ score)"
-echo "      • validate-implementation-plan.sh - Plan quality (85+ score)"
-echo "      • auto-format.sh - Code formatting"
-echo "      • run-tests.sh - Continuous validation"
-echo "      • update-knowledge-core.sh - Pattern capture"
-echo "      • suggest-context-edits.sh - Context optimization hints"
-echo "      • check-agent-economics.sh - Multi-agent cost/benefit"
-echo "      • [Pre/Post-ToolUse, PreAgentSpawn, Stop hooks]"
-echo ""
-echo "   🆕 New in v3.0 (Agentic Substrate):"
-echo "      • Think tool protocol - 54% improvement on complex decisions"
-echo "      • Context engineering - 39% improvement, 84% token reduction"
-echo "      • Multi-agent parallel - 90.2% performance gain"
-echo "      • Contextual retrieval - 49-67% better research"
-echo "      • TDD enforcement - Test-first workflow (Anthropic's favorite)"
-echo "      • Git operations - Automated commits with co-authoring"
-echo "      • Extended thinking - think, think hard, think harder, ultrathink"
-echo "      • Memory management - Import syntax, modular organization"
-echo "      • Philosophy research - Quality validation for thematic analysis"
-echo ""
-echo "   📊 Performance (from Anthropic research):"
-echo "      • Complex tasks: 54% improvement (think tool)"
-echo "      • Research accuracy: 49-67% improvement (contextual retrieval)"
-echo "      • Context optimization: 39% improvement, 84% token reduction"
-echo "      • Multi-agent mode: 90.2% performance gain, 90% time reduction"
-echo "      • Typical feature: 10-25 min (vs 55-120 min without)"
-echo ""
-echo "🎯 Quick Start:"
-echo "   1. Start Claude Code CLI"
-echo "   2. Try: /workflow Add weather API integration"
-echo "   3. Or step-by-step: /research → /plan → /implement"
-echo ""
-
-if [ -n "$BACKUP_DIR" ]; then
-    echo "💾 Restore Previous Configuration:"
-    echo "   If you want to restore your previous setup:"
-    echo "   rm -rf ~/.claude && mv $BACKUP_DIR ~/.claude"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    log_success "Agentic Substrate v$VERSION installed successfully!"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
-fi
 
-echo "📖 Documentation:"
-echo "   • README.md - Quick reference and feature overview"
-echo "   • PHILOSOPHY.md - Philia Sophia synthesis (Anthropic + VAMFI)"
-echo "   • .claude/templates/ - Agent, skill, and workflow overviews"
-echo "   • CLAUDE.md - Memory management and extended thinking"
-echo ""
-echo "🚀 Next Steps:"
-echo "   1. Review PHILOSOPHY.md to understand the Anthropic synthesis"
-echo "   2. Run '/context analyze' to optimize your context"
-echo "   3. Try 'ultrathink' keyword for complex architecture decisions"
-echo "   4. Use '/workflow' for complete automation"
-echo ""
-echo "🌟 Thank you for using Agentic Substrate!"
-echo "   Built on Anthropic's engineering philosophy + VAMFI's Brahma orchestration"
-echo "   Report issues: https://github.com/VAMFI/claude-user-memory/issues"
-echo "   Star the repo: https://github.com/VAMFI/claude-user-memory"
-echo ""
-echo "JAI GANESH. JAI BHOLE. HAPPY DHANTERAS! 🪔"
-echo ""
+    if [ "$DRY_RUN" = true ]; then
+        echo "DRY RUN COMPLETE - No changes were made"
+        echo "Run without --dry-run to perform actual installation"
+        echo ""
+        return 0
+    fi
+
+    echo "📋 Installation Summary:"
+    echo "   • Location: $CLAUDE_TARGET"
+    echo "   • Version: $VERSION"
+    echo "   • Managed files: 35"
+    echo "   • Agents: 9"
+    echo "   • Skills: 5"
+    echo "   • Commands: 5"
+    echo ""
+
+    if [ -n "$BACKUP_LOCATION" ]; then
+        echo "💾 Backup Information:"
+        echo "   • Backup location: $BACKUP_LOCATION"
+        echo "   • Rollback script: $CLAUDE_TARGET/rollback-to-previous.sh"
+        echo ""
+    fi
+
+    echo "🚀 Quick Start:"
+    echo "   1. Start Claude Code CLI"
+    echo "   2. Try: /workflow Add feature X"
+    echo "   3. Or: /research → /plan → /implement"
+    echo ""
+
+    echo "📚 Documentation:"
+    echo "   • User guide: ~/.claude/CLAUDE.md"
+    echo "   • Templates: ~/.claude/templates/"
+    echo "   • Agents: ~/.claude/agents/"
+    echo ""
+
+    echo "🔍 Verify Installation:"
+    echo "   cat ~/.claude/.agentic-substrate-version"
+    echo "   ./validate-install.sh"
+    echo ""
+}
+
+# Main execution
+main() {
+    echo "🚀 Agentic Substrate v$VERSION - Safe Selective Installation"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo ""
+
+    if [ "$DRY_RUN" = true ]; then
+        log_warning "DRY RUN MODE - No changes will be made"
+        echo ""
+    fi
+
+    preflight_checks
+    create_backup
+    install_files
+    set_permissions
+    install_claude_md
+    preserve_special_files
+    generate_manifest
+    write_version
+    generate_rollback
+
+    if ! validate_installation; then
+        log_error "Installation validation failed"
+
+        if [ -n "$BACKUP_LOCATION" ]; then
+            log_info "You can restore from backup: $CLAUDE_TARGET/rollback-to-previous.sh"
+        fi
+
+        exit 1
+    fi
+
+    display_summary
+}
+
+main
