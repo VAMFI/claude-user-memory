@@ -139,7 +139,7 @@ function install_files() {
     mkdir -p "$CLAUDE_TARGET/templates"
 
     # Read managed files from manifest
-    local files=$(python3 -c "import json; print('\n'.join(json.load(open('$MANIFEST_TEMPLATE'))['managed_files']))")
+    local files=$(python3 -c "import json; m='$MANIFEST_TEMPLATE'; print('\n'.join(json.load(open(m))['managed_files']))")
 
     local count=0
     local total=$(echo "$files" | wc -l | tr -d ' ')
@@ -184,7 +184,7 @@ function set_permissions() {
     log_info "Setting executable permissions..."
 
     # Read executable files from manifest
-    local exec_files=$(python3 -c "import json; print('\n'.join(json.load(open('$MANIFEST_TEMPLATE'))['executable_files']))")
+    local exec_files=$(python3 -c "import json; m='$MANIFEST_TEMPLATE'; print('\n'.join(json.load(open(m))['executable_files']))")
 
     while IFS= read -r file; do
         chmod +x "$CLAUDE_TARGET/$file" 2>/dev/null || true
