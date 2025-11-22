@@ -1,0 +1,375 @@
+"""
+LangGraph State Definition for Agentic Substrate (BRAHMA)
+
+This template defines the unified state structure for multi-agent workflows
+using LangGraph's state machine architecture.
+
+USAGE:
+1. Copy this file and remove .template suffix
+2. Customize field types for your specific workflow
+3. Import in brahma_graph.py to define your StateGraph
+
+RESEARCH FOUNDATION:
+- Based on LangGraph production patterns (2024)
+- Anthropic multi-agent research (90.2% improvement)
+- Best practice: "Keep state minimal, explicit, and typed with bounded cycles"
+
+Source: https://www.swarnendu.de/blog/langgraph-best-practices/
+"""
+
+from typing import TypedDict, Annotated, Literal, Optional
+from langgraph.graph import add_messages
+
+# =============================================================================
+# CORE BRAHMA STATE
+# =============================================================================
+
+class BrahmaState(TypedDict):
+    """
+    Unified state for all BRAHMA workflows (BUILD, FIX, SERVE).
+
+    Design Principles:
+    1. Minimal: Only essential fields
+    2. Explicit: Clear types and purposes
+    3. Typed: Use TypedDict/Pydantic for validation
+    4. Bounded: Prevent unbounded growth
+
+    State Sections:
+    - Core Fields: Basic workflow information
+    - Quality Gates: Research/Plan/Analysis artifacts with scores
+    - Execution Tracking: Implementation progress and results
+    - Context Management: Token usage and optimization
+    - Knowledge Capture: Patterns and decisions for preservation
+    """
+
+    # -------------------------------------------------------------------------
+    # CORE FIELDS
+    # -------------------------------------------------------------------------
+
+    messages: Annotated[list, add_messages]
+    """
+    Conversation history using add_messages reducer.
+
+    The add_messages reducer intelligently merges message lists:
+    - Appends new messages
+    - Updates messages with same ID
+    - Prevents duplicate messages
+
+    Example:
+        # Initial state
+        state["messages"] = [{"role": "user", "content": "Add caching"}]
+
+        # Agent adds message
+        return {"messages": [{"role": "assistant", "content": "Researching..."}]}
+
+        # Result: Both messages in state
+    """
+
+    task_description: str
+    """Original user request that initiated the workflow."""
+
+    current_phase: Literal["research", "plan", "analyze", "implement", "deploy", "monitor", "complete"]
+    """
+    Current workflow phase. Determines routing logic.
+
+    Phase Flow:
+    - research: docs-researcher fetches documentation
+    - plan: implementation-planner creates execution plan
+    - analyze: brahma-analyzer validates consistency
+    - implement: code-implementer executes with TDD
+    - deploy: brahma-deployer handles production rollout (optional)
+    - monitor: brahma-monitor sets up observability (optional)
+    - complete: Workflow finished successfully
+    """
+
+    # -------------------------------------------------------------------------
+    # QUALITY GATES (Artifacts + Scores)
+    # -------------------------------------------------------------------------
+
+    research_pack: Optional[dict]
+    """
+    ResearchPack from docs-researcher.
+
+    Structure:
+    {
+        "score": 85,  # Must be >= 80 to pass quality gate
+        "library": "redis",
+        "version": "5.0.0",
+        "apis": [
+            {"name": "createClient", "signature": "...", "example": "..."},
+            {"name": "set", "signature": "...", "example": "..."},
+            ...
+        ],
+        "best_practices": [...],
+        "pitfalls": [...]
+    }
+
+    Quality Gate: score >= 80 required to proceed to planning
+    """
+
+    implementation_plan: Optional[dict]
+    """
+    Implementation Plan from implementation-planner.
+
+    Structure:
+    {
+        "score": 88,  # Must be >= 85 to pass quality gate
+        "files_to_modify": ["src/cache.js", "src/config.js"],
+        "steps": [
+            {"order": 1, "description": "...", "files": [...]},
+            ...
+        ],
+        "rollback_plan": "...",
+        "risks": [...]
+    }
+
+    Quality Gate: score >= 85 required to proceed to analysis
+    """
+
+    analysis_results: Optional[dict]
+    """
+    Analysis from brahma-analyzer.
+
+    Structure:
+    {
+        "score": 90,  # Must be >= 80 to pass quality gate
+        "conflicts": [],  # Must be empty to pass
+        "coverage": {
+            "spec_to_plan": 100,
+            "plan_to_tasks": 95
+        },
+        "traceability": "complete"
+    }
+
+    Quality Gate: score >= 80 AND no conflicts to proceed to implementation
+    """
+
+    # -------------------------------------------------------------------------
+    # EXECUTION TRACKING
+    # -------------------------------------------------------------------------
+
+    test_results: Optional[dict]
+    """
+    Test execution results from code-implementer.
+
+    Structure:
+    {
+        "passing": 25,
+        "failing": 0,  # Must be 0 to complete
+        "coverage": 85.5,
+        "duration_ms": 1234
+    }
+
+    Completion Gate: failing == 0 AND passing > 0
+    """
+
+    circuit_breaker_state: Literal["closed", "open"]
+    """
+    Circuit breaker prevents infinite retry loops.
+
+    - closed: Normal operation, retries allowed
+    - open: Too many failures, requires manual intervention
+
+    Opens after 3 failed self-correction attempts.
+    """
+
+    retry_count: int
+    """
+    Number of self-correction attempts in current phase.
+    Max 3 before circuit breaker opens.
+    """
+
+    artifacts: list[str]
+    """
+    List of file paths created or modified during implementation.
+
+    Example: ["src/cache.js", "src/config.js", "tests/cache.test.js"]
+    """
+
+    # -------------------------------------------------------------------------
+    # CONTEXT MANAGEMENT
+    # -------------------------------------------------------------------------
+
+    token_usage: int
+    """
+    Cumulative token count for this workflow.
+    Used to warn users approaching 200K limit.
+    """
+
+    context_budget_pct: float
+    """
+    Percentage of 200K context budget used.
+
+    Triggers:
+    - 80%: Warning displayed
+    - 90%: Auto-optimization triggered
+    - 95%: Critical warning, workflow may fail
+    """
+
+    # -------------------------------------------------------------------------
+    # KNOWLEDGE CAPTURE
+    # -------------------------------------------------------------------------
+
+    patterns_identified: list[dict]
+    """
+    Reusable patterns discovered during implementation.
+
+    Structure:
+    [
+        {
+            "pattern_name": "Redis connection pooling",
+            "context": "Caching layer",
+            "solution": "Use createClient with pool config",
+            "confidence": "high"
+        },
+        ...
+    ]
+
+    Preserved to knowledge-core.md after workflow completion.
+    """
+
+    decisions_made: list[dict]
+    """
+    Key architectural decisions and rationale.
+
+    Structure:
+    [
+        {
+            "decision": "Use Redis over Memcached",
+            "rationale": "Need persistence and data structures",
+            "alternatives_considered": ["Memcached", "In-memory cache"],
+            "timestamp": "2025-11-06T..."
+        },
+        ...
+    ]
+    """
+
+
+# =============================================================================
+# SPECIALIZED STATES (Optional - for specific workflows)
+# =============================================================================
+
+class DeploymentState(TypedDict):
+    """
+    Extended state for deployment workflows (brahma-deployer).
+
+    Inherits from BrahmaState with deployment-specific fields.
+    """
+
+    # Include all BrahmaState fields
+    messages: Annotated[list, add_messages]
+    task_description: str
+    current_phase: Literal["pre_deploy", "canary", "rollout", "monitoring", "complete"]
+
+    # Deployment-specific fields
+    deployment_strategy: Literal["canary", "blue_green", "rolling"]
+    """Deployment strategy chosen based on risk assessment."""
+
+    canary_percentage: int
+    """Current percentage of traffic on canary (5, 25, 50, or 100)."""
+
+    health_metrics: dict
+    """
+    Current health metrics for canary validation.
+
+    Structure:
+    {
+        "error_rate": 0.1,  # Must be < 1.0%
+        "latency_p99": 450,  # Must be < 500ms
+        "success_rate": 99.95  # Must be > 99.9%
+    }
+    """
+
+    rollback_triggered: bool
+    """True if automatic rollback was triggered due to health failures."""
+
+
+# =============================================================================
+# STATE INITIALIZATION HELPERS
+# =============================================================================
+
+def create_initial_state(task_description: str) -> BrahmaState:
+    """
+    Create initial state for a new workflow.
+
+    Args:
+        task_description: User's original request
+
+    Returns:
+        BrahmaState with sensible defaults
+
+    Example:
+        state = create_initial_state("Add Redis caching to ProductService")
+        graph.invoke(state)
+    """
+    return {
+        "messages": [],
+        "task_description": task_description,
+        "current_phase": "research",
+        "research_pack": None,
+        "implementation_plan": None,
+        "analysis_results": None,
+        "test_results": None,
+        "circuit_breaker_state": "closed",
+        "retry_count": 0,
+        "artifacts": [],
+        "token_usage": 0,
+        "context_budget_pct": 0.0,
+        "patterns_identified": [],
+        "decisions_made": []
+    }
+
+
+# =============================================================================
+# STATE VALIDATION
+# =============================================================================
+
+def validate_state(state: BrahmaState) -> list[str]:
+    """
+    Validate state for common issues.
+
+    Returns:
+        List of validation errors (empty if valid)
+
+    Example:
+        errors = validate_state(state)
+        if errors:
+            print("State validation failed:", errors)
+    """
+    errors = []
+
+    # Check token budget
+    if state["context_budget_pct"] > 100:
+        errors.append("Context budget exceeded 100%")
+
+    # Check circuit breaker consistency
+    if state["retry_count"] > 3 and state["circuit_breaker_state"] == "closed":
+        errors.append("Circuit breaker should be open with >3 retries")
+
+    # Check quality gate scores
+    if state["research_pack"] and state["research_pack"]["score"] < 80:
+        if state["current_phase"] not in ["research"]:
+            errors.append("Research pack score too low for current phase")
+
+    if state["implementation_plan"] and state["implementation_plan"]["score"] < 85:
+        if state["current_phase"] not in ["research", "plan"]:
+            errors.append("Implementation plan score too low for current phase")
+
+    return errors
+
+
+# =============================================================================
+# USAGE EXAMPLE
+# =============================================================================
+
+if __name__ == "__main__":
+    # Example: Create and validate initial state
+    state = create_initial_state("Add Redis caching to ProductService")
+
+    errors = validate_state(state)
+    if errors:
+        print("Validation errors:", errors)
+    else:
+        print("State valid!")
+        print(f"Initial phase: {state['current_phase']}")
+        print(f"Circuit breaker: {state['circuit_breaker_state']}")

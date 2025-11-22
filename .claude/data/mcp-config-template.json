@@ -1,0 +1,146 @@
+{
+  "version": "1.0.0",
+  "updated": "2025-11-22T00:00:00Z",
+  "description": "MCP (Model Context Protocol) server configuration for Agentic Substrate v4.0",
+  "instructions": "This file maps MCP servers to agents. Edit to customize which tools each agent can access.",
+
+  "servers": {
+    "memory": {
+      "enabled": true,
+      "priority": 1,
+      "type": "docker",
+      "container": "mcp/memory",
+      "description": "Knowledge graph memory system for persistent context across sessions",
+      "required_for": ["context-engineering", "pattern-recognition"],
+      "tools": [
+        "create_entities", "create_relations", "add_observations",
+        "search_nodes", "open_nodes", "read_graph",
+        "delete_entities", "delete_observations", "delete_relations"
+      ]
+    },
+
+    "deepwiki": {
+      "enabled": true,
+      "priority": 2,
+      "type": "http",
+      "endpoint": "https://mcp.deepwiki.com/mcp",
+      "description": "Repository-level documentation and code patterns",
+      "required_for": ["docs-researcher", "code-implementer"],
+      "tools": [
+        "read_wiki_structure", "read_wiki_contents", "ask_question"
+      ]
+    },
+
+    "sequentialthinking": {
+      "enabled": true,
+      "priority": 3,
+      "type": "docker",
+      "container": "mcp/sequentialthinking",
+      "description": "Dynamic problem-solving through thought sequences",
+      "required_for": ["complex-reasoning", "debugging"],
+      "tools": [
+        "sequentialthinking"
+      ]
+    },
+
+    "context7": {
+      "enabled": false,
+      "priority": 4,
+      "type": "native",
+      "description": "Official library documentation (requires separate installation)",
+      "required_for": ["docs-researcher"],
+      "tools": [
+        "resolve-library-id", "get-library-docs"
+      ],
+      "installation_note": "Enable after installing context7 MCP server"
+    }
+  },
+
+  "agent_mappings": {
+    "chief-architect": {
+      "mcps": ["memory", "sequentialthinking"],
+      "description": "Orchestrator needs memory for context and sequential thinking for complex coordination"
+    },
+
+    "docs-researcher": {
+      "mcps": ["memory", "deepwiki", "context7"],
+      "description": "Researcher needs all documentation sources plus memory of past research"
+    },
+
+    "implementation-planner": {
+      "mcps": ["memory"],
+      "description": "Planner needs memory to reference past decisions and patterns"
+    },
+
+    "code-implementer": {
+      "mcps": ["memory", "deepwiki"],
+      "description": "Implementer needs memory for patterns and DeepWiki for accurate APIs"
+    },
+
+    "brahma-analyzer": {
+      "mcps": ["memory"],
+      "description": "Analyzer needs memory to check consistency across artifacts"
+    },
+
+    "brahma-investigator": {
+      "mcps": ["memory", "sequentialthinking"],
+      "description": "Investigator needs memory for past bugs and sequential thinking for root cause analysis"
+    },
+
+    "brahma-deployer": {
+      "mcps": ["memory"],
+      "description": "Deployer needs memory for deployment history and patterns"
+    },
+
+    "brahma-monitor": {
+      "mcps": ["memory"],
+      "description": "Monitor needs memory for baseline metrics and alert patterns"
+    },
+
+    "brahma-optimizer": {
+      "mcps": ["memory"],
+      "description": "Optimizer needs memory for performance baselines and optimization patterns"
+    }
+  },
+
+  "workflow_mappings": {
+    "research": {
+      "mcps": ["deepwiki", "context7", "memory"],
+      "description": "Research workflow needs all documentation sources"
+    },
+
+    "planning": {
+      "mcps": ["memory"],
+      "description": "Planning workflow needs memory of past decisions"
+    },
+
+    "implementation": {
+      "mcps": ["memory", "deepwiki"],
+      "description": "Implementation workflow needs patterns and accurate APIs"
+    },
+
+    "debugging": {
+      "mcps": ["memory", "sequentialthinking"],
+      "description": "Debugging workflow needs past issues and deep reasoning"
+    },
+
+    "deployment": {
+      "mcps": ["memory"],
+      "description": "Deployment workflow needs deployment history"
+    }
+  },
+
+  "fallback_behavior": {
+    "strategy": "graceful_degradation",
+    "log_warnings": true,
+    "continue_without_mcp": true,
+    "description": "If MCP server unavailable, agent continues with reduced capabilities"
+  },
+
+  "user_customization": {
+    "preserve_on_update": true,
+    "merge_strategy": "user_overrides_defaults",
+    "backup_on_upgrade": true,
+    "config_location": "~/.claude/data/mcp-config.json"
+  }
+}

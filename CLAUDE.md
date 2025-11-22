@@ -3,12 +3,16 @@
 This repository contains the **Agentic Substrate** - the foundational layer for Claude Code superintelligence.
 
 ## System Version
-**Agentic Substrate v3.0** (Project Brahma Demo8)
+**Agentic Substrate v3.0 → v4.0** (Enhanced with OSS Integration Architecture)
 
 ## Core Components
 
-### Agents (4 specialists)
+### Agents (9 specialists across 3 tiers)
 @.claude/templates/agents-overview.md
+
+**Tier 1 - Orchestration**: chief-architect
+**Tier 2 - Core Workflow**: docs-researcher, implementation-planner, brahma-analyzer, code-implementer, brahma-investigator
+**Tier 3 - Production**: brahma-deployer, brahma-monitor, brahma-optimizer
 
 ### Skills (5 auto-invoked capabilities)
 @.claude/templates/skills-overview.md
@@ -227,5 +231,64 @@ When contributing to this project:
 
 ---
 
+## 🔌 OSS Framework Integration (V4.0 Enhancement)
+
+The Agentic Substrate v4.0 includes integration architecture for leading OSS agentic AI frameworks:
+
+### Supported Frameworks
+
+**LangGraph** (Multi-agent orchestration):
+- State machine workflows with quality gates
+- PostgreSQL checkpointing (pause/resume)
+- Best-in-class performance (lowest latency, lowest tokens)
+- See `.claude/integrations/langgraph/` for templates
+
+**Deep Agents** (Long-running tasks):
+- Enhanced code-implementer with file system
+- Subagent spawning (test-runner, linter, security)
+- Built for 10-60 minute implementations
+- See `.claude/integrations/deepagents/` for templates
+
+**DSPy** (Prompt optimization):
+- Systematic optimization for top 5 agents
+- 20-40% accuracy improvement
+- Model portability (Claude ↔ GPT-4 ↔ Gemini)
+- See `.claude/integrations/dspy/` for optimizers
+
+**CrewAI** (Rapid prototyping):
+- 3-5x faster development for new agents
+- 40+ pre-built tools
+- Built-in memory (short/long-term + entity)
+- See `.claude/integrations/crewai/` for templates
+
+**Integration Guide**: See `OSS-INTEGRATION-GUIDE.md` for setup instructions
+**Framework Comparison**: See `FRAMEWORK-COMPARISON.md` for detailed analysis
+**Complete Blueprint**: See `SELF-ENHANCEMENT-BLUEPRINT.md` for full v4.0 roadmap
+
+### Research Foundations (Anthropic 2024-2025)
+
+**Multi-Agent Orchestration**:
+- 90.2% performance improvement on complex tasks
+- Lead orchestrator + parallel specialized workers
+- Swarm pattern > Supervisor pattern (lower token overhead)
+
+**Extended Thinking**:
+- 54% improvement on complex tasks
+- Progressive budgets: 4K (think) → 10K (think hard) → 32K (think harder) → 64K+ (ultrathink)
+- Auto-triggered for irreversible operations, complex chains
+
+**State Management**:
+- Explicit state definition (TypedDict/Pydantic)
+- Checkpointing for fault tolerance
+- Human-in-the-loop interrupts
+
+**Tool Use Optimization**:
+- Reflection, Planning, ReAct patterns
+- Multi-tool coordination
+- Reinforcement from successful executions
+
+---
+
 *Research → Plan → Implement: The foundation of quality software development*
-- so we have this repo claude-user-memory is a main repo where we are developing a claude code cli user memory which anyone can copy paste in their installation of claude code cli's home dir so it will work system wide remember that please in
+
+**Note**: This is the source repository for Claude Code CLI user memory. Users copy these files to `~/.claude/` for system-wide enhancement.
