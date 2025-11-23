@@ -86,6 +86,23 @@ retry_protocol:
 - Use targeted searches to reduce token usage
 - Preserve debugging context across retries
 
+## DeepWiki for Debugging (v4.1)
+
+When investigating library/framework-related bugs:
+
+1. **Query DeepWiki for Known Issues**:
+   ```
+   mcp__deepwiki__ask_question(
+     repoName: "[org/repo]",
+     question: "What are common issues with [specific API/feature]? How to debug [error message]?"
+   )
+   ```
+
+2. **Verify Correct API Usage**:
+   - Compare actual implementation against DeepWiki examples
+   - Check for version mismatches
+   - Identify deprecated patterns
+
 ## Investigation Protocol
 
 ### Phase 1: Problem Definition

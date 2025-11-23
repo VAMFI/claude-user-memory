@@ -65,11 +65,17 @@ When facing complex decisions, invoke extended thinking:
    - If unclear: "❓ Please clarify: [specific question]"
    - If clear: Proceed
 
+3. ✓ **DeepWiki Research Present?** (v4.1)
+   - Check ResearchPack for DeepWiki citations
+   - If missing: Add warning to plan: "⚠️ APIs unverified - recommend DeepWiki research"
+   - If present: Note confidence level: "✅ APIs verified via DeepWiki"
+
 **Report**:
 ```
 ✅ ResearchPack validated
 ✅ Goal: [1-line summary]
 📦 Using: [library] v[X.Y.Z]
+🔍 DeepWiki: [Verified/Not verified]
 ```
 
 ### Phase 1: Codebase Analysis (< 90 sec)

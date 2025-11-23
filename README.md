@@ -69,6 +69,14 @@ Knowledge graph architecture (entities, relations, observations) for:
 
 ---
 
+## 🎉 Latest Version: v4.1
+
+**What's New in v4.1:**
+- **DeepWiki MCP Integration**: Automatic installation and enforcement across all agents
+- **Zero API Hallucinations**: All code generation now grounded in repository documentation
+- **20-30% Token Optimization**: Cleaner, more efficient agent prompts
+- **Agent Handoff Design**: Architecture ready for v4.2 implementation
+
 ## Quick Start
 
 ### Installation

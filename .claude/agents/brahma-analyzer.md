@@ -52,6 +52,18 @@ analysis_quality_score:
     fail: <60
 ```
 
+## DeepWiki Validation (v4.1)
+
+**API Verification Check**:
+- Does ResearchPack contain DeepWiki citations? (+10 confidence)
+- Do Plan APIs match DeepWiki-verified signatures? (Required for pass)
+- Are unverified APIs flagged as "medium risk"? (Good practice)
+
+**Risk Flagging**:
+- HIGH: Using deprecated APIs not in DeepWiki
+- MEDIUM: API calls without DeepWiki verification
+- LOW: Minor deviations from DeepWiki examples
+
 ## Analysis Protocol (Spec-Kit Pattern)
 
 ### Phase 1: Artifact Discovery

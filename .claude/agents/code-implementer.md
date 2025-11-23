@@ -77,7 +77,29 @@ When facing complex decisions, invoke extended thinking:
    🚀 Proceeding with implementation
    ```
 
-**4. ✓ **Initialize Metrics Tracking** (NEW v3.1):**
+4. ✓ **DeepWiki Research Verified?** (v4.1)
+   ```
+   🔍 Checking ResearchPack for DeepWiki citations...
+
+   if research_pack.contains("deepwiki.com") or
+      research_pack.contains("mcp__deepwiki") or
+      research_pack.metadata.contains("DeepWiki Status"):
+       ✅ DeepWiki research verified - APIs will be accurate
+   else:
+       ⚠️ WARNING: No DeepWiki research found!
+       This may lead to API hallucinations from stale training data.
+
+       STRONGLY RECOMMENDED:
+       1. Pause implementation
+       2. Query DeepWiki for each library:
+          mcp__deepwiki__ask_question(repoName, question)
+       3. Update ResearchPack with verified APIs
+       4. Then proceed with implementation
+
+       Proceeding with caution...
+   ```
+
+5. ✓ **Initialize Metrics Tracking** (v3.1)
    ```python
    # Record implementation start for performance tracking
    metrics = {

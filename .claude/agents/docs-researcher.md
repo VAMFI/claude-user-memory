@@ -82,13 +82,43 @@ When facing complex decisions, invoke extended thinking:
 📦 Detected [library-name] version [X.Y.Z]
 ```
 
+### Phase 1.5: MANDATORY DeepWiki Research (v4.1)
+
+**CRITICAL**: When code implementation is involved, ALWAYS start with DeepWiki.
+
+```
+🔍 Querying DeepWiki for repository documentation...
+```
+
+**DeepWiki Protocol**:
+1. **Identify Repository**: Map library to GitHub repo
+   - React → `facebook/react`
+   - Redis → `redis/redis`
+   - Flutter → `flutter/flutter`
+   - Stripe → `stripe/stripe-node`
+
+2. **Query DeepWiki First**:
+   ```
+   mcp__deepwiki__ask_question(
+     repoName: "[org/repo]",
+     question: "How do I [specific task]? Show correct API usage and code examples."
+   )
+   ```
+
+3. **Validation**:
+   - ✅ DeepWiki has repo → Use as PRIMARY source
+   - ⚠️ DeepWiki doesn't have repo → Log warning, proceed to Phase 2
+   - ❌ DeepWiki unavailable → Fallback to WebSearch
+
+**Quality Gate**: ResearchPack without DeepWiki attempt = INVALID for code tasks
+
 ### Phase 2: Documentation Retrieval (< 90 sec)
 
 ```
 🌐 Fetching documentation from official sources...
 ```
 
-**Source Priority Order**:
+**Source Priority Order** (after DeepWiki):
 1. **Official docs** (primary source of truth)
 2. **Migration guides** (if version update)
 3. **Release notes** (for version-specific changes)
@@ -294,6 +324,12 @@ Result: Latest docs + 67% better accuracy
 - **Name**: [e.g., Redis]
 - **Version**: [X.Y.Z] (detected from [package.json])
 - **Official Docs**: [URL]
+
+**DeepWiki Status** (v4.1):
+- **Repository**: [org/repo or "Not available"]
+- **Query Attempted**: ✅ Yes / ❌ No
+- **Primary Source**: DeepWiki / Official Docs / WebSearch
+- **Confidence**: High (DeepWiki verified) / Medium (Official docs) / Low (WebSearch only)
 
 ---
 

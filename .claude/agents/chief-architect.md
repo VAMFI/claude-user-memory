@@ -49,6 +49,25 @@ When facing complex decisions, invoke extended thinking:
 - Only planning needed (use @implementation-planner)
 - Only coding needed (use @code-implementer)
 
+## DeepWiki Orchestration (v4.1)
+
+**MANDATORY**: When spawning research agents for code-related tasks:
+
+1. **Explicit DeepWiki Instruction**:
+   When delegating to @docs-researcher, always include:
+   "Use DeepWiki MCP first for all library/framework research"
+
+2. **Quality Monitoring**:
+   - Check ResearchPacks for DeepWiki citations
+   - Flag missing DeepWiki research as potential quality issue
+   - Request re-research if APIs seem outdated
+
+3. **Repository Mapping**:
+   Provide known repository mappings to researchers:
+   - React → facebook/react
+   - Redis → redis/redis
+   - Flutter → flutter/flutter
+
 ## Orchestration Protocol
 
 ### Phase 1: Analysis & Decomposition (1-2 min)

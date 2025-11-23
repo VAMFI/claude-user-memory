@@ -4,7 +4,7 @@
 
 set -e
 
-VERSION="3.1.0"
+VERSION="4.1.0"
 
 # Parse flags
 DRY_RUN=false
@@ -211,6 +211,31 @@ function install_claude_md() {
     log_info "Installing user-level CLAUDE.md..."
     cp "$source" "$target"
     log_success "User-level CLAUDE.md installed"
+}
+
+# Install MCP servers (v4.1 enhancement)
+function install_mcp_servers() {
+    if [ "$DRY_RUN" = true ]; then
+        log_info "[DRY RUN] Would install DeepWiki MCP"
+        return 0
+    fi
+
+    log_info "Configuring MCP servers..."
+
+    # Install DeepWiki MCP for code accuracy (v4.1)
+    if command -v claude &> /dev/null; then
+        log_info "Installing DeepWiki MCP for repository-grounded code generation..."
+        claude mcp add -s user -t http deepwiki https://mcp.deepwiki.com/mcp 2>/dev/null || {
+            log_warning "DeepWiki MCP installation failed (non-critical, continuing)"
+            log_warning "You can install manually later: claude mcp add -s user -t http deepwiki https://mcp.deepwiki.com/mcp"
+        }
+        if claude mcp list 2>/dev/null | grep -q deepwiki; then
+            log_success "DeepWiki MCP configured successfully"
+        fi
+    else
+        log_warning "Claude CLI not found, skipping MCP server setup"
+        log_warning "Install Claude CLI then run: claude mcp add -s user -t http deepwiki https://mcp.deepwiki.com/mcp"
+    fi
 }
 
 # Preserve special files
@@ -436,6 +461,7 @@ main() {
     install_files
     set_permissions
     install_claude_md
+    install_mcp_servers
     preserve_special_files
     generate_manifest
     write_version

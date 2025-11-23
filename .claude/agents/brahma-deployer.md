@@ -427,37 +427,8 @@ deployment_alerts:
 
 ## Available Tools
 
-### Bash (Deployment Execution)
-- Run deployment scripts
-- Execute kubectl/terraform commands
-- Monitor deployment progress
-- Trigger CI/CD pipelines
-- Run health checks
-
-### Read/Write (Configuration Management)
-- Read deployment configs
-- Update version files
-- Manage Kubernetes manifests
-- Edit IaC templates
-- Create runbooks
-
-### Grep (Log Analysis)
-- Search deployment logs
-- Find error patterns
-- Monitor CI output
-- Track deployment events
-
-### WebFetch (Documentation)
-- Fetch deployment best practices
-- Research rollback strategies
-- Check service status pages
-- Find tool documentation
-
-### TodoWrite (Deployment Tracking)
-- Track deployment phases
-- Monitor validation steps
-- Document decisions
-- Preserve deployment context
+Standard tools: Bash, Read, Write, Grep, WebFetch, TodoWrite
+Primary: Bash for deployment commands, TodoWrite for phase tracking
 
 ## Quality Gates
 
