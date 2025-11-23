@@ -1,341 +1,251 @@
-# Agentic Substrate
+# Agentic Substrate v4.1
 
 **Research-driven development for Claude Code CLI**
 
-> *Philia Sophia* (φιλία σοφία) - The Love of Wisdom
->
-> Truth over speed. Research before coding. Knowledge that compounds.
+> *Philia Sophia* (φιλία σοφία) - Truth over speed. Research before coding.
 
-The Agentic Substrate is a foundational enhancement layer for Claude Code CLI that enforces research-first development through specialized agents, quality gates, and persistent memory.
+Multi-agent system enforcing research-first development through specialized agents, quality gates, and persistent memory. No API hallucinations. No coding from stale training data.
 
 ---
 
-## Philosophy
+## ⚡ Quick Start
 
-AI coding assistants often hallucinate APIs, guess at best practices, or code from outdated training data. The Agentic Substrate takes a different approach:
+```bash
+# Install
+curl -sSL https://vamfi.org/install-claude | bash
+
+# Use
+/workflow Add Redis caching to ProductService
+```
+
+---
+
+## 🎯 Philosophy
 
 **Research → Plan → Implement**
 
-1. **Research**: Fetch authoritative, version-accurate documentation *before* coding
-2. **Plan**: Transform research into minimal-change blueprints with rollback strategies
-3. **Implement**: Execute with TDD, self-correction, and automatic knowledge capture
+1. **Research**: Fetch version-accurate docs *before* coding (< 2 min)
+2. **Plan**: Create minimal-change blueprint with rollback (< 3 min)
+3. **Implement**: Execute with TDD + self-correction (< 10 min)
 
-Every implementation teaches the system. Every pattern gets preserved. Every decision gets validated.
-
-This isn't just faster development—it's *learning* development.
+Quality gates block bad inputs. Circuit breaker stops infinite loops. Knowledge compounds across sessions.
 
 ---
 
-## What You Get
+## 📦 What You Get
 
-### 9 Specialized Agents (3 Tiers)
+### 9 Specialized Agents
 
 **Orchestration**
-- `chief-architect` - Multi-agent coordination for complex projects
+- `chief-architect` - Multi-agent coordination
 
 **Core Workflow**
-- `docs-researcher` - Version-accurate documentation fetching
-- `implementation-planner` - Minimal-change, reversible planning
-- `brahma-analyzer` - Cross-artifact consistency validation
-- `code-implementer` - TDD-enforced execution with self-correction
-- `brahma-investigator` - Systematic root cause analysis
+- `docs-researcher` - Version-accurate documentation
+- `implementation-planner` - Minimal-change planning
+- `brahma-analyzer` - Consistency validation
+- `code-implementer` - TDD execution + self-correction
+- `brahma-investigator` - Root cause analysis
 
 **Production**
-- `brahma-deployer` - Safe deployments with canary rollouts
-- `brahma-monitor` - Observability (metrics, logs, traces)
-- `brahma-optimizer` - Performance optimization and auto-scaling
+- `brahma-deployer` - Canary rollouts
+- `brahma-monitor` - Metrics, logs, traces
+- `brahma-optimizer` - Performance optimization
 
 ### 5 Auto-Invoked Skills
 
 - `research-methodology` - Authoritative source retrieval
-- `planning-methodology` - Surgical changes, not rewrites
-- `quality-validation` - Objective scoring (80+ for research, 85+ for plans)
+- `planning-methodology` - Surgical changes only
+- `quality-validation` - Objective scoring (80+ research, 85+ plans)
 - `pattern-recognition` - Automatic knowledge capture
 - `context-engineering` - Active context curation
 
 ### Quality Gates
 
-- Research validates *before* planning (prevents garbage-in-garbage-out)
-- Plans validate *before* implementation (ensures safety and reversibility)
-- Tests validate *before* completion (TDD enforced, circuit breaker at 3 failures)
+- **Research → Planning**: ResearchPack score ≥ 80
+- **Planning → Implementation**: Plan score ≥ 85
+- **Implementation → Completion**: All tests passing
+- **Circuit Breaker**: Stops after 3 failed attempts
 
-### Persistent Memory (V4.0)
+### Knowledge Graph Memory (V4.0)
 
-Knowledge graph architecture (entities, relations, observations) for:
-- Project-wise memory across sessions
-- Pattern reuse across codebases
-- Decision history and rationale
+Semantic graph (not key-value) for:
+- Project memory across sessions
+- Pattern reuse
+- Decision history
 - Problem-solution mappings
 
 ---
 
-## 🎉 Latest Version: v4.1
+## 🚀 v4.1 Highlights
 
-**What's New in v4.1:**
-- **DeepWiki MCP Integration**: Automatic installation and enforcement across all agents
-- **Zero API Hallucinations**: All code generation now grounded in repository documentation
-- **20-30% Token Optimization**: Cleaner, more efficient agent prompts
-- **Agent Handoff Design**: Architecture ready for v4.2 implementation
-
-## Quick Start
-
-### Installation
-
-```bash
-# One-line installation
-curl -sSL https://vamfi.org/install-claude | bash
-
-# Or clone and install manually
-git clone https://github.com/VAMFI/claude-user-memory.git
-cd claude-user-memory
-./install.sh
-```
-
-### Basic Usage
-
-```bash
-# Complete automation (recommended)
-/workflow Add Redis caching to ProductService with 5-minute TTL
-
-# Step-by-step control
-/research Redis for Node.js v5.0
-/plan Redis caching implementation
-/implement
-
-# Direct agent invocation
-@chief-architect Build complete authentication system
-```
-
-### Configuration (V4.0)
-
-```bash
-# Interactive MCP configuration
-./customize.sh
-
-# Command-line configuration
-./customize.sh --enable-mcp memory
-./customize.sh --assign-mcp deepwiki docs-researcher
-./customize.sh --list-mcps
-```
-
-### Uninstallation
-
-```bash
-# Preview what would be removed
-./uninstall.sh --dry-run
-
-# Safe removal (preserves user data)
-./uninstall.sh
-```
+- ✅ **DeepWiki MCP**: Auto-installed, enforced across all agents
+- ✅ **Zero API Hallucinations**: Repository-grounded code generation
+- ✅ **20-30% Token Optimization**: Cleaner agent prompts
+- ✅ **Data Preservation**: `~/.claude/data/` never touched during upgrades
+- ✅ **Smart CLAUDE.md Merge**: Appends your customizations to template
+- ✅ **MCP Config Protection**: install-if-missing behavior
 
 ---
 
-## Architecture
+## 📚 Usage
 
-### Memory Hierarchy
+### Complete Automation
 
-Claude Code loads context in this order (they combine, not override):
-
-1. **User-level** (`~/.claude/CLAUDE.md`) - System-wide capabilities (installed here)
-2. **Project-level** (`./CLAUDE.md`) - Project-specific workflows and constitution
-3. **Imports** (`@path/to/file.md`) - Modular organization
-
-### Workflow Pattern
-
+```bash
+/workflow Add authentication with JWT tokens
 ```
-User Request
-    ↓
-Research Phase (< 2 min)
-- Fetch official documentation
-- Validate sources
-- Create ResearchPack (score ≥ 80)
-    ↓
-Planning Phase (< 3 min)
-- Transform research to blueprint
-- Identify minimal changes
-- Include rollback strategy (score ≥ 85)
-    ↓
-Analysis Phase (< 1 min)
-- Cross-artifact consistency
-- Conflict detection
-- Coverage validation (score ≥ 80)
-    ↓
-Implementation Phase (< 10 min)
-- TDD: RED → GREEN → REFACTOR
-- Self-correction (max 3 attempts)
-- Git commit with co-author attribution
-    ↓
-Pattern Capture
-- Extract reusable patterns
-- Update knowledge graph
-- Available for future sessions
+
+### Step-by-Step Control
+
+```bash
+/research Redis for Node.js v5.0
+/plan Redis caching implementation
+/implement
+```
+
+### Direct Agent Invocation
+
+```bash
+@chief-architect Build payment processing system
+@docs-researcher Research Stripe API
+@brahma-deployer Deploy v2.5.0 to production
 ```
 
 ### Extended Thinking
 
-Trigger with keywords in your request:
+Add keywords to your request:
 - `think` (30-60s) - Routine planning
 - `think hard` (1-2min) - Complex tradeoffs
 - `think harder` (2-4min) - Novel problems
 - `ultrathink` (5-10min) - Critical architecture
 
-Research foundation: 54% improvement on complex tasks (Anthropic, 2024)
+Research: 54% improvement on complex tasks (Anthropic, 2024)
 
 ---
 
-## V4.0 Features
+## ⚙️ Configuration
 
-### Knowledge Graph Memory
+```bash
+# Interactive menu
+./customize.sh
 
-Not key-value storage—a semantic graph:
-
-```python
-# Create project memory
-mcp__memory__create_entities(entities=[{
-  "name": "/Users/you/project",
-  "entityType": "project",
-  "observations": ["Next.js app with PostgreSQL"]
-}])
-
-# Create relationships
-mcp__memory__create_relations(relations=[{
-  "from": "/Users/you/project",
-  "to": "feature:authentication",
-  "relationType": "contains"
-}])
-
-# Semantic queries
-mcp__memory__search_nodes(query="authentication patterns jwt")
+# Command-line
+./customize.sh --enable-mcp memory
+./customize.sh --assign-mcp deepwiki docs-researcher
+./customize.sh --list-mcps
 ```
 
-**Entity Types**: Projects, Features, Patterns, Decisions, Problems, Research
-
-**Relations**: contains, implements, solved, led_to, influenced
-
-**Observations**: Timestamped notes, metrics, lessons learned
-
-### MCP Configuration System
-
-User-configurable MCP-to-agent mappings that survive updates:
-
-- Interactive configuration menu (`./customize.sh`)
-- Per-agent MCP assignments
-- Workflow-based configurations
-- Graceful degradation (agents work without MCPs)
-
-Addresses [GitHub Issue #2](https://github.com/VAMFI/claude-user-memory/issues/2)
-
-### Latest Anthropic Research Integration
-
-**Extended Thinking Protocols** (2024)
-- 54% improvement on complex tasks
-- Automatic triggers for irreversible operations
-
-**Multi-Agent Orchestration** (2024)
-- 90.2% performance improvement with parallel execution
-- Swarm pattern (lower token overhead than supervisor)
-
-**Model Introspection** (2025)
-- Confidence levels in decisions
-- Uncertainty markers in outputs
-- Self-assessment of performance
-
-### Complete Installer Suite
-
-**install.sh**
-- Manifest-driven tracking
-- Preserves user customizations
-- Automatic backups
-
-**uninstall.sh**
-- Safe removal with data preservation
-- Detects modified files
-- --dry-run preview mode
-
-**customize.sh**
-- Interactive configuration menu
-- Enable/disable MCP servers
-- Assign MCPs to agents
-- Reset to defaults option
+MCP configurations survive updates. Agents work without MCPs (graceful degradation).
 
 ---
 
-## Documentation
+## 🛠️ Installation Details
 
-- **[Agents Overview](.claude/templates/agents-overview.md)** - All 9 agents detailed
+### What Gets Installed
+
+- **Location**: `~/.claude/`
+- **Agents**: 9 specialists
+- **Skills**: 5 auto-invoked capabilities
+- **Commands**: 5 slash commands
+- **Hooks**: 7 automation hooks
+- **Templates**: 6 documentation files
+- **Data**: MCP config template
+
+### What Gets Preserved
+
+- ✅ `~/.claude/data/` - All user data and cache
+- ✅ `~/.claude/CLAUDE.md` - Smart-merged with backups
+- ✅ `~/.claude/data/mcp-config.json` - User's MCP configuration
+- ✅ Modified files (detected via checksum)
+- ✅ Knowledge files
+- ✅ Pattern index
+
+### Upgrade Behavior
+
+```bash
+# Backup created automatically
+# Managed files updated
+# User data preserved
+# CLAUDE.md smart-merged (appends your content to template)
+# MCP config preserved
+# Rollback script generated
+```
+
+See [INSTALLATION-BEHAVIOR.md](INSTALLATION-BEHAVIOR.md) for details.
+
+---
+
+## 🗑️ Uninstallation
+
+```bash
+# Preview
+./uninstall.sh --dry-run
+
+# Remove (preserves data + modified files)
+./uninstall.sh
+
+# Keep everything (only remove manifest)
+./uninstall.sh --preserve-all
+```
+
+---
+
+## 📖 Documentation
+
+- **[Agents Overview](.claude/templates/agents-overview.md)** - All 9 agents
 - **[Skills Overview](.claude/templates/skills-overview.md)** - Auto-invoked capabilities
 - **[Workflows Overview](.claude/templates/workflows-overview.md)** - Development patterns
-- **[Release Notes](RELEASE-NOTES-V4.md)** - V4.0 features and migration guide
+- **[Installation Behavior](INSTALLATION-BEHAVIOR.md)** - Data preservation + smart-merge
+- **[Release Notes](RELEASE-NOTES-V4.md)** - V4.0/4.1 features
 - **[Memory MCP Guide](CLAUDE-MEMORY-ENHANCEMENT.md)** - Knowledge graph architecture
 
 ---
 
-## Integration
+## 🔬 Research Foundation
 
-Works standalone or alongside:
-
-- **LangGraph** - State machine workflows with PostgreSQL checkpointing
-- **Deep Agents** - Long-running tasks with file systems
-- **DSPy** - Prompt optimization for accuracy improvement
-- **CrewAI** - Rapid agent prototyping
-
-See `.claude/integrations/` for templates and patterns.
+Built on Anthropic research:
+- **Extended Thinking** (2024) - 54% improvement on complex tasks
+- **Multi-Agent Orchestration** (2024) - 90.2% performance improvement
+- **Contextual Retrieval** (2024) - 49-67% better accuracy
+- **Model Introspection** (2025) - Confidence levels + uncertainty markers
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
-Contributions welcome! Please:
-
-1. Test locally before submitting PRs
-2. Update documentation for new features
-3. Follow the research-first philosophy
-4. Add examples demonstrating workflows
-
-### Testing Your Changes
+1. Test locally before PRs
+2. Update documentation
+3. Follow research-first philosophy
+4. Add workflow examples
 
 ```bash
-# Test complete workflow
-/workflow [your test scenario]
-
-# Test individual agents
-@docs-researcher [research task]
-@implementation-planner [planning task]
-@code-implementer [implementation task]
+# Test workflow system
+/workflow [test scenario]
 
 # Test installer suite
-./install.sh
+./install.sh --dry-run
 ./customize.sh --list-mcps
 ./uninstall.sh --dry-run
 ```
 
 ---
 
-## Community
+## 📝 License
 
-- **GitHub**: [VAMFI/claude-user-memory](https://github.com/VAMFI/claude-user-memory)
-- **Issues**: Bug reports and feature requests
-- **Discussions**: Questions and community support
+MIT License - See [LICENSE](LICENSE)
 
 ---
 
-## License
+## 🙏 Acknowledgments
 
-MIT License - See [LICENSE](LICENSE) file for details
-
----
-
-## Acknowledgments
-
-Built on foundational research from:
 - **Anthropic** - Extended thinking, multi-agent orchestration, contextual retrieval
 - **VAMFI** - Philia Sophia philosophy, quality gates, knowledge preservation
-- **Community** - Real-world usage, feedback, and contributions
+- **Community** - Real-world usage, feedback, contributions
 
 ---
 
-**Version**: 4.0.0
-**Codename**: "Knowledge Graph"
+**Version**: 4.1.0
 **Released**: November 22, 2025
+**Status**: Production-Ready
 
 *Research → Plan → Implement → Learn*

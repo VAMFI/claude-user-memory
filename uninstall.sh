@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Agentic Substrate v4.0 - Safe Uninstallation
+# Agentic Substrate v4.1 - Safe Uninstallation
 # Removes installed files while preserving user data and customizations
 
 set -e
 
-VERSION="4.0.0"
+VERSION="4.1.0"
 
 # Colors for output
 RED='\033[0;31m'

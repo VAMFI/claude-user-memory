@@ -193,10 +193,11 @@ function set_permissions() {
     log_success "Permissions set on executable files"
 }
 
-# Install user-level CLAUDE.md
-function install_claude_md() {
+# Smart-merge user-level CLAUDE.md (preserves user customizations)
+function smart_merge_claude_md() {
     local source="$CLAUDE_SOURCE/templates/CLAUDE.md.user-level"
     local target="$CLAUDE_TARGET/CLAUDE.md"
+    local backup="$CLAUDE_TARGET/CLAUDE.md.backup"
 
     if [ ! -f "$source" ]; then
         log_warning "CLAUDE.md.user-level template not found (skipping)"
@@ -204,13 +205,51 @@ function install_claude_md() {
     fi
 
     if [ "$DRY_RUN" = true ]; then
-        log_info "[DRY RUN] Would install user-level CLAUDE.md"
+        if [ -f "$target" ]; then
+            log_info "[DRY RUN] Would smart-merge user-level CLAUDE.md (preserving user customizations)"
+        else
+            log_info "[DRY RUN] Would install user-level CLAUDE.md"
+        fi
         return 0
     fi
 
-    log_info "Installing user-level CLAUDE.md..."
-    cp "$source" "$target"
-    log_success "User-level CLAUDE.md installed"
+    # If no existing CLAUDE.md, just copy template
+    if [ ! -f "$target" ]; then
+        log_info "Installing user-level CLAUDE.md..."
+        cp "$source" "$target"
+        log_success "User-level CLAUDE.md installed"
+        return 0
+    fi
+
+    # Existing CLAUDE.md found - smart merge
+    log_info "Existing CLAUDE.md found - performing smart merge..."
+
+    # Create backup of user's existing CLAUDE.md
+    cp "$target" "$backup"
+    log_info "Created backup: CLAUDE.md.backup"
+
+    # Read user's existing customizations (everything after the template marker if exists)
+    # We'll append the entire existing CLAUDE.md to the new template
+    local temp_merged="$CLAUDE_TARGET/CLAUDE.md.merged"
+
+    # Copy new template
+    cp "$source" "$temp_merged"
+
+    # Add separator
+    echo "" >> "$temp_merged"
+    echo "---" >> "$temp_merged"
+    echo "" >> "$temp_merged"
+    echo "# USER CUSTOMIZATIONS (preserved from previous installation)" >> "$temp_merged"
+    echo "" >> "$temp_merged"
+
+    # Append user's existing CLAUDE.md
+    cat "$target" >> "$temp_merged"
+
+    # Replace target with merged version
+    mv "$temp_merged" "$target"
+
+    log_success "User-level CLAUDE.md smart-merged (user customizations preserved)"
+    log_info "Original backed up to: CLAUDE.md.backup"
 }
 
 # Install MCP servers (v4.1 enhancement)
@@ -236,6 +275,44 @@ function install_mcp_servers() {
         log_warning "Claude CLI not found, skipping MCP server setup"
         log_warning "Install Claude CLI then run: claude mcp add -s user -t http deepwiki https://mcp.deepwiki.com/mcp"
     fi
+}
+
+# Install MCP config (install-if-missing to preserve user config)
+function install_mcp_config() {
+    local source="$CLAUDE_SOURCE/data/mcp-config-template.json"
+    local target="$CLAUDE_TARGET/data/mcp-config.json"
+
+    if [ ! -f "$source" ]; then
+        log_warning "MCP config template not found (skipping)"
+        return 0
+    fi
+
+    if [ "$DRY_RUN" = true ]; then
+        if [ -f "$target" ]; then
+            log_info "[DRY RUN] Would preserve existing MCP config (install-if-missing)"
+        else
+            log_info "[DRY RUN] Would install MCP config from template"
+        fi
+        return 0
+    fi
+
+    # If MCP config already exists, preserve it
+    if [ -f "$target" ]; then
+        log_info "Existing MCP config found - preserving user configuration"
+        log_success "MCP config preserved (install-if-missing)"
+        return 0
+    fi
+
+    # No existing config - install from template
+    log_info "Installing MCP config from template..."
+
+    # Ensure data directory exists
+    mkdir -p "$CLAUDE_TARGET/data"
+
+    # Copy template to target
+    cp "$source" "$target"
+
+    log_success "MCP config installed from template"
 }
 
 # Preserve special files
@@ -411,7 +488,7 @@ function display_summary() {
     echo "📋 Installation Summary:"
     echo "   • Location: $CLAUDE_TARGET"
     echo "   • Version: $VERSION"
-    echo "   • Managed files: 35"
+    echo "   • Managed files: 36"
     echo "   • Agents: 9"
     echo "   • Skills: 5"
     echo "   • Commands: 5"
@@ -460,7 +537,8 @@ main() {
     create_backup
     install_files
     set_permissions
-    install_claude_md
+    smart_merge_claude_md
+    install_mcp_config
     install_mcp_servers
     preserve_special_files
     generate_manifest

@@ -36,7 +36,8 @@
     "templates/CLAUDE.md.template",
     "templates/CLAUDE.md.user-level",
     "templates/skills-overview.md",
-    "templates/workflows-overview.md"
+    "templates/workflows-overview.md",
+    "data/mcp-config-template.json"
   ],
   "executable_files": [
     "hooks/auto-format.sh",
@@ -51,6 +52,7 @@
     "metrics/tracker.sh"
   ],
   "protected_paths": [
+    "data/",
     "debug/",
     "file-history/",
     "history.jsonl",
@@ -72,19 +74,25 @@
       "reason": "User-generated pattern learning data"
     },
     "CLAUDE.md": {
-      "action": "install-from-template",
+      "action": "smart-merge",
       "source": "templates/CLAUDE.md.user-level",
-      "reason": "User-level configuration file"
+      "reason": "User-level configuration file - preserve user customizations"
+    },
+    "data/mcp-config.json": {
+      "action": "install-if-missing",
+      "source": "data/mcp-config-template.json",
+      "reason": "MCP server configuration - preserve user's existing config"
     }
   },
   "metadata": {
-    "total_files": 35,
+    "total_files": 36,
     "agents": 9,
     "skills": 5,
     "commands": 5,
     "hooks": 7,
     "validators": 2,
     "metrics": 1,
-    "templates": 6
+    "templates": 6,
+    "data": 1
   }
 }
