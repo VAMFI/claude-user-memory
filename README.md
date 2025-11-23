@@ -66,6 +66,10 @@ Quality gates block bad inputs. Circuit breaker stops infinite loops.
 
 ## Installation
 
+**Cross-Platform:** Works on macOS, Linux, Windows (WSL), and most Unix systems
+
+**Requirements:** Minimal - bash and git only. Optional: python3/python for enhanced features
+
 **Installs to:** `~/.claude/`
 
 **Preserves:**
@@ -79,6 +83,11 @@ Quality gates block bad inputs. Circuit breaker stops infinite loops.
 ./install.sh
 ```
 Your data and customizations are automatically preserved.
+
+**Update:**
+```bash
+./update.sh    # Selective update (only changed files)
+```
 
 ---
 
