@@ -1,0 +1,948 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "f1c19fcf8d930c2e117ad6e4aeb89cb3fd895ab4",
+  "repository": "https://github.com/VAMFI/claude-user-memory",
+  "archive_root": "archive/2026-09-26-install-md-migration/legacy",
+  "file_count": 134,
+  "preservation": "All baseline tracked blobs preserved byte-for-byte with Git executable modes. Legacy contents are historical, not installation instructions.",
+  "files": [
+    {
+      "original_path": ".claude/agents/brahma-analyzer.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/agents/brahma-analyzer.md",
+      "git_blob_id": "45e516041f720c56a77e28d8669d69c3379efbe0",
+      "sha256": "02ebf6e75b0a890044d058d8bd7062299580df6260c6e1b85ce5efc6a96f98ad",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/agents/brahma-deployer.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/agents/brahma-deployer.md",
+      "git_blob_id": "23ac786d36c76d027bdfb284c86dab386e1791db",
+      "sha256": "649c3c692ff182c63c84f4a4d724542afd330b85461512e9ea41a981872c84fd",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/agents/brahma-investigator.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/agents/brahma-investigator.md",
+      "git_blob_id": "c3b4a22ec2d1f8e5cda36f3eab3382e5ee5f4723",
+      "sha256": "9f488879ea3d13720b2dc895490090a77883296fcc168e4d5739d3450051e222",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/agents/brahma-monitor.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/agents/brahma-monitor.md",
+      "git_blob_id": "675a686f04dd2af1589c8dcb8e579f1b1093812e",
+      "sha256": "75ee5e2381ed32b9c149bf8d6b69f80a9dd2b75920ab0d42524fd37c219040c0",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/agents/brahma-optimizer.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/agents/brahma-optimizer.md",
+      "git_blob_id": "d33cdfb4b97fa02acaae525fc936056afba8d9bc",
+      "sha256": "28a217ebcee732f659657f163be7df78f211cf1b8a539f6f566b2a63551c370f",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/agents/chief-architect.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/agents/chief-architect.md",
+      "git_blob_id": "4bb5fc8cff9131bd1a9397b4e29a4e4197e23cfa",
+      "sha256": "e700e1d160ddeab8d682282c8ba9ff28bd79e3e6c44ab29c59bc779f66ac56f7",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/agents/code-implementer.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/agents/code-implementer.md",
+      "git_blob_id": "f51e4331185327be5242e319f1d77a0f50410a82",
+      "sha256": "2efdd910d0b998c27221019c98c7a132d9bd47f13608d80c9575b313eae28f9f",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/agents/docs-researcher.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/agents/docs-researcher.md",
+      "git_blob_id": "d4e2fde04bb33c30fc4fff8438b55f34480d5254",
+      "sha256": "679f3e0b6bf591e9a5152dd62a42f6926aa6bb493319a7f6acc62cf5390eb051",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/agents/implementation-planner.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/agents/implementation-planner.md",
+      "git_blob_id": "a76e01d0bf5fbd60705a68ea62731a2bff07f8c8",
+      "sha256": "522fb897c7fe14fdee581f40847ea8fdda83e39621e3746274c0cb9021490238",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/commands/context.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/commands/context.md",
+      "git_blob_id": "558e30d1ee6a50ff0d9148a1af1682c91e2cfa07",
+      "sha256": "06abb5ed394692b302ed4c4c83356179b02235e1db0ee402acf125c5306996f8",
+      "mode": "100755"
+    },
+    {
+      "original_path": ".claude/commands/implement.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/commands/implement.md",
+      "git_blob_id": "70644f5eae7ab624f830a7bc547c81f03ed9422d",
+      "sha256": "6096055d8b244af9a811028ef7ead3184c316ac407d791c2e93d0cd98160115d",
+      "mode": "100755"
+    },
+    {
+      "original_path": ".claude/commands/plan.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/commands/plan.md",
+      "git_blob_id": "81b388b825bd354ec1f24229b62fd4489cf1178c",
+      "sha256": "6cad3e57cf920628b3d5cc34de15106e52793b9fed6706e6d58991d6862126d1",
+      "mode": "100755"
+    },
+    {
+      "original_path": ".claude/commands/research.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/commands/research.md",
+      "git_blob_id": "c16799d1ebb7c84c2d132cdf034bc83900c6094c",
+      "sha256": "c7a4b3973eee5e87811336f2aec46efb605e7d61c3137db310b7685a78fb5409",
+      "mode": "100755"
+    },
+    {
+      "original_path": ".claude/commands/workflow.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/commands/workflow.md",
+      "git_blob_id": "23160096f607630a496b502f2cd703b7b81f7345",
+      "sha256": "b43fc3270d027c923becabb0f18a4cf6587ff11ccedba7c5429761c8abbbd05a",
+      "mode": "100755"
+    },
+    {
+      "original_path": ".claude/data/mcp-config-template.json",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/data/mcp-config-template.json",
+      "git_blob_id": "e3223ecf92bbfe5c97a460394309154cfd0d936d",
+      "sha256": "5486fdd1f0a9d60bdad473bc8823380b2849fe6737adff50cf722f3f27e2a685",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/hooks/auto-format.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/hooks/auto-format.sh",
+      "git_blob_id": "d79c79f938cf1819cf84acbb7e709a5195038910",
+      "sha256": "fe463495e6a7f061b95a91597c7b3596f3a136e5f2c114c77f1e5bd2310a657c",
+      "mode": "100755"
+    },
+    {
+      "original_path": ".claude/hooks/check-agent-economics.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/hooks/check-agent-economics.sh",
+      "git_blob_id": "0dc851badbf4bdfac05ec7ef73d2eec7bcbdde08",
+      "sha256": "e7a82870bd94f153f55aacab9a3db78401b71199185060c3bfbdcf99e10b4ec1",
+      "mode": "100755"
+    },
+    {
+      "original_path": ".claude/hooks/run-tests.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/hooks/run-tests.sh",
+      "git_blob_id": "3c4605d58edc68140ed8c8bafaf40a99f19ba9d3",
+      "sha256": "0dc6e9cef70f26fdeb36b6f2649303493fae75dcd250cb45b40fce3f848e45c8",
+      "mode": "100755"
+    },
+    {
+      "original_path": ".claude/hooks/suggest-context-edits.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/hooks/suggest-context-edits.sh",
+      "git_blob_id": "bc0bc8614f775233120923946ae1c049adae1474",
+      "sha256": "ef7ec68b06098593ca4e95346acea3e9a2f331cff87dea0edce9886942abeca8",
+      "mode": "100755"
+    },
+    {
+      "original_path": ".claude/hooks/update-knowledge-core.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/hooks/update-knowledge-core.sh",
+      "git_blob_id": "79364ba0a8b16fba304ad1fa7aac57bab5c0ec1f",
+      "sha256": "fb560e9c17427028824f19dca694a8c3716f6e47dbab3dae329e62aaaa433834",
+      "mode": "100755"
+    },
+    {
+      "original_path": ".claude/hooks/validate-implementation-plan.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/hooks/validate-implementation-plan.sh",
+      "git_blob_id": "24f1cffb7f82671bcfe86fdc17c8b7241154d0ea",
+      "sha256": "54823a58dd584a5c5031956b8d41c365aa263ccd3c9b1c330734f768824eaea5",
+      "mode": "100755"
+    },
+    {
+      "original_path": ".claude/hooks/validate-research-pack.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/hooks/validate-research-pack.sh",
+      "git_blob_id": "2ee387dfca662fe895827d39bcb7f1773e18def4",
+      "sha256": "396a64d127605a9626722c2aa9e370943ba2660679bfee6aa081c88199ab3802",
+      "mode": "100755"
+    },
+    {
+      "original_path": ".claude/integrations/README.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/integrations/README.md",
+      "git_blob_id": "39432577751581794f3c9e496d8667fc61cd1fb1",
+      "sha256": "cfeef2ebec52f8aa9d9074104036641c0af5d9ec9e60bd97c40df83e8564e7c4",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/integrations/langgraph/brahma_state.py.template",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/integrations/langgraph/brahma_state.py.template",
+      "git_blob_id": "170ade7ff081ba8f179be0bbc1d322fde161cf84",
+      "sha256": "0d4f6d90cee10d05046ea8fb55b2e31ad29afeb5e1afc593cd2c43d80d07e923",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/metrics/tracker.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/metrics/tracker.sh",
+      "git_blob_id": "8dbc8ef5a11e8e231760518a7f69d2908c1ce933",
+      "sha256": "714e18f497b005507ed626066859665a567cb1db346ba1c1190093b221a9790c",
+      "mode": "100755"
+    },
+    {
+      "original_path": ".claude/skills/context-engineering/skill.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/skills/context-engineering/skill.md",
+      "git_blob_id": "d8b5773d3c0d2a0ae71d4b998770c41971e13d68",
+      "sha256": "17c96335ba23653e93220ab4ade141b19e7e5133fed1fe7eaf7a26cc2b7e6371",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/skills/pattern-recognition/skill.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/skills/pattern-recognition/skill.md",
+      "git_blob_id": "5d97f13243ec506719af5dad7dc67fb5f950bc95",
+      "sha256": "a255240d1449f13ab685e93bf828ab3833a8d7b1ff880e6a41602e9fbed25d6b",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/skills/planning-methodology/skill.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/skills/planning-methodology/skill.md",
+      "git_blob_id": "3e208a14ad315fe7179d65d22d75213ebd82056d",
+      "sha256": "1cd33aa3b079868dec071d05510418b51b3320a732fc073eaf5d3e2ab3256646",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/skills/quality-validation/skill.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/skills/quality-validation/skill.md",
+      "git_blob_id": "0ecff040dcd9dcb8f4ca1ccca26cd3b4409882db",
+      "sha256": "bbe3aae69e19d89eb763b564767b7e63451e501d0ae0cd9a011def6caba73323",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/skills/research-methodology/skill.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/skills/research-methodology/skill.md",
+      "git_blob_id": "eabad94595da0a347b7d46fdc6232b7dc9507c5c",
+      "sha256": "26fb865bfea2882b0414bc244962fd5f798dabc87111769aca00bbbbdd6f4f3d",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/templates/CLAUDE.md.template",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/templates/CLAUDE.md.template",
+      "git_blob_id": "10ac87ce54643efb13a2507297ae5510336255e5",
+      "sha256": "80628743426d98e167644f1ea98ec21617979c7594230d1b92f74adcbc58c766",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/templates/CLAUDE.md.user-level",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/templates/CLAUDE.md.user-level",
+      "git_blob_id": "78f45e33598e8e7718358c6339bcfb3794cccbff",
+      "sha256": "6cdff71ff77edd5468fbdda99df8f6959bc17aba4d1e4567893c1d9963276c04",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/templates/agentic-substrate-personal.md.example",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/templates/agentic-substrate-personal.md.example",
+      "git_blob_id": "50a8721d35948c72eec38e5037aaa0830eaba08c",
+      "sha256": "4c1e7397539d6dea054c282d86784470a56edaa459c233474a10ef428a7dd9b8",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/templates/agents-overview.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/templates/agents-overview.md",
+      "git_blob_id": "871a9472d089fcd56e95cd8378020d792e9dd39c",
+      "sha256": "4aa59f11a1e292b41514d078a1b35167c2dbfd8ed711578df0b8929b81432bde",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/templates/skills-overview.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/templates/skills-overview.md",
+      "git_blob_id": "cfbb33f358cda53677678331ecee05c6c4c05608",
+      "sha256": "7d1e2f50f819c94212667a9b2e4b426f0f80704cc3943749136b0f2637384e56",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/templates/workflows-overview.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/templates/workflows-overview.md",
+      "git_blob_id": "afbbd9f6982d98be17dcfa15eaf0172ea3d16ef3",
+      "sha256": "fb1875a37b1b1891bba87ed90f8551ce74d39d7e45d0de082d0f14960c588c67",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".claude/validators/api-matcher.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/validators/api-matcher.sh",
+      "git_blob_id": "b23a8362f00ef8b984c52ef31739bb54871aa7c8",
+      "sha256": "ad7d015c96d0458ce15c7a8b7f1de34b2d20031d7c57a94d1986a7f44f373d74",
+      "mode": "100755"
+    },
+    {
+      "original_path": ".claude/validators/circuit-breaker.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.claude/validators/circuit-breaker.sh",
+      "git_blob_id": "db830e36c7d459e4f3fc4875e29aca646cca6311",
+      "sha256": "ae07f2b0644e68f026fc885275a6b25dca9e70f783504bb1b0e8f7ba5754271d",
+      "mode": "100755"
+    },
+    {
+      "original_path": ".gitignore",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.gitignore",
+      "git_blob_id": "777eaf6961f47d2b265b0feb8f36047244e56c8a",
+      "sha256": "8189b999b0e0ccf94ca15bbf542e44f31d01e30c74361fec7c8fbbe4104c6765",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".mcpb/README.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.mcpb/README.md",
+      "git_blob_id": "5ebb3137f04147e72c08b57338508e666c22e4d4",
+      "sha256": "bfeff85da68444e75af2fd22d7b11108ca58c60c0436ff010dee6fe8cee2f732",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".research-brief-anthropic.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.research-brief-anthropic.md",
+      "git_blob_id": "b4b023e380431b7ddb71b4b500b569cb03a3c270",
+      "sha256": "07ae53917419954a2c07d11c13a8dadc22f0a87c42fc6eef044d06ea16e4f8a9",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".vamfi/ImplementationPlan-Adaptation-Pattern-Integration.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.vamfi/ImplementationPlan-Adaptation-Pattern-Integration.md",
+      "git_blob_id": "66e240c55968b96e70bd4cadd30f0e493303d883",
+      "sha256": "141c620cdc08aace5e42098327186038c6ed8f5d1aee0777ecae60574444aa7b",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".vamfi/ResearchPack-Adaptation-Pattern-Integration.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.vamfi/ResearchPack-Adaptation-Pattern-Integration.md",
+      "git_blob_id": "03b3a50bda03e0eaf77e15a4279eef320d338a5a",
+      "sha256": "83f1caad9f1acdb89faab9f6b0087be8db434b7e67ae6fe0a23dbbcbd5e85fab",
+      "mode": "100644"
+    },
+    {
+      "original_path": ".vamfi/tests/test_adaptation_pattern.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/.vamfi/tests/test_adaptation_pattern.sh",
+      "git_blob_id": "ef6dea1b68c4abb6b02152e56109f647eb960782",
+      "sha256": "e3143a029dfd8c487eaf5b62e9e91306c0b0407b52ba35c43d45f1635174ffde",
+      "mode": "100755"
+    },
+    {
+      "original_path": "AgentHandoffProtocol-DESIGN.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/AgentHandoffProtocol-DESIGN.md",
+      "git_blob_id": "bf9b92318da25e007ddd57f020cec997f953fb6d",
+      "sha256": "34bd2df9e80a7de6b617185e7d18fc885e5b8d44fc537268ab1a79906e7cb42e",
+      "mode": "100644"
+    },
+    {
+      "original_path": "CHANGELOG.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/CHANGELOG.md",
+      "git_blob_id": "9e19d04bd906f82be34c692716b03043d64fda31",
+      "sha256": "f95f534e07ac463056a09d195edf76d710ac300c74f2de6ff742a2ebf0a0adc2",
+      "mode": "100644"
+    },
+    {
+      "original_path": "CLAUDE-MEMORY-ENHANCEMENT.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/CLAUDE-MEMORY-ENHANCEMENT.md",
+      "git_blob_id": "a6299c2f8605a59f35c0d9f4ccd582ed7ef497c6",
+      "sha256": "0525e943693d09cc6b5aab914734e6396c9817b22152a3f8e95be013a8dddd2c",
+      "mode": "100644"
+    },
+    {
+      "original_path": "CLAUDE.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/CLAUDE.md",
+      "git_blob_id": "29fa0e8b13b0fd4d25f72bede91d11592aea6657",
+      "sha256": "ff29ed122f46876de8ee550351be4bf118628c5a904d9c9d0a85637ae182434a",
+      "mode": "100644"
+    },
+    {
+      "original_path": "COMPLETION-REPORT.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/COMPLETION-REPORT.md",
+      "git_blob_id": "97984bb58573525149a77b82585e338fa05a8946",
+      "sha256": "6c13fa4bdb32d5b124a9eedb7593a8b13aea653e2dc3f7c377ff50c2a2d09eef",
+      "mode": "100644"
+    },
+    {
+      "original_path": "CONTRIBUTING.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/CONTRIBUTING.md",
+      "git_blob_id": "0aa726398f85f4b94a0bedd46202d5ebdbc57dee",
+      "sha256": "6083e7dac1f640ff7d0be154d6189af52a69eaa1c30db42417caf785765c3e14",
+      "mode": "100644"
+    },
+    {
+      "original_path": "CRITICAL-BUG-FIX.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/CRITICAL-BUG-FIX.md",
+      "git_blob_id": "3b3088c6b2768df32c3371253f18620fc78d4e49",
+      "sha256": "9006f3b5d81e1df8a9abbc6d28749e7aab544bfc5945101cfc946078094b1af0",
+      "mode": "100644"
+    },
+    {
+      "original_path": "CURL-INSTALL-FIX.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/CURL-INSTALL-FIX.md",
+      "git_blob_id": "ceb490ef2ea1ca305239e2af196bcd1ac3e28cb6",
+      "sha256": "0c777ddbf812a5f3cf478a27d76c10b404f0d9003f4cf29657398eafe32c03df",
+      "mode": "100644"
+    },
+    {
+      "original_path": "CURL-INSTALLATION-TEST.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/CURL-INSTALLATION-TEST.md",
+      "git_blob_id": "46487ca60b50f8ea8b2347bb75b1563f635f74f7",
+      "sha256": "c471920520bd9c2bde7b1ab008c9f3ac10973e613fc98efffbcfe09b061c4613",
+      "mode": "100644"
+    },
+    {
+      "original_path": "DEPLOYMENT-SUMMARY.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/DEPLOYMENT-SUMMARY.md",
+      "git_blob_id": "0fff04f878b2f0d088e25212960d9bdb61ec7565",
+      "sha256": "623be9bb391ef084d6697ecafafe77625b5ae30662ab099bcf2e4b9e7a74f7ba",
+      "mode": "100644"
+    },
+    {
+      "original_path": "FRAMEWORK-COMPARISON.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/FRAMEWORK-COMPARISON.md",
+      "git_blob_id": "1f1e60a02cfe2b0a1d1578f0c5a63459c663d874",
+      "sha256": "9ff7a40bd395cf84de1883d882423a917d9b169c5dd661ef0f38624558053ebd",
+      "mode": "100644"
+    },
+    {
+      "original_path": "GITHUB-ISSUE-1-RESOLUTION.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/GITHUB-ISSUE-1-RESOLUTION.md",
+      "git_blob_id": "139805281c81dfeace7d201e03bd48fff4bb4b31",
+      "sha256": "f42fc5a62b851657548595031d54185e1c6432c3779a53924b8d1512fee42476",
+      "mode": "100644"
+    },
+    {
+      "original_path": "INSTALLATION-BEHAVIOR.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/INSTALLATION-BEHAVIOR.md",
+      "git_blob_id": "27178a71c1614bf5bdebda53f129963e83b5762e",
+      "sha256": "9009f2f9dc302ed2a5b4b18984c2e31886a6302672cff0faa1bee7c9d32c87bc",
+      "mode": "100644"
+    },
+    {
+      "original_path": "INSTALLATION-VERIFICATION-SUMMARY.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/INSTALLATION-VERIFICATION-SUMMARY.md",
+      "git_blob_id": "72f0a2f0eed2e13f51491c0dfd9fa5a1f7daea0f",
+      "sha256": "2aab916f6d993b2490ec144abc1e5e388c9298282ce8a9f02066f6810f7104ac",
+      "mode": "100644"
+    },
+    {
+      "original_path": "ImplementationPlan-Agentic-Substrate.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/ImplementationPlan-Agentic-Substrate.md",
+      "git_blob_id": "3bb7686ff2ae4dea6c701260fdf27f1ab939ffab",
+      "sha256": "f6782f8715cc8b4238540420b0d1f220955c32a63f7f9961fead709156aa1090",
+      "mode": "100644"
+    },
+    {
+      "original_path": "ImplementationPlan-v4.1.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/ImplementationPlan-v4.1.md",
+      "git_blob_id": "36d0344f27d76d9e3e66163a70b1fdd0a3d3b98c",
+      "sha256": "c3c920b7eb23a6d7cfc4dce080ecaa1877675141f2539d5effabc473a512cff1",
+      "mode": "100644"
+    },
+    {
+      "original_path": "LICENSE",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/LICENSE",
+      "git_blob_id": "cec3554e4983bfc7f1fc292989dca8a111b83793",
+      "sha256": "f8809902e14493e3e7de3224f424c1fc1fbd8d6c788242500a52ba5c8968b18c",
+      "mode": "100644"
+    },
+    {
+      "original_path": "PHILOSOPHY.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/PHILOSOPHY.md",
+      "git_blob_id": "91e3d5cbbb8bd83347fce172f73a7bc02e9f903c",
+      "sha256": "8ccffc9af9ebc27754a3255ef83d350522d56a90848c3a2248a00b10d1871485",
+      "mode": "100644"
+    },
+    {
+      "original_path": "PORTABLE-PATHS-FIX.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/PORTABLE-PATHS-FIX.md",
+      "git_blob_id": "c12973287f03463c7d4f5377a9f9146953522bef",
+      "sha256": "9a93268034a3c6ae2099cd729ae167ef005812932e20583401e793df13f73a46",
+      "mode": "100644"
+    },
+    {
+      "original_path": "PROJECT-BRAHMA-DEMO8-FINAL-REPORT.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/PROJECT-BRAHMA-DEMO8-FINAL-REPORT.md",
+      "git_blob_id": "12d4f20b82e7341258aff072a6dc32dfb0656d9e",
+      "sha256": "3cf25e3febd14b67239338da6265b240b78adece981c92d9c754c50dc494b01c",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/IMPLEMENTATION_PLAN.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/IMPLEMENTATION_PLAN.md",
+      "git_blob_id": "88bc969f816630e5f722049c959af6300d8c024c",
+      "sha256": "b9c9c0d7f6baff8e144e43873548c8cfc1a34ab76c6eabd6cdf2c8b5ae2ce15d",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/IMPLEMENTATION_SUMMARY.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/IMPLEMENTATION_SUMMARY.md",
+      "git_blob_id": "ac08ac5f52880b546539ebde3bc7fb5d8e43eef8",
+      "sha256": "7f908006020e48ff4461817ea1bff15bf7ace81544a7f647eb911f1f469ea0ea",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/PHASE1_COMPLETE.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/PHASE1_COMPLETE.md",
+      "git_blob_id": "ceb2217fc4615036189802d135d61c2fc3e57bf3",
+      "sha256": "151e6a84c1f5242a3efe88d716bdbcefe729ddf0eecfe390ee599d566daeb851",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/PHASE2_PROGRESS.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/PHASE2_PROGRESS.md",
+      "git_blob_id": "75779db27e2a4fac70251dee9a1038970154a042",
+      "sha256": "1a097dd4785f0ccd8647911f3e5042a6fd2b12bb42b82689b39ff036f015bda2",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/PROJECT_ANALYSIS.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/PROJECT_ANALYSIS.md",
+      "git_blob_id": "97e53246c5610bd088ad450ec0e3c8a80e9a6549",
+      "sha256": "624831e072d861efa6346b8c4652cac29285bc53f805736969514957e7842b69",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/V2_COMPLETE.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/V2_COMPLETE.md",
+      "git_blob_id": "41df1202da5f19d7be47be9e0ec665705de11f35",
+      "sha256": "89142238e9aeb68d6b5d3805c528b353599b906a83eda87285dcb17c84a07a0f",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-agents/.CLAUDE.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-agents/.CLAUDE.md",
+      "git_blob_id": "48104f6d2013570585e64b7608a38a8172fddc97",
+      "sha256": "7ba3fbb9d73aeb45a020dff5b5f0591bbd933fa3022c65fa75897df0bd4f2e99",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-agents/chief-architect.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-agents/chief-architect.md",
+      "git_blob_id": "a36fcc38f06d753c1831dc3f671415b9bac1ddb4",
+      "sha256": "aa565ce754160142134a4e90297de711cbaba54a69969066b20d1f929a551890",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-agents/specialists/code-implementer.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-agents/specialists/code-implementer.md",
+      "git_blob_id": "554d60ebb26376686f76f104813b3f3434bb6c55",
+      "sha256": "102fb10c8f59ae44e5fdc78caa98ff6b22e9d724f22d63c6e675fb84ac0a2a6e",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-agents/specialists/docs-researcher.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-agents/specialists/docs-researcher.md",
+      "git_blob_id": "3fccbc1c39577f03916dd8fc4455faf15717fb70",
+      "sha256": "ec435b43e8e7c29c1432324c1b283a307e850e1cd1d939c9501636f68bbcce49",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-agents/specialists/implementation-planner.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-agents/specialists/implementation-planner.md",
+      "git_blob_id": "dd3d140c607eb42b5526c82e8fa862a657f667cc",
+      "sha256": "dd7e5dade5ac5abf9c167a177f150e21e92865480d9782fdd2c89c9821db619a",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-deprecated/CLAUDE_CODE_NATIVE_INSTALLER_V2.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-deprecated/CLAUDE_CODE_NATIVE_INSTALLER_V2.md",
+      "git_blob_id": "525c80a11a81d5bfb1c8a3f3e386857fd74f1742",
+      "sha256": "dc6308b8b61f9c6d15fb5f9a818270f6f50308fc90e0fece98b36f056d1c9de9",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-deprecated/DIVINE_ORCHESTRATION_INSTALLER.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-deprecated/DIVINE_ORCHESTRATION_INSTALLER.md",
+      "git_blob_id": "6259bd7fc3042a862e8ecd2cad2123b4a0ac39d5",
+      "sha256": "c1260b84d6944853c7d364f5df4102afa43127992a3a6c639b6fee26259a152b",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-deprecated/README_INSTALLATION.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-deprecated/README_INSTALLATION.md",
+      "git_blob_id": "835b6b107e3483b237e1626a38e425278ca0f9e7",
+      "sha256": "d3b4c22120eca2e81a66ff541b48a24d407728aba4d52cbc51e9b133351c6423",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-docs/01_philosophy.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-docs/01_philosophy.md",
+      "git_blob_id": "ecfb11bacfc038256fb0fb1ea8ea573ef3c4a49e",
+      "sha256": "e4b11a77ce1c31f734444e882568ea3e1cf1b84ceb2018d997985b62e40ebc2c",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-docs/02_orchestration_workflow.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-docs/02_orchestration_workflow.md",
+      "git_blob_id": "b7be4eb2c5822bdeeb227ea3a82b8cdb18565486",
+      "sha256": "e9cf505b8bd5246b05c82ec11e90abb1b7d5ee2b1b16a5b394df23150014fed0",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-docs/03_knowledge_core.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-docs/03_knowledge_core.md",
+      "git_blob_id": "8c86d2bd30828e28770a481460932a1827399903",
+      "sha256": "e900b357553245e382ac94513fd281c73d3a1f6cfeeecba56fb9f46fe674be49",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-examples/complex_task_orchestration.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-examples/complex_task_orchestration.md",
+      "git_blob_id": "63daef09267cb0ce1e0a2bf561321f09e376ed8e",
+      "sha256": "63e42ada27cfc7f28d79f77a30f82a74ae99123cede3bbc456b4307dd705f014",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-examples/direct_specialist_usage.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-examples/direct_specialist_usage.md",
+      "git_blob_id": "689917c5f46dd4238822d6021a22c65f58539cc4",
+      "sha256": "038407817dd7b6cd9a06cecd97755e56c04b64136616a94ed19079e56d32bd2d",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-orchestration/NATIVE_ORCHESTRATION_INSTALLER.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-orchestration/NATIVE_ORCHESTRATION_INSTALLER.md",
+      "git_blob_id": "e24cb0e8cd43280967f81823105776036433a0e7",
+      "sha256": "5e1a8d1062ce56475253d821ae5cce1dc0640969c991fb6d8e0a08735c76050f",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-orchestration/ORCHESTRATION_COMPARISON.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-orchestration/ORCHESTRATION_COMPARISON.md",
+      "git_blob_id": "a586ebdfbe43865a54035342c4879e4b90b48d0a",
+      "sha256": "7e2fc891b7f85f2be8b3db64966f2595df110358b6c8309560f292932e5a3ee1",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-orchestration/ORCHESTRATION_INSTALLER.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-orchestration/ORCHESTRATION_INSTALLER.md",
+      "git_blob_id": "0243ae160fde33fa313d425d803c161b0db690ab",
+      "sha256": "995f967145b5753e6cd7b705656c33ccb7ab45035bb42f8c05536b36bac4f5e7",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-orchestration/ULTIMATE_CLAUDE_CODE_ORCHESTRATION.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-orchestration/ULTIMATE_CLAUDE_CODE_ORCHESTRATION.md",
+      "git_blob_id": "16bc83b61f46615f07763ff8ceb74d2348a490fc",
+      "sha256": "fa4c8a4f6a1e2922d4d766e78640cf52cd96d345ced3634416796a59290c3adf",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/legacy-orchestration/setup.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/legacy-orchestration/setup.sh",
+      "git_blob_id": "4fa96e1399d97e3d72ac294130e3e815ddfebdeb",
+      "sha256": "3d2ed12ce15bdb8584cad2fb9d7636b786f661354a28217965d51c33c32b0136",
+      "mode": "100755"
+    },
+    {
+      "original_path": "R-and-D/references/README.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/references/README.md",
+      "git_blob_id": "12643c6edb338a6625fbffb7ebbc37c1f1753172",
+      "sha256": "def7119d26fbdea93da08d4bb0737e545f9995ee03f64f35b446ff9aeeb3d573",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/references/RESEARCH-SUMMARY.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/references/RESEARCH-SUMMARY.md",
+      "git_blob_id": "eea8392140791185384ec9ba47ccd5577e55441b",
+      "sha256": "86ee44c6330691e2fdd237df974c381f81227c0d8cd7dc296de263481ea5e275",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/references/claude-code-official-features-2025.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/references/claude-code-official-features-2025.md",
+      "git_blob_id": "d11a878beb52bd3206491dcef849e9d33dcf6be8",
+      "sha256": "5c27254e895faebaf8a6cab2c60d112b386043e91ee6996d74a2503166fd79fc",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/references/claude-code-plugin-distribution-strategy.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/references/claude-code-plugin-distribution-strategy.md",
+      "git_blob_id": "418bcac14c06f7f6fb89cca9a5edaf758dae5399",
+      "sha256": "62451dd4d6097023627d62cd729032d277d241d304df69efb8174785d2dc2cc0",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/references/claude-code-quick-reference.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/references/claude-code-quick-reference.md",
+      "git_blob_id": "d8a2b939f92f3eb9900e52e362e302d560906b4b",
+      "sha256": "b744005705f9e08264304d0733eb661c10c871f929bdcf9347b005a0c388ca4d",
+      "mode": "100644"
+    },
+    {
+      "original_path": "R-and-D/references/integration-strategy.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/R-and-D/references/integration-strategy.md",
+      "git_blob_id": "bc84e648b8147d19079bff59f333f253395dc6d5",
+      "sha256": "faac60e6318733d1685171b3dba6c7e6513cafae5d09ab9e23a8b81b4272a821",
+      "mode": "100644"
+    },
+    {
+      "original_path": "README.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/README.md",
+      "git_blob_id": "d5aabbf94508b1fd97aa573dae41fd25f7d0d30c",
+      "sha256": "18f80c04d7be76c0b6b054ee7f24b1926de39250ebb16b1778cc540cb434918d",
+      "mode": "100644"
+    },
+    {
+      "original_path": "READY-TO-COMMIT.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/READY-TO-COMMIT.md",
+      "git_blob_id": "8d77bacbe1ec3815eaf3d500d196678675a57869",
+      "sha256": "713fff21c104c924d399daa15cd45ff2d251a77f63dde71bfc42cf9c6c658c14",
+      "mode": "100644"
+    },
+    {
+      "original_path": "RELEASE-NOTES-V4.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/RELEASE-NOTES-V4.md",
+      "git_blob_id": "8871c45d3145fd39555a659d9ac7ca8ee1dbb882",
+      "sha256": "932b19e9f6ac2e68a63b615cce16c58a8fb74df7f3283c4a9abd7f500b923c48",
+      "mode": "100644"
+    },
+    {
+      "original_path": "ResearchPack-Anthropic-Engineering-Philosophy.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/ResearchPack-Anthropic-Engineering-Philosophy.md",
+      "git_blob_id": "f69eebf08b6237bb63e5d475ef57560d5437bd76",
+      "sha256": "c8ad83ba1b61c1c16cc7fe56d25ca93b3e210fb502089d69b85367ac0e9170d1",
+      "mode": "100644"
+    },
+    {
+      "original_path": "ResearchPack-v4.1.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/ResearchPack-v4.1.md",
+      "git_blob_id": "98c0624e5aca4eeb9cc21f3f71d405e258498754",
+      "sha256": "269cd0ec3add7ed6fc1998da814e524ac0331b09800db95f5970fd187286772f",
+      "mode": "100644"
+    },
+    {
+      "original_path": "TEST-REPORT.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/TEST-REPORT.md",
+      "git_blob_id": "a8069de4c910e6fca535ea36da5c51a6df4946f0",
+      "sha256": "d6f4ea1c0c9e64b4eecf143e7c534cc0c64b9613e45b3f519b203c59d894e62f",
+      "mode": "100644"
+    },
+    {
+      "original_path": "TROUBLESHOOTING.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/TROUBLESHOOTING.md",
+      "git_blob_id": "b7ab1952aab01d757d1a68c9814d49f1f2ea0fab",
+      "sha256": "e6e41f2522c3688839b03fed1f41c196ffcb55968bd6cf5435878b5eee0a6869",
+      "mode": "100644"
+    },
+    {
+      "original_path": "V4-ENHANCEMENT-SUMMARY.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/V4-ENHANCEMENT-SUMMARY.md",
+      "git_blob_id": "0252ae31a0d5738dc4ec7f0965c39170912f301c",
+      "sha256": "27592e47b30eefa887ac536140b84dce4f5fe66525fee945dfc1617a14f01d80",
+      "mode": "100644"
+    },
+    {
+      "original_path": "V4-IMPLEMENTATION-PLAN.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/V4-IMPLEMENTATION-PLAN.md",
+      "git_blob_id": "1adc12ec901661c05867f35a5c2370fd9052c627",
+      "sha256": "7189925b24d344148040377b9d990aff8f7a437785f1777a1cd493ce0225b72f",
+      "mode": "100644"
+    },
+    {
+      "original_path": "V4.1-RELEASE-NOTES.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/V4.1-RELEASE-NOTES.md",
+      "git_blob_id": "39dfa234927edf5b298a6c6cb9f3afe2ad17144a",
+      "sha256": "60d651fc9dd75585b770137eb249497052403da29fa3ff358e70ade5ca265fb0",
+      "mode": "100644"
+    },
+    {
+      "original_path": "WORKFLOW-FIXES-APPLIED.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/WORKFLOW-FIXES-APPLIED.md",
+      "git_blob_id": "ca8f508da65ddc22a6c56596b9974643075b8eb4",
+      "sha256": "bd4671890e92a5ea840ac0893c4f1fb5cabb14ebe6a04be9d85b8a08be96349e",
+      "mode": "100644"
+    },
+    {
+      "original_path": "WORKFLOW-TEST-ANALYSIS.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/WORKFLOW-TEST-ANALYSIS.md",
+      "git_blob_id": "8b8f4f5e9fd7561da67f27dc9168068272bbe5b3",
+      "sha256": "a2038d89942bb3161553f729cc8ccec22dde7e08449b5562f60a8b2c40e58153",
+      "mode": "100644"
+    },
+    {
+      "original_path": "WORKFLOW-TEST-RESULTS.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/WORKFLOW-TEST-RESULTS.md",
+      "git_blob_id": "996759690053b9d03f8cc88abef5904f8215eae4",
+      "sha256": "ca40a449ec690dbfe28e83bb073db6f989b52cf851e69a04810de6cd6ab2ad1d",
+      "mode": "100644"
+    },
+    {
+      "original_path": "archive/README.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/archive/README.md",
+      "git_blob_id": "a9e711a1fef9eb3f795dd23e5eb2bbaa49d6dfe3",
+      "sha256": "b9e8196ba2dc7fa96e905b8407074257ff3ccaf74d03865161eee7125b56a892",
+      "mode": "100644"
+    },
+    {
+      "original_path": "archive/update-local-installation-v3.0-to-v3.1.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/archive/update-local-installation-v3.0-to-v3.1.sh",
+      "git_blob_id": "4ea04a55540987430a5c9136a09f4230d7749c0f",
+      "sha256": "a2147aecea1c9e1e4b46efc7db7f74f519d490a0e9b7ff85f9af048267baf0b8",
+      "mode": "100755"
+    },
+    {
+      "original_path": "archive/workflow-artifacts-2025-11-01/ImplementationPlan.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/archive/workflow-artifacts-2025-11-01/ImplementationPlan.md",
+      "git_blob_id": "360ebecf372f63fdc5a658f375575dfa888f6a78",
+      "sha256": "edefa2065b874e11d9c85d69f20536307538f3bc3565f790da0db2019f89aaa5",
+      "mode": "100644"
+    },
+    {
+      "original_path": "archive/workflow-artifacts-2025-11-01/ResearchPack.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/archive/workflow-artifacts-2025-11-01/ResearchPack.md",
+      "git_blob_id": "1d599bfe40ce6f617b7b0d6420b2f1608ea9c536",
+      "sha256": "c2a9ed29bd7615a35cceb8e90c1ed0dbdf7fd8aaae1ed39febbc7e1769a34ca5",
+      "mode": "100644"
+    },
+    {
+      "original_path": "build-mcpb.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/build-mcpb.sh",
+      "git_blob_id": "4e8deb27665f6062dac621efd97f9e2061eb2b2d",
+      "sha256": "84005f2b37bc9424d38bf596494e84a72db81185a1c1f41f88bd3ba1ac9301f8",
+      "mode": "100755"
+    },
+    {
+      "original_path": "customize.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/customize.sh",
+      "git_blob_id": "4fb6c697b9a927de3fee16fa37b75ddf8081ec59",
+      "sha256": "1562340968a24e638bf4353470f820530782d52c0a7d652e4ab75269451d03df",
+      "mode": "100755"
+    },
+    {
+      "original_path": "diagnose-install.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/diagnose-install.sh",
+      "git_blob_id": "7989d233f00e691fd025911039132d570e105130",
+      "sha256": "9479a8b58f8903787dd7568a5178f451706ed54ac4e855ead8f6d70d92eca8d5",
+      "mode": "100755"
+    },
+    {
+      "original_path": "docs/research/BENCHMARKING-RESEARCH-PACK.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/docs/research/BENCHMARKING-RESEARCH-PACK.md",
+      "git_blob_id": "4ffbb5ae97fd131f10edd318b0b62c9857b59c6c",
+      "sha256": "e6662179284f51d0f104eb2eadc127bd6627975f54460f41d9fe2e4caa1728dd",
+      "mode": "100644"
+    },
+    {
+      "original_path": "docs/research/HUMANEVAL-BENCHMARK-APPROACH.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/docs/research/HUMANEVAL-BENCHMARK-APPROACH.md",
+      "git_blob_id": "fb4248cbf265827279f374145375d2efbbc1d60a",
+      "sha256": "6d45c9c55f5574bb3e0b6d322a3765b4fbd7c00b93338f56da2cd5755ea6058b",
+      "mode": "100644"
+    },
+    {
+      "original_path": "docs/validation-reports/VALIDATION-REPORT.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/docs/validation-reports/VALIDATION-REPORT.md",
+      "git_blob_id": "aab3dcefa7dd4a3f5ebca8b342ecf4a5d70e38c3",
+      "sha256": "dbf837c1e00e1007544f4225eca07a1654f4da6a2d1242a0ed18f1fcad113be7",
+      "mode": "100644"
+    },
+    {
+      "original_path": "docs/validation-reports/WORKFLOW-COMPLETE-REPORT.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/docs/validation-reports/WORKFLOW-COMPLETE-REPORT.md",
+      "git_blob_id": "f833f7d28778a0bb9721ca5a031fa90bba925882",
+      "sha256": "c06c47127c0e8bdfd50bcfc0927a6796abff25868a46aad4581818aae6f2c43d",
+      "mode": "100644"
+    },
+    {
+      "original_path": "examples/v2/01-simple-api-integration.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/examples/v2/01-simple-api-integration.md",
+      "git_blob_id": "91b42e1648b68144a55938714e9f3c2d4636a0b9",
+      "sha256": "095eaa59df31764775cd1aa685e48cf8746f42d0609815a3dcdc9c08a19b0a2f",
+      "mode": "100644"
+    },
+    {
+      "original_path": "examples/v2/README.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/examples/v2/README.md",
+      "git_blob_id": "0d60d8d8409d50ce27cb5f4d00c4f73d4b3a0ea6",
+      "sha256": "cf0dcd6e43245c6f50ed951b5c9b41dcc54f5212b902f4150de805441a7623e7",
+      "mode": "100644"
+    },
+    {
+      "original_path": "install.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/install.sh",
+      "git_blob_id": "0b687334ae3655f1d57ace0669879082f0c319f7",
+      "sha256": "457c9f17b1042ac3c90300bde3949cc56e1f1bf37124b52770109ca46ba893ef",
+      "mode": "100755"
+    },
+    {
+      "original_path": "knowledge-core.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/knowledge-core.md",
+      "git_blob_id": "fe662715781c37f1e7c317446778f842cacbc81c",
+      "sha256": "80a91f4963c9399aa61b7de7e81b89a575b56caadb37e0b4b93000b577590163",
+      "mode": "100644"
+    },
+    {
+      "original_path": "knowledge-core.md.backup",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/knowledge-core.md.backup",
+      "git_blob_id": "6ce3d4155176746184b1baf2952406c68c9fb250",
+      "sha256": "83176d052fc4c9d5c61e3122b8b64c15d331e870796eac8db8f5225dc12505a4",
+      "mode": "100644"
+    },
+    {
+      "original_path": "linkedin-article.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/linkedin-article.md",
+      "git_blob_id": "d164ab30ed3274cf904945ef034f7e6051eefccd",
+      "sha256": "b5df4c453c43408228545cd2668f556d38cdf51ab37e0bc64329734c521431ff",
+      "mode": "100644"
+    },
+    {
+      "original_path": "manifest-template.json",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/manifest-template.json",
+      "git_blob_id": "060514a7471a88d18bc235643ea7e3a5b0cc2a95",
+      "sha256": "ae1fb9626368c4060116d1b5abffca852bcb0d77e1ba0f9972f13184ff0005cd",
+      "mode": "100644"
+    },
+    {
+      "original_path": "manifest.json",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/manifest.json",
+      "git_blob_id": "2c3b3e5d3f1648dc5bbb9cb6c7637deff9e1b7b5",
+      "sha256": "d396ecf9d1505bd0769b3d27b9db07d4068f123a4b8627186d0979aca2785fcd",
+      "mode": "100644"
+    },
+    {
+      "original_path": "releases/agentic-substrate-3.0.0.mcpb",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/releases/agentic-substrate-3.0.0.mcpb",
+      "git_blob_id": "e13ba45174d026b4ca05b0a5ea38d4ac01b89aa7",
+      "sha256": "869ed1c6b002cc94984b54ad4e799a6244fc71d68870d58927625c20579fbd61",
+      "mode": "100644"
+    },
+    {
+      "original_path": "releases/agentic-substrate-3.1.0.mcpb",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/releases/agentic-substrate-3.1.0.mcpb",
+      "git_blob_id": "95c98e734244d1df2d2a34243c2b95490a40a320",
+      "sha256": "abf73af3ca6962d44d0f14bbc62edd67fa5057e3c66e22dc89b1461c77e03b3d",
+      "mode": "100644"
+    },
+    {
+      "original_path": "social-media-posts.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/social-media-posts.md",
+      "git_blob_id": "2b3f9c7feeb2b36646828ea82522dfe49e5c1ba7",
+      "sha256": "6819a62663757659c65fe20f4e652069357070eaff986954023a7ddc8d604777",
+      "mode": "100644"
+    },
+    {
+      "original_path": "test-ResearchPack-LOW-SCORE.md",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/test-ResearchPack-LOW-SCORE.md",
+      "git_blob_id": "b0bdec2b442d021a6309a93078b42407a3188062",
+      "sha256": "7b9435043b0ea6e887fbe51954692c343b71123ad6d96621dd6168cf6604e59e",
+      "mode": "100644"
+    },
+    {
+      "original_path": "uninstall.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/uninstall.sh",
+      "git_blob_id": "58d0d978e88d5e1e1ee3c94074828db980a28143",
+      "sha256": "7b8aef8d259d6b8097f1adf6cdb6312eed3ed2b95b227afd98b3d3f761a3130a",
+      "mode": "100755"
+    },
+    {
+      "original_path": "update.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/update.sh",
+      "git_blob_id": "72cb15d8f6fe2423b42e9833257d4cd54bba8add",
+      "sha256": "d894adf007cbf7aef8c6d8ed68edcdcfddfae6299cc6ae236ee1f792020f8de5",
+      "mode": "100755"
+    },
+    {
+      "original_path": "validate-install.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/validate-install.sh",
+      "git_blob_id": "5b0018f6a04f5178f6461233d5dea454fc399f61",
+      "sha256": "862e3e2822bf295b018d3e431c3033b482ecda6e8d34b8197aca0f575401c5be",
+      "mode": "100755"
+    },
+    {
+      "original_path": "verify-installation.sh",
+      "archive_path": "archive/2026-09-26-install-md-migration/legacy/verify-installation.sh",
+      "git_blob_id": "661d69be2aef489261bd4dfa999929a5adc026a3",
+      "sha256": "575c6f89edd2cde99c0492cc35529ea6fdb2f8ce78e3f9799c564dd6f063a58f",
+      "mode": "100755"
+    }
+  ]
+}
